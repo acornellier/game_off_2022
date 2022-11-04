@@ -24,22 +24,22 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     ""name"": ""InputActions"",
     ""maps"": [
         {
-            ""name"": ""Player"",
-            ""id"": ""1131f538-2f4e-4d14-aaea-10927b9bd3e8"",
+            ""name"": ""Platformer"",
+            ""id"": ""557c52b2-3a15-4171-8871-71a87c746dcd"",
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""79feaff5-2ec4-4d34-b234-50cdd7764170"",
-                    ""expectedControlType"": ""Axis"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d4068a1-6a9b-4f1c-9a85-38e737e6fa27"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""c87920eb-540a-4ea3-84fe-bb9e897d7c49"",
+                    ""id"": ""027df353-992e-4587-8f6f-d2d128c7f433"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -49,7 +49,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": ""Arrows"",
-                    ""id"": ""393051e7-185d-4c27-b055-d325b9f8aa1a"",
+                    ""id"": ""8f3be687-55ac-4cc2-88fe-dafd156f593b"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -60,29 +60,29 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""2eebd838-6539-405d-bf04-9ad15b174357"",
+                    ""id"": ""42f6b74f-71ec-4ed4-9a93-bbb69cc68fa4"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""0a511b0f-2e13-457e-9d0c-35f45790a6d9"",
+                    ""id"": ""734c5635-5814-4d45-a949-0cb24b835dff"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""AD"",
-                    ""id"": ""32f344f2-3319-4a04-bde1-1f3657e2ae3a"",
+                    ""id"": ""63329505-c194-451b-b4bb-d2278d9122a7"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -93,7 +93,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""15105a03-36ec-4671-9c73-1de4790b082d"",
+                    ""id"": ""26dc57b1-353d-41cf-8795-6b0f9182f7d5"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -104,7 +104,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""fa22c6bb-9a4b-42db-aa5e-b1852a3c63c0"",
+                    ""id"": ""c82f120b-329b-4039-bf1a-f4b0949a7dd0"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -115,7 +115,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4bc4f5af-4a1d-447d-b83c-5b05b7b2d0d5"",
+                    ""id"": ""5352b26e-06ac-44b2-9362-20f9551be06f"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -123,6 +123,144 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db78ba15-39f8-431f-af98-321c7ba4c611"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""TopDown"",
+            ""id"": ""1131f538-2f4e-4d14-aaea-10927b9bd3e8"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""c5dcf43e-dd60-4af2-82b7-358e2e0ed211"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""44e27cd7-a819-41b2-a7e4-5447a6baa1ee"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""a4eff928-b51b-411a-8492-90504b7af8b9"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""43fd28d8-75fc-43f2-8a5a-d853287e605c"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""72161304-d59b-4c9e-aaa3-3e676ea458d9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""ead8407e-010e-4ccb-8134-a68f21f33c76"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""da42fae0-1cfc-482f-89c7-e6fafb3e4188"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""dc8683ce-49f0-4f7d-a823-f6dea9aecb48"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""c1395ad0-dd44-47aa-a89a-718ee27a38a4"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""674afa12-4ea6-4e12-a78b-74bcab4f680d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""3702b7b8-86c0-4c91-8a0e-07a991234ccb"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -706,10 +844,13 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        // Platformer
+        m_Platformer = asset.FindActionMap("Platformer", throwIfNotFound: true);
+        m_Platformer_Move = m_Platformer.FindAction("Move", throwIfNotFound: true);
+        m_Platformer_Jump = m_Platformer.FindAction("Jump", throwIfNotFound: true);
+        // TopDown
+        m_TopDown = asset.FindActionMap("TopDown", throwIfNotFound: true);
+        m_TopDown_Move = m_TopDown.FindAction("Move", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -778,34 +919,34 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Jump;
-    public struct PlayerActions
+    // Platformer
+    private readonly InputActionMap m_Platformer;
+    private IPlatformerActions m_PlatformerActionsCallbackInterface;
+    private readonly InputAction m_Platformer_Move;
+    private readonly InputAction m_Platformer_Jump;
+    public struct PlatformerActions
     {
         private @InputActions m_Wrapper;
-        public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public PlatformerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Platformer_Move;
+        public InputAction @Jump => m_Wrapper.m_Platformer_Jump;
+        public InputActionMap Get() { return m_Wrapper.m_Platformer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(PlatformerActions set) { return set.Get(); }
+        public void SetCallbacks(IPlatformerActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlatformerActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Move.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnMove;
+                @Jump.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnJump;
             }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            m_Wrapper.m_PlatformerActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -817,7 +958,40 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
             }
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public PlatformerActions @Platformer => new PlatformerActions(this);
+
+    // TopDown
+    private readonly InputActionMap m_TopDown;
+    private ITopDownActions m_TopDownActionsCallbackInterface;
+    private readonly InputAction m_TopDown_Move;
+    public struct TopDownActions
+    {
+        private @InputActions m_Wrapper;
+        public TopDownActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_TopDown_Move;
+        public InputActionMap Get() { return m_Wrapper.m_TopDown; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TopDownActions set) { return set.Get(); }
+        public void SetCallbacks(ITopDownActions instance)
+        {
+            if (m_Wrapper.m_TopDownActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_TopDownActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_TopDownActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_TopDownActionsCallbackInterface.OnMove;
+            }
+            m_Wrapper.m_TopDownActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+            }
+        }
+    }
+    public TopDownActions @TopDown => new TopDownActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -968,10 +1142,14 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
-    public interface IPlayerActions
+    public interface IPlatformerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface ITopDownActions
+    {
+        void OnMove(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class FishingGame : MonoBehaviour
+public class FishingGame : Minigame
 {
     [SerializeField] Collider2D _fishingArea;
 
@@ -18,6 +19,8 @@ public class FishingGame : MonoBehaviour
     [Header("Progress")] [SerializeField] Image _progressImage;
     [SerializeField] float _hookPower = 0.5f;
     [SerializeField] float _progressBarDecay = 0.1f;
+
+    bool _running;
 
     Vector3 _bottomBounds;
     Vector3 _topBounds;
@@ -40,9 +43,21 @@ public class FishingGame : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!_running) return;
+
         MoveFish();
         MoveHook();
         CheckProgress();
+    }
+
+    public override void Begin()
+    {
+        _running = true;
+    }
+
+    public override void End()
+    {
+        _running = false;
     }
 
     void MoveFish()
@@ -73,7 +88,7 @@ public class FishingGame : MonoBehaviour
 
     void MoveHook()
     {
-        if (Input.GetMouseButton(0))
+        if (Mouse.current.leftButton.isPressed || Keyboard.current.spaceKey.isPressed)
             _hookPullVelocity += _hookSpeed * Time.fixedDeltaTime;
 
         _hookPullVelocity -= _hookGravity * Time.fixedDeltaTime;
@@ -93,7 +108,7 @@ public class FishingGame : MonoBehaviour
             _progress += _hookPower * Time.fixedDeltaTime;
 
             if (_progress >= 1)
-                Debug.Log("YOU WIN!");
+                isDone = true;
         }
         else
         {

@@ -8,6 +8,13 @@ public class Goal : MonoBehaviour
         var player = col.GetComponent<Player>();
         if (!player) return;
 
-        Debug.Log("Done!");
+        var allGoals = FindObjectsOfType<Goal>();
+        if (allGoals.Length > 1)
+        {
+            Utilities.DestroyGameObject(gameObject);
+            return;
+        }
+
+        FindObjectOfType<PrincessGame>().GoalsFound();
     }
 }
