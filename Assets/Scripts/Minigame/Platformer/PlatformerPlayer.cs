@@ -28,7 +28,6 @@ public class PlatformerPlayer : Player
     float _jumpingTimestamp = float.NegativeInfinity;
     bool _isFalling;
     float _landTimestamp = float.NegativeInfinity;
-    bool _isDancing;
 
     readonly RaycastHit2D[] _hitBuffer = new RaycastHit2D[8];
 
@@ -175,9 +174,7 @@ public class PlatformerPlayer : Player
     //     if (isDead)
     //         return;
     //
-    //     if (_isDancing)
-    //         _animancer.Play(animations.dance);
-    //     else if (_isFalling)
+    //     if (_isFalling)
     //         _animancer.Play(animations.fall);
     //     else if (_isJumping)
     //         _animancer.Play(animations.jump);
@@ -209,16 +206,6 @@ public class PlatformerPlayer : Player
     //     transform.position = _checkpointManager.CurrentCheckpoint.position;
     // }
 
-    public void Dance()
-    {
-        _isDancing = true;
-    }
-
-    public void StopDance()
-    {
-        _isDancing = false;
-    }
-
     [Serializable]
     class Stats
     {
@@ -242,6 +229,5 @@ public class PlatformerPlayer : Player
         public AnimationClip fall;
         public AnimationClip land;
         public AnimationClip die;
-        public AnimationClip dance;
     }
 }
