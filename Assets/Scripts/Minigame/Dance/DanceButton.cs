@@ -29,16 +29,12 @@ public class DanceButton : MonoBehaviour
         if (!Input.GetKeyDown(_key))
             return;
 
-        d.log("KeyDown", _key, _activeArrows.Count);
-
         if (_activeArrows.IsEmpty())
             return;
 
         var firstArrow = _activeArrows.First();
         _activeArrows.RemoveAt(0);
         Utilities.DestroyGameObject(firstArrow.gameObject);
-
-        d.log("HIT", _key, _activeArrows.Count);
     }
 
     void OnTriggerEnter2D(Collider2D col)
