@@ -204,6 +204,7 @@ public class InventoryRenderer : MonoBehaviour
     {
         var img = CreateImage(item.sprite, true);
         img.rectTransform.localPosition = GetItemOffset(item);
+        img.rectTransform.localRotation = Quaternion.AngleAxis(item.rotation, new Vector3(0, 0, 1));
         _items.Add(item, img);
     }
 

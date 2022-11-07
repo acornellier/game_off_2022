@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Enables human interaction with an inventory renderer using Unity's event systems
@@ -161,6 +162,9 @@ public class InventoryController : MonoBehaviour,
         }
         else
         {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                _draggedItem.Rotate();
+
             // Update position while dragging
             _draggedItem.position = _currentEventData.position;
         }
@@ -186,7 +190,7 @@ public class InventoryController : MonoBehaviour,
         );
     }
 
-    public Vector2 ScreenToLocalPositionInRenderer(Vector2 screenPosition)
+    Vector2 ScreenToLocalPositionInRenderer(Vector2 screenPosition)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             inventoryRenderer.imageContainer,

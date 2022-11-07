@@ -11,6 +11,8 @@ public class Item : ScriptableObject, IInventoryItem
     public Vector2Int position { get; set; } = Vector2Int.zero;
     public int width => _shape.width;
     public int height => _shape.height;
+    public int rotation { get; private set; }
+
     public bool canDrop => true;
 
     public bool IsPartOfShape(Vector2Int localPosition)
@@ -23,5 +25,11 @@ public class Item : ScriptableObject, IInventoryItem
         var clone = Instantiate(this);
         clone.name = clone.name[..^7]; // Remove (Clone) from name
         return clone;
+    }
+
+    public void Rotate()
+    {
+        rotation += 90;
+        _shape.Rotate();
     }
 }

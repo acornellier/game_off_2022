@@ -24,6 +24,8 @@ public interface IInventoryItem
     /// </summary>
     int height { get; }
 
+    int rotation { get; }
+
     /// <summary>
     /// Returns true if given local position is part 
     /// of this items shape
@@ -34,6 +36,8 @@ public interface IInventoryItem
     /// Returns true if this item can be dropped on the ground
     /// </summary>
     bool canDrop { get; }
+
+    void Rotate();
 }
 
 internal static class InventoryItemExtensions

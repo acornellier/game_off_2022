@@ -64,7 +64,8 @@ public class InventoryDraggedItem
         _canvas = canvas;
         _canvasRect = canvas.transform as RectTransform;
 
-        _offset = offset;
+        // _offset = offset;
+        _offset = default;
 
         // Create an image representing the dragged item
         _image = new GameObject("DraggedItem").AddComponent<Image>();
@@ -108,17 +109,6 @@ public class InventoryDraggedItem
                     value +
                     _offset +
                     draggedOffset
-                );
-
-                d.log(
-                    value,
-                    draggedOffset,
-                    currentController.ScreenToLocalPositionInRenderer(
-                        value +
-                        _offset +
-                        draggedOffset
-                    ),
-                    _item.position
                 );
 
                 var canAdd = currentController.inventory.CanAddAt(_item, _item.position) ||
@@ -183,6 +173,13 @@ public class InventoryDraggedItem
         return mode;
     }
 
+    public void Rotate()
+    {
+        _item.Rotate();
+        _image.rectTransform.localRotation =
+            Quaternion.AngleAxis(_item.rotation, new Vector3(0, 0, 1));
+    }
+
     /*
      * Returns the offset between dragged item and the grid 
      */
@@ -194,7 +191,6 @@ public class InventoryDraggedItem
         );
         var gx = -(item.width * renderer.cellSize.x / 2f) + renderer.cellSize.x / 2;
         var gy = item.height * renderer.cellSize.y / 2f - renderer.cellSize.x / 2;
-        d.log(gx, gy, scale);
         return new Vector2(gx, gy) * scale;
     }
 

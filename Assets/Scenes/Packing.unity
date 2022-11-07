@@ -364,11 +364,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sourceDim: {x: 8, y: 8}
-  _destDim: {x: 6, y: 6}
+  _destDim: {x: 5, y: 6}
   _sourceRenderer: {fileID: 533897178938663177}
   _destRenderer: {fileID: 268647967}
   _items:
   - {fileID: 11400000, guid: 1a1105c3d1df6444ca12c2a11a8982fd, type: 2}
+  - {fileID: 11400000, guid: 601b466fa81f65844af2f6e5621a061d, type: 2}
+  - {fileID: 11400000, guid: aad309016639f7541b88b7ddd833c62b, type: 2}
+  - {fileID: 11400000, guid: c3502bc3c157ee2409a7998d6a54ccc2, type: 2}
+  - {fileID: 11400000, guid: ac1e65f4a55c3824d919270133432cce, type: 2}
   - {fileID: 11400000, guid: 601b466fa81f65844af2f6e5621a061d, type: 2}
   - {fileID: 11400000, guid: aad309016639f7541b88b7ddd833c62b, type: 2}
 --- !u!4 &815140345

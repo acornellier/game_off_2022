@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -28,6 +30,11 @@ public class InventoryShape
     /// </summary>
     /// <param name="shape">A custom shape</param>
     public InventoryShape(bool[,] shape)
+    {
+        Initialize(shape);
+    }
+
+    void Initialize(bool[,] shape)
     {
         _width = shape.GetLength(0);
         _height = shape.GetLength(1);
@@ -62,6 +69,45 @@ public class InventoryShape
 
         var index = GetIndex(localPoint.x, localPoint.y);
         return _shape[index];
+    }
+
+    public void Rotate()
+    {
+        var newCoords = new List<Vector2Int>();
+        for (var x = 0; x < _width; x++)
+        {
+            for (var y = 0; y < _height; y++)
+            {
+                if (_shape[GetIndex(x, y)])
+                    newCoords.Add(new Vector2Int(-y, x));
+            }
+        }
+
+        var minX = int.MaxValue;
+        var minY = int.MaxValue;
+        foreach (var coord in newCoords)
+        {
+            if (coord.x < minX) minX = coord.x;
+            if (coord.y < minY) minY = coord.y;
+        }
+
+        for (var i = 0; i < newCoords.Count; ++i)
+        {
+            newCoords[i] -= new Vector2Int(minX, minY);
+        }
+
+        var newWidth = _height;
+        var newHeight = _width;
+        var newShape = new bool[newWidth, newHeight];
+        for (var x = 0; x < newWidth; x++)
+        {
+            for (var y = 0; y < newHeight; y++)
+            {
+                newShape[x, y] = newCoords.Contains(new Vector2Int(x, y));
+            }
+        }
+
+        Initialize(newShape);
     }
 
     /*

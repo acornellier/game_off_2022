@@ -215,7 +215,8 @@ public class InventoryManager : IInventoryManager
 
     public bool CanSwapAt(IInventoryItem item, Vector2Int position)
     {
-        return DoesItemFit(item) && _provider.CanAddInventoryItem(item);
+        return false;
+        // return DoesItemFit(item) && _provider.CanAddInventoryItem(item);
     }
 
     public void DropAll()
