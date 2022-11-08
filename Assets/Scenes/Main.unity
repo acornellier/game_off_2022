@@ -418,8 +418,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wrapper: {fileID: 1672537640}
   _title: {fileID: 557628830}
-  _requiredLevel: {fileID: 0}
-  _levelsLost: {fileID: 0}
+  _requiredLevel: {fileID: 1713513431}
+  _levelsLost: {fileID: 1060605787}
 --- !u!1 &557628828
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 1060605788}
   - component: {fileID: 1060605787}
   m_Layer: 5
-  m_Name: PowerLost
+  m_Name: Lost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1513,7 +1513,7 @@ GameObject:
   - component: {fileID: 1713513432}
   - component: {fileID: 1713513431}
   m_Layer: 5
-  m_Name: PowerRequired
+  m_Name: Required
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -41,16 +41,6 @@ public class PlatformerPlayer : Player
         _inputActions.Jump.performed += _ => _jumpInputTimestamp = Time.time;
     }
 
-    void OnEnable()
-    {
-        EnableControls();
-    }
-
-    void OnDisable()
-    {
-        DisableControls();
-    }
-
     void FixedUpdate()
     {
         if (isDead) return;

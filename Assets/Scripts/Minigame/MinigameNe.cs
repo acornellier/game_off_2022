@@ -1,64 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using Zenject;
 
-public enum MinigameResult
+[Serializable]
+public class MinigameSettings
 {
-    None,
-    Success,
-    Failure,
+    public float maxTime = 10;
+}
+
+public class MinigameResult
+{
+    public MinigameSettings settings;
+    public float timeRemaining;
+    public int levelsLost;
 }
 
 public class MinigameNe : NodeEvent
 {
     [SerializeField] Minigame _minigame;
-    [SerializeField] float maxTime;
+    [SerializeField] MinigameSettings _settings;
 
-    public MinigameResult result = MinigameResult.None;
-
-    float _timeRemaining;
-
-    [Inject] MinigameUi _minigameUi;
+    [Inject] MinigameManager _minigameManager;
 
     protected override IEnumerator CO_Run()
     {
-        _timeRemaining = maxTime;
-
-        _minigame.gameObject.SetActive(true);
-
-        yield return StartCoroutine(_minigameUi.FadeToWhite());
-
-        _minigame.Begin();
-
-        yield return new WaitUntil(
-            () =>
-            {
-                var done = _minigame.isDone;
-                if (done)
-                {
-                    _minigameUi.IncreaseLevelsLost();
-                    result = MinigameResult.Success;
-                    return true;
-                }
-
-                _timeRemaining -= Time.deltaTime;
-
-                if (_timeRemaining <= 0)
-                {
-                    result = MinigameResult.Failure;
-                    return true;
-                }
-
-                _minigameUi.SetTimeRemaining(_timeRemaining);
-                return false;
-            }
-        );
-
-        _minigame.End();
-
-        yield return StartCoroutine(_minigameUi.FadeToBlack());
-
-        _minigame.gameObject.SetActive(false);
+        yield return StartCoroutine(_minigameManager.StartGame(_minigame, _settings));
     }
 }

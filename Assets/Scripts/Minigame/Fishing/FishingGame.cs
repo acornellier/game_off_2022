@@ -20,6 +20,8 @@ public class FishingGame : Minigame
     [SerializeField] float _hookPower = 0.5f;
     [SerializeField] float _progressBarDecay = 0.1f;
 
+    public override string gameName => "Big Fish in a Small Pond";
+
     bool _running;
 
     Vector3 _bottomBounds;

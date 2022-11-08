@@ -1,38 +1,55 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class MinigameUi : MonoBehaviour, IPersistableData
+public class MinigameUi : MonoBehaviour
 {
-    [SerializeField] TMP_Text _levelsLostCounter;
-    [SerializeField] TMP_Text _timer;
     [SerializeField] CanvasGroup _canvasGroup;
 
-    int _levelsLost;
+    [SerializeField] GameObject _titleUi;
+    [SerializeField] TMP_Text _titleText;
 
-    public void Load(PersistentData data)
+    [SerializeField] GameObject _inGameUi;
+    [SerializeField] TMP_Text _timerText;
+    [SerializeField] Image _timerFill;
+
+    [SerializeField] GameObject _summaryUi;
+    [SerializeField] TMP_Text _levelsLostCounter;
+
+    void Awake()
     {
+        HideAllUis();
     }
 
-    public void Save(PersistentData data)
+    public void ShowTitle(string title)
     {
-        var scene = SceneManager.GetActiveScene().name;
-        var stage = scene[5..];
-        var stageData = data.GetStageData(stage);
-        stageData.complete = true;
-        stageData.levelsLost = _levelsLost;
+        HideAllUis();
+        _titleUi.SetActive(true);
+        _titleText.text = title;
     }
 
-    public void SetTimeRemaining(float timeRemaining)
+    public void ShowInGameUi(float maxTime)
     {
-        _timer.text = $"Time: {Mathf.CeilToInt(timeRemaining)}";
+        HideAllUis();
+        _inGameUi.SetActive(true);
+        SetTimeRemaining(maxTime, maxTime);
     }
 
-    public void IncreaseLevelsLost()
+    public IEnumerator ShowSummary(MinigameResult result)
     {
-        _levelsLost += 1;
-        _levelsLostCounter.text = $"Levels lost: {_levelsLost}";
+        HideAllUis();
+        _summaryUi.SetActive(true);
+        _levelsLostCounter.text = $"Levels lost: {result.levelsLost}";
+        yield return new WaitForSeconds(2);
+        _summaryUi.SetActive(false);
+    }
+
+    public void SetTimeRemaining(float timeRemaining, float maxTime)
+    {
+        _timerText.text = Mathf.CeilToInt(timeRemaining).ToString();
+        _timerFill.fillAmount = timeRemaining / maxTime;
+        print(_timerFill.fillAmount);
     }
 
     public IEnumerator FadeToBlack()
@@ -56,5 +73,12 @@ public class MinigameUi : MonoBehaviour, IPersistableData
             _canvasGroup.alpha = Mathf.Lerp(1, 0, t / 0.3f);
             yield return null;
         }
+    }
+
+    void HideAllUis()
+    {
+        _titleUi.SetActive(false);
+        _inGameUi.SetActive(false);
+        _summaryUi.SetActive(false);
     }
 }

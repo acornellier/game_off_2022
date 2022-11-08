@@ -14,6 +14,8 @@ public class PackingGame : Minigame
 
     [SerializeField] TMP_Text _victoryText;
 
+    public override string gameName => "Fool's Gold";
+
     InventoryManager _source;
     InventoryManager _dest;
 
