@@ -7,14 +7,6 @@ using UnityEngine.UI;
 /// </summary>
 public class InventoryDraggedItem
 {
-    public enum DropMode
-    {
-        Added,
-        Swapped,
-        Returned,
-        Dropped,
-    }
-
     /// <summary>
     /// Returns the InventoryController this item originated from
     /// </summary>
@@ -34,6 +26,8 @@ public class InventoryDraggedItem
     /// Gets or sets the InventoryController currently in control of this item
     /// </summary>
     public InventoryController currentController;
+
+    public bool dropFailed;
 
     readonly Canvas _canvas;
     readonly RectTransform _canvasRect;
@@ -127,9 +121,8 @@ public class InventoryDraggedItem
     /// <summary>
     /// Drop this item at the given position
     /// </summary>
-    public DropMode Drop(Vector2 pos)
+    public bool Drop(Vector2 pos)
     {
-        DropMode mode;
         if (currentController != null)
         {
             var grid = currentController.ScreenToGrid(
@@ -141,7 +134,6 @@ public class InventoryDraggedItem
             {
                 // Place the item in a new location
                 currentController.inventory.TryAddAt(_item, grid);
-                mode = DropMode.Added;
             }
             // Adding did not work, try to swap
             else if (CanSwapAt(grid))
@@ -150,30 +142,35 @@ public class InventoryDraggedItem
                 currentController.inventory.TryRemove(otherItem);
                 _originalController.inventory.TryAdd(otherItem);
                 currentController.inventory.TryAdd(_item);
-                mode = DropMode.Swapped;
             }
-            // Could not add or swap, return the item
+            else if (!_originalController.inventory.CanAddAt(_item, _originPoint))
+                // Could not return
+            {
+                dropFailed = true;
+                return false;
+            }
+            // Return
             else
             {
                 // Return the item to its previous location
                 _originalController.inventory.TryAddAt(_item, _originPoint);
-                mode = DropMode.Returned;
             }
 
             currentController.inventoryRenderer.ClearSelection();
         }
         else
         {
-            mode = DropMode.Dropped;
             // Drop the item on the ground
             if (!_originalController.inventory.TryForceDrop(_item))
                 _originalController.inventory.TryAddAt(_item, _originPoint);
         }
 
+        dropFailed = false;
+
         // Destroy the image representing the item
         Object.Destroy(_image.gameObject);
 
-        return mode;
+        return true;
     }
 
     public void RotateCw()

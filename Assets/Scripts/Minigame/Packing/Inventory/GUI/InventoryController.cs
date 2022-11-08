@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 /// </summary>
 [RequireComponent(typeof(InventoryRenderer))]
 public class InventoryController : MonoBehaviour,
-    IPointerDownHandler, IBeginDragHandler, IDragHandler,
+    IPointerDownHandler, IPointerMoveHandler, IBeginDragHandler, IDragHandler,
     IEndDragHandler, IPointerExitHandler, IPointerEnterHandler
 {
     // The dragged item is static and shared by all controllers
@@ -43,10 +43,23 @@ public class InventoryController : MonoBehaviour,
      */
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (_draggedItem != null) return;
+        if (_draggedItem != null)
+        {
+            if (_draggedItem.dropFailed)
+                OnEndDrag(eventData);
+
+            return;
+        }
+
         // Get which item to drag (item will be null of none were found)
         var grid = ScreenToGrid(eventData.position);
         _itemToDrag = inventory.GetAtPoint(grid);
+    }
+
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        if (_draggedItem is { dropFailed: true, })
+            OnDrag(eventData);
     }
 
     /*
@@ -81,11 +94,6 @@ public class InventoryController : MonoBehaviour,
     public void OnDrag(PointerEventData eventData)
     {
         _currentEventData = eventData;
-        if (_draggedItem != null)
-        {
-            // Update the items position
-            //_draggedItem.Position = eventData.position;
-        }
     }
 
     /*
@@ -95,20 +103,8 @@ public class InventoryController : MonoBehaviour,
     {
         if (_draggedItem == null) return;
 
-        var mode = _draggedItem.Drop(eventData.position);
-
-        switch (mode)
-        {
-            case InventoryDraggedItem.DropMode.Dropped:
-            case InventoryDraggedItem.DropMode.Added:
-            case InventoryDraggedItem.DropMode.Swapped:
-            case InventoryDraggedItem.DropMode.Returned:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-
-        _draggedItem = null;
+        if (_draggedItem.Drop(eventData.position))
+            _draggedItem = null;
     }
 
     /*
