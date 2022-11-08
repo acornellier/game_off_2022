@@ -32,19 +32,18 @@ public class NodeSequence : NodeEvent
         foreach (var nodeEvent in nodeEvents)
         {
             nodeEvent.Run();
-            yield return new WaitUntil(
-                () =>
-                {
-                    if (_debugSkip)
-                    {
-                        _debugSkip = false;
-                        nodeEvent.gameObject.SetActive(false);
-                        return true;
-                    }
-
-                    return nodeEvent.isDone;
-                }
-            );
+            yield return new WaitUntil(() => IsNodeEventDone(nodeEvent));
         }
+    }
+
+    bool IsNodeEventDone(NodeEvent nodeEvent)
+    {
+        if (_debugSkip)
+        {
+            _debugSkip = false;
+            return true;
+        }
+
+        return nodeEvent.isDone;
     }
 }

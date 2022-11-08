@@ -84,7 +84,7 @@ public class PlatformerPlayer : Player
 
     bool IsGrounded()
     {
-        var numHits = _collider.Cast(Vector2.down, _groundMask, _hitBuffer, 0.05f);
+        var numHits = _collider.Cast(Vector2.down, _groundMask, _hitBuffer, 0.15f);
         for (var hitIndex = 0; hitIndex < numHits; hitIndex++)
         {
             var hit = _hitBuffer[hitIndex];

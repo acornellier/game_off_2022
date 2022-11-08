@@ -1,9 +1,13 @@
-﻿using Zenject;
+﻿using UnityEngine.SceneManagement;
+using Zenject;
 
-public class SceneManager : IInitializable
+public class SceneLoader
 {
-    public void Initialize()
+    [Inject] PersistentDataManager _persistentDataManager;
+
+    public void LoadScene(string scene)
     {
-        throw new System.NotImplementedException();
+        _persistentDataManager.Save();
+        SceneManager.LoadScene(scene);
     }
 }

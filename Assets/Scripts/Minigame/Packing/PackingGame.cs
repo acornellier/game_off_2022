@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using TMPro;
+using UnityEngine;
 
 public class PackingGame : Minigame
 {
@@ -10,8 +12,12 @@ public class PackingGame : Minigame
 
     [SerializeField] Item[] _items;
 
+    [SerializeField] TMP_Text _victoryText;
+
     InventoryManager _source;
     InventoryManager _dest;
+
+    bool _victoryStarted;
 
     void Awake()
     {
@@ -33,6 +39,35 @@ public class PackingGame : Minigame
         {
             if (!_source.TryAdd(item.CreateInstance()))
                 d.log("Failed to add to source", item);
+        }
+    }
+
+    void Update()
+    {
+        if (_dest.allItems.Length < _items.Length)
+            return;
+
+        if (_victoryStarted)
+            return;
+
+        isDone = true;
+        _victoryStarted = true;
+        StartCoroutine(Victory());
+    }
+
+    IEnumerator Victory()
+    {
+        _victoryText.gameObject.SetActive(true);
+
+        var t = 0f;
+        const float duration = 3f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            var frac = t / duration;
+            _victoryText.transform.localRotation = Quaternion.Euler(0, 0, frac * 5 * 360);
+            _victoryText.fontSize = Mathf.Lerp(0, 60, frac);
+            yield return null;
         }
     }
 

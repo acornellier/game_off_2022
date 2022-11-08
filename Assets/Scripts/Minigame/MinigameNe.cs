@@ -37,7 +37,7 @@ public class MinigameNe : NodeEvent
                 var done = _minigame.isDone;
                 if (done)
                 {
-                    _minigameUi.IncreaseStars();
+                    _minigameUi.IncreaseLevelsLost();
                     result = MinigameResult.Success;
                     return true;
                 }

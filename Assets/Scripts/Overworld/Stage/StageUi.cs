@@ -6,8 +6,8 @@ public class StageUi : MonoBehaviour
 {
     [SerializeField] GameObject _wrapper;
     [SerializeField] TMP_Text _title;
-    [SerializeField] TMP_Text _requiredPower;
-    [SerializeField] TMP_Text _powerLost;
+    [SerializeField] TMP_Text _requiredLevel;
+    [SerializeField] TMP_Text _levelsLost;
 
     [Inject] PersistentDataManager _persistentDataManager;
     [Inject] SceneLoader _sceneLoader;
@@ -32,16 +32,17 @@ public class StageUi : MonoBehaviour
         _wrapper.SetActive(true);
 
         _title.text = $"Stage {stage.name}";
-        _powerLost.text = $"Power Lost: {stageData.powerLost}/{stage.maxPowerToLose}";
+        _levelsLost.text = $"Levels Lost: {stageData.levelsLost}/{stage.maxLevelsToLose}";
 
-        if (stage.maxPowerRequired > 0)
+        if (stage.maxLevelRequired > 0 &&
+            _persistentDataManager.data.level > stage.maxLevelRequired)
         {
-            _requiredPower.gameObject.SetActive(true);
-            _requiredPower.text = $"Power Maximum: {stage.maxPowerRequired}";
+            _requiredLevel.gameObject.SetActive(true);
+            _requiredLevel.text = $"Power Maximum: {stage.maxLevelRequired}";
         }
         else
         {
-            _requiredPower.gameObject.SetActive(false);
+            _requiredLevel.gameObject.SetActive(false);
         }
     }
 

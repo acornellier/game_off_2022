@@ -45,16 +45,6 @@ public class PersistentDataManager : IInitializable
         }
     }
 
-    public bool IsBoolSet(string key)
-    {
-        return data.bools.TryGetValue(key, out var value) && value;
-    }
-
-    public void SetBool(string key, bool value = true)
-    {
-        data.bools[key] = value;
-    }
-
     IEnumerable<IPersistableData> AllPersistableDatas()
     {
         var objects = Object
