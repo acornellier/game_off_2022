@@ -1,9 +1,10 @@
 using Zenject;
 
-public class MinigamesInstaller : MonoInstaller
+public class MainInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
+        Container.BindInterfacesAndSelfTo<StageUi>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<MinigameUi>().FromComponentInHierarchy().AsSingle();
     }
 }

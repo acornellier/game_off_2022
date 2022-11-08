@@ -37,7 +37,7 @@ public interface IInventoryItem
     /// </summary>
     bool canDrop { get; }
 
-    void Rotate();
+    void RotateCw();
 }
 
 internal static class InventoryItemExtensions

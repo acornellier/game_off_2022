@@ -27,9 +27,9 @@ public class Item : ScriptableObject, IInventoryItem
         return clone;
     }
 
-    public void Rotate()
+    public void RotateCw()
     {
-        rotation += 90;
-        _shape.Rotate();
+        rotation -= 90;
+        _shape.RotateCW();
     }
 }

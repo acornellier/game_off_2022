@@ -41,11 +41,13 @@ public class InventoryRenderer : MonoBehaviour
         // Create the image container
         imageContainer = new GameObject("Image Pool").AddComponent<RectTransform>();
         imageContainer.transform.SetParent(transform);
-        imageContainer.anchorMin = new Vector2(0, 1);
-        imageContainer.anchorMax = new Vector2(0, 1);
-        imageContainer.pivot = new Vector2(0, 1);
-        imageContainer.anchoredPosition = Vector3.zero;
+        // imageContainer.anchorMin = new Vector2(0, 1);
+        // imageContainer.anchorMax = new Vector2(0, 1);
+        // imageContainer.pivot = new Vector2(0, 1);
+        // imageContainer.anchoredPosition = Vector3.zero;
         imageContainer.transform.localScale = Vector3.one;
+
+        imageContainer.transform.localPosition = Vector3.zero;
 
         // Create pool of images
         _imagePool = new Pool<Image>(
@@ -54,9 +56,9 @@ public class InventoryRenderer : MonoBehaviour
                 var image = new GameObject("Image").AddComponent<Image>();
                 image.transform.SetParent(imageContainer);
                 image.transform.localScale = Vector3.one;
-                image.rectTransform.anchorMin = new Vector2(0, 1);
-                image.rectTransform.anchorMax = new Vector2(0, 1);
-                image.rectTransform.pivot = new Vector2(0, 1);
+                // image.rectTransform.anchorMin = new Vector2(0, 1);
+                // image.rectTransform.anchorMax = new Vector2(0, 1);
+                // image.rectTransform.pivot = new Vector2(0, 1);
                 return image;
             }
         );
@@ -79,7 +81,7 @@ public class InventoryRenderer : MonoBehaviour
     /// <summary>
     /// Returns the RectTransform for this renderer
     /// </summary>
-    RectTransform rectTransform { get; set; }
+    public RectTransform rectTransform { get; private set; }
 
     /// <summary>
     /// Returns the RectTransform for this renderer
@@ -148,13 +150,16 @@ public class InventoryRenderer : MonoBehaviour
                 _grids[i].transform.SetSiblingIndex(i);
             }
 
-        _grids = null;
+        _grids = new Image[inventory.width * inventory.height];
 
         var containerSize = new Vector2(
             cellSize.x * inventory.width,
             cellSize.y * inventory.height
         );
-        _grids = new Image[inventory.width * inventory.height];
+
+        var topLeft = new Vector3(-containerSize.x / 2, containerSize.y / 2, 0);
+        var halfCellSize = new Vector3(cellSize.x / 2, -cellSize.y / 2, 0);
+
         var c = 0;
         for (var y = 0; y < inventory.height; y++)
         {
@@ -163,7 +168,11 @@ public class InventoryRenderer : MonoBehaviour
                 var grid = CreateImage(_cellSpriteEmpty, false);
                 grid.gameObject.name = "Grid " + c;
                 grid.type = Image.Type.Sliced;
+                // grid.rectTransform.localPosition =
+                // new Vector3(cellSize.x * x, -cellSize.y * y, 0);
                 grid.rectTransform.localPosition =
+                    topLeft +
+                    halfCellSize +
                     new Vector3(cellSize.x * x, -cellSize.y * y, 0);
                 _grids[c] = grid;
                 c++;
@@ -304,7 +313,8 @@ public class InventoryRenderer : MonoBehaviour
     */
     internal Vector2 GetItemOffset(IInventoryItem item)
     {
-        var position = item.position * cellSize;
-        return new Vector2(position.x, -position.y);
+        var x = (-(inventory.width * 0.5f) + item.position.x + item.width * 0.5f) * cellSize.x;
+        var y = (inventory.height * 0.5f - item.position.y - item.height * 0.5f) * cellSize.y;
+        return new Vector2(x, y);
     }
 }

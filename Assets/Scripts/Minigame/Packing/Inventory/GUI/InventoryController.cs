@@ -21,7 +21,6 @@ public class InventoryController : MonoBehaviour,
 
     IInventoryItem _itemToDrag;
     PointerEventData _currentEventData;
-    IInventoryItem _lastHoveredItem;
 
     /*
      * Setup
@@ -101,8 +100,6 @@ public class InventoryController : MonoBehaviour,
         switch (mode)
         {
             case InventoryDraggedItem.DropMode.Dropped:
-                ClearHoveredItem();
-                break;
             case InventoryDraggedItem.DropMode.Added:
             case InventoryDraggedItem.DropMode.Swapped:
             case InventoryDraggedItem.DropMode.Returned:
@@ -124,10 +121,6 @@ public class InventoryController : MonoBehaviour,
             // Clear the item as it leaves its current controller
             _draggedItem.currentController = null;
             inventoryRenderer.ClearSelection();
-        }
-        else
-        {
-            ClearHoveredItem();
         }
 
         _currentEventData = null;
@@ -152,30 +145,13 @@ public class InventoryController : MonoBehaviour,
     {
         if (_currentEventData == null) return;
 
-        if (_draggedItem == null)
-        {
-            // Detect hover
-            var grid = ScreenToGrid(_currentEventData.position);
-            var item = inventory.GetAtPoint(grid);
-            if (item == _lastHoveredItem) return;
-            _lastHoveredItem = item;
-        }
-        else
-        {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-                _draggedItem.Rotate();
+        if (_draggedItem == null) return;
 
-            // Update position while dragging
-            _draggedItem.position = _currentEventData.position;
-        }
-    }
+        if (_draggedItem.currentController == this && Keyboard.current.spaceKey.wasPressedThisFrame)
+            _draggedItem.RotateCw();
 
-    /* 
-     * 
-     */
-    void ClearHoveredItem()
-    {
-        _lastHoveredItem = null;
+        // Update position while dragging
+        _draggedItem.position = _currentEventData.position;
     }
 
     /*
@@ -184,6 +160,9 @@ public class InventoryController : MonoBehaviour,
     internal Vector2Int ScreenToGrid(Vector2 screenPoint)
     {
         var pos = ScreenToLocalPositionInRenderer(screenPoint);
+        var sizeDelta = inventoryRenderer.rectTransform.sizeDelta;
+        pos.x += sizeDelta.x / 2;
+        pos.y -= sizeDelta.y / 2;
         return new Vector2Int(
             Mathf.FloorToInt(pos.x / inventoryRenderer.cellSize.x),
             Mathf.FloorToInt(-pos.y / inventoryRenderer.cellSize.y)

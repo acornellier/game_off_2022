@@ -71,7 +71,7 @@ public class InventoryShape
         return _shape[index];
     }
 
-    public void Rotate()
+    public void RotateCW()
     {
         var newCoords = new List<Vector2Int>();
         for (var x = 0; x < _width; x++)

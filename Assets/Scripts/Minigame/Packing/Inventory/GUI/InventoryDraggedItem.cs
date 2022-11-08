@@ -74,6 +74,9 @@ public class InventoryDraggedItem
         _image.transform.SetAsLastSibling();
         _image.sprite = item.sprite;
         _image.SetNativeSize();
+        _image.rectTransform.localRotation =
+            Quaternion.AngleAxis(item.rotation, new Vector3(0, 0, 1));
+        _image.transform.localScale = Vector3.one;
     }
 
     /// <summary>
@@ -173,9 +176,9 @@ public class InventoryDraggedItem
         return mode;
     }
 
-    public void Rotate()
+    public void RotateCw()
     {
-        _item.Rotate();
+        _item.RotateCw();
         _image.rectTransform.localRotation =
             Quaternion.AngleAxis(_item.rotation, new Vector3(0, 0, 1));
     }
@@ -190,7 +193,7 @@ public class InventoryDraggedItem
             Screen.height / _canvasRect.sizeDelta.y
         );
         var gx = -(item.width * renderer.cellSize.x / 2f) + renderer.cellSize.x / 2;
-        var gy = item.height * renderer.cellSize.y / 2f - renderer.cellSize.x / 2;
+        var gy = item.height * renderer.cellSize.y / 2f - renderer.cellSize.y / 2;
         return new Vector2(gx, gy) * scale;
     }
 
