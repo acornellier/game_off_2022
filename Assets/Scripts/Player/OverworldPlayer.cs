@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class TopDownPlayer : Player
+public class OverworldPlayer : Player
 {
     [SerializeField] float _speed = 10;
 

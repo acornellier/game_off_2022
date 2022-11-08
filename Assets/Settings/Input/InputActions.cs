@@ -138,6 +138,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""811fb651-e7da-40f3-88b3-9b1f8cc41419"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -250,6 +259,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae68d7c6-1bb3-4502-9488-5f66b55d65fd"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -840,6 +860,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         // TopDown
         m_TopDown = asset.FindActionMap("TopDown", throwIfNotFound: true);
         m_TopDown_Move = m_TopDown.FindAction("Move", throwIfNotFound: true);
+        m_TopDown_Interact = m_TopDown.FindAction("Interact", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -953,11 +974,13 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_TopDown;
     private ITopDownActions m_TopDownActionsCallbackInterface;
     private readonly InputAction m_TopDown_Move;
+    private readonly InputAction m_TopDown_Interact;
     public struct TopDownActions
     {
         private @InputActions m_Wrapper;
         public TopDownActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_TopDown_Move;
+        public InputAction @Interact => m_Wrapper.m_TopDown_Interact;
         public InputActionMap Get() { return m_Wrapper.m_TopDown; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -970,6 +993,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_TopDownActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_TopDownActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_TopDownActionsCallbackInterface.OnMove;
+                @Interact.started -= m_Wrapper.m_TopDownActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_TopDownActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_TopDownActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_TopDownActionsCallbackInterface = instance;
             if (instance != null)
@@ -977,6 +1003,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -1139,6 +1168,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     public interface ITopDownActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
