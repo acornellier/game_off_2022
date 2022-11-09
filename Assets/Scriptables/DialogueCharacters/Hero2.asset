@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176b01f95be2436089952d6abbf42a71, type: 3}
+  m_Name: Hero2
+  m_EditorClassIdentifier: 
+  characterName: HERO 2
+  mouthClosedSprite: {fileID: 21300000, guid: cc7d2cf7748504544a90f45ddac4dc80, type: 3}
+  mouthOpenSprite: {fileID: 21300000, guid: cf27adadd6b1f42eebc0e8ab8f0d091d, type: 3}

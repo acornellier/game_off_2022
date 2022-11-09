@@ -13,5 +13,7 @@ public class SceneInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<GameManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<PersistentDataManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle();
+
+        Container.BindInterfacesAndSelfTo<DialogueManager>().FromComponentInHierarchy().AsSingle();
     }
 }

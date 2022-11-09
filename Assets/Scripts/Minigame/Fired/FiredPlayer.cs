@@ -1,52 +1,34 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
-public class FiredPlayer : Player
+public class FiredPlayer : MonoBehaviour
 {
-    [SerializeField] float _speed = 10;
+    [SerializeField] TopDownPlayer _player;
     [SerializeField] Fireball _fireballPrefab;
+    [SerializeField] float _fireballCooldown;
 
-    Rigidbody2D _body;
-    InputActions.TopDownActions _inputActions;
-
-    void Awake()
-    {
-        _body = GetComponent<Rigidbody2D>();
-        _inputActions = new InputActions().TopDown;
-        _inputActions.Interact.performed += OnInteract;
-    }
+    float _timeUntilFireballAllowed;
 
     void OnEnable()
     {
-        EnableControls();
+        _player.onInteract += OnFireball;
     }
 
     void OnDisable()
     {
-        DisableControls();
+        _player.onInteract -= OnFireball;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        var moveInput = _inputActions.Move.ReadValue<Vector2>();
-        var movement = _speed * Time.fixedDeltaTime * moveInput;
-        _body.MovePosition((Vector2)transform.position + movement);
+        _timeUntilFireballAllowed -= Time.deltaTime;
     }
 
-    public override void EnableControls()
+    void OnFireball()
     {
-        _inputActions.Enable();
-    }
+        if (_timeUntilFireballAllowed > 0)
+            return;
 
-    public override void DisableControls()
-    {
-        _inputActions.Disable();
-    }
-
-    void OnInteract(InputAction.CallbackContext ctx)
-    {
         Instantiate(_fireballPrefab, transform.position, Quaternion.identity);
+        _timeUntilFireballAllowed = _fireballCooldown;
     }
 }
