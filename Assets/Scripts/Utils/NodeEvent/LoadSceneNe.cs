@@ -10,7 +10,7 @@ public class LoadSceneNe : NodeEvent
 
     protected override IEnumerator CO_Run()
     {
-        _sceneLoader.LoadScene(scene);
+        _sceneLoader.SaveAndLoadScene(scene);
         yield break;
     }
 }

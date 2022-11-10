@@ -44,6 +44,15 @@ TagManager:
   - name: Background
     uniqueID: 2751249149
     locked: 0
+  - name: Ground
+    uniqueID: 3474060105
+    locked: 0
+  - name: Wall
+    uniqueID: 471660363
+    locked: 0
+  - name: Object
+    uniqueID: 3546026865
+    locked: 0
   - name: Player
     uniqueID: 2492305271
     locked: 0

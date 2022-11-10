@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class MinigameUi : MonoBehaviour
 {
-    [SerializeField] CanvasGroup _canvasGroup;
-
     [SerializeField] GameObject _titleUi;
     [SerializeField] TMP_Text _titleText;
 
@@ -50,29 +48,6 @@ public class MinigameUi : MonoBehaviour
         _timerText.text = Mathf.CeilToInt(timeRemaining).ToString();
         _timerFill.fillAmount = timeRemaining / maxTime;
         print(_timerFill.fillAmount);
-    }
-
-    public IEnumerator FadeToBlack()
-    {
-        var t = 0f;
-        _canvasGroup.alpha = 0;
-        while (t < 1)
-        {
-            t += Time.deltaTime;
-            _canvasGroup.alpha = Mathf.Lerp(0, 1, t / 0.3f);
-            yield return null;
-        }
-    }
-
-    public IEnumerator FadeToWhite()
-    {
-        var t = 0f;
-        while (t < 1)
-        {
-            t += Time.deltaTime;
-            _canvasGroup.alpha = Mathf.Lerp(1, 0, t / 0.3f);
-            yield return null;
-        }
     }
 
     void HideAllUis()

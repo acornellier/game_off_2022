@@ -8,6 +8,7 @@ public class PersistentData
     public static int maxLevel = 99;
 
     public Dictionary<string, StageData> stages = new();
+    public bool introComplete;
 
     public StageData GetStageData(string stage)
     {

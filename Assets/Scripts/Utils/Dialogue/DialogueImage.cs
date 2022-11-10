@@ -11,6 +11,7 @@ public class DialogueImage : MonoBehaviour
     [SerializeField] Image talkingHead;
     [SerializeField] TMP_Text title;
     [SerializeField] TMP_Text contents;
+    [SerializeField] Image _downArrow;
     [SerializeField] float textSpeed = 50;
     [SerializeField] float spriteSpeed = 10;
     [SerializeField] float timeBetweenSentences = 0.5f;
@@ -27,6 +28,7 @@ public class DialogueImage : MonoBehaviour
             StopCoroutine(_coroutine);
 
         contents.maxVisibleCharacters = _currentDialogue.line.Length;
+        _downArrow.gameObject.SetActive(true);
     }
 
     public void TypeNextLine(Dialogue dialogue)
@@ -43,6 +45,8 @@ public class DialogueImage : MonoBehaviour
     IEnumerator CO_TypeNextLine(Dialogue dialogue)
     {
         _currentDialogue = dialogue;
+
+        _downArrow.gameObject.SetActive(false);
         talkingHead.sprite = _currentDialogue.character.mouthClosedSprite;
         title.text = _currentDialogue.character.characterName;
         InitializeContents(_currentDialogue);
@@ -59,8 +63,9 @@ public class DialogueImage : MonoBehaviour
 
         var sentences = SplitIntoSentences(_currentDialogue.line);
         contents.maxVisibleCharacters = 0;
-        foreach (var sentence in sentences)
+        for (var i = 0; i < sentences.Count; ++i)
         {
+            var sentence = sentences[i];
             var t = 0f;
             var charIndex = 0;
             while (charIndex < sentence.Length &&
@@ -80,8 +85,12 @@ public class DialogueImage : MonoBehaviour
             }
 
             talkingHead.sprite = _currentDialogue.character.mouthClosedSprite;
-            yield return new WaitForSeconds(timeBetweenSentences);
+
+            if (i < sentences.Count - 1)
+                yield return new WaitForSeconds(timeBetweenSentences);
         }
+
+        _downArrow.gameObject.SetActive(true);
     }
 
     void WobbleContents(Wobble wobble)

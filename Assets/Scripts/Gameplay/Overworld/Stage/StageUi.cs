@@ -1,5 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Zenject;
 
 public class StageUi : MonoBehaviour
@@ -8,30 +10,29 @@ public class StageUi : MonoBehaviour
     [SerializeField] TMP_Text _title;
     [SerializeField] TMP_Text _requiredLevel;
     [SerializeField] TMP_Text _levelsLost;
+    [SerializeField] Button _startButton;
 
     [Inject] PersistentDataManager _persistentDataManager;
     [Inject] SceneLoader _sceneLoader;
 
     Stage _stage;
-    NodeEvent _nodeEvent;
 
     void Awake()
     {
         _wrapper.SetActive(false);
     }
 
-    public void Activate(Stage stage, NodeEvent nodeEvent)
+    public void Activate(Stage stage)
     {
         _stage = stage;
-        _nodeEvent = nodeEvent;
 
-        var stageData = _persistentDataManager.data.GetStageData(stage.name);
+        var stageData = _persistentDataManager.data.GetStageData(stage.id);
 
         stageData ??= new StageData();
 
         _wrapper.SetActive(true);
 
-        _title.text = $"Stage {stage.name}";
+        _title.text = stage.title;
         _levelsLost.text = $"Levels Lost: {stageData.levelsLost}/{stage.maxLevelsToLose}";
 
         if (stage.maxLevelRequired > 0 &&
@@ -44,18 +45,19 @@ public class StageUi : MonoBehaviour
         {
             _requiredLevel.gameObject.SetActive(false);
         }
+
+        EventSystem.current.SetSelectedGameObject(_startButton.gameObject);
     }
 
     public void Deactivate()
     {
         _stage = null;
-        _nodeEvent = null;
         _wrapper.SetActive(false);
     }
 
     public void RunStage()
     {
         if (_stage != null)
-            _sceneLoader.LoadScene("Stage" + _stage.name);
+            _sceneLoader.SaveAndLoadScene("Stage" + _stage.id);
     }
 }

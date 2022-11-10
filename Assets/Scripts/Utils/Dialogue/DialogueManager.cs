@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] DialogueImage topImage;
-    [SerializeField] DialogueImage bottomImage;
+    [SerializeField] DialogueImage _topImage;
+    [SerializeField] DialogueImage _bottomImage;
 
     public bool isActive { get; private set; }
 
@@ -20,8 +20,8 @@ public class DialogueManager : MonoBehaviour
     void Awake()
     {
         _actions = new InputActions().Dialogue;
-        topImage.gameObject.SetActive(false);
-        bottomImage.gameObject.SetActive(false);
+        _topImage.gameObject.SetActive(false);
+        _bottomImage.gameObject.SetActive(false);
     }
 
     void Start()
@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
             _activeDialogueImage.gameObject.SetActive(false);
 
         var nextDialogue = _dialogues.Dequeue();
-        _activeDialogueImage = nextDialogue.topOfScreen ? topImage : bottomImage;
+        _activeDialogueImage = nextDialogue.topOfScreen ? _topImage : _bottomImage;
         _activeDialogueImage.gameObject.SetActive(true);
         _activeDialogueImage.TypeNextLine(nextDialogue);
     }

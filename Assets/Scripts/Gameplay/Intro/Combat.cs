@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
 {
+    [SerializeField] GameObject _optionsWrapper;
     [SerializeField] Button[] _options;
     [SerializeField] PlayableDirector _playableDirector;
 
@@ -16,6 +17,6 @@ public class Combat : MonoBehaviour
     public void OnClick()
     {
         _playableDirector.Play();
-        gameObject.SetActive(false);
+        _optionsWrapper.SetActive(false);
     }
 }

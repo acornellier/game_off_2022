@@ -1,9 +1,11 @@
 ﻿using System;
+using UnityEngine.Serialization;
 
 [Serializable]
 public class Stage
 {
-    public string name;
+    [FormerlySerializedAs("name")] public string id;
+    public string title;
     public int maxLevelRequired;
     public int maxLevelsToLose;
 }
