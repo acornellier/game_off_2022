@@ -29,13 +29,17 @@ public class DialogueBehaviour : PlayableBehaviour
             return;
 
         dialogueManager.onDialogueEnd += OnDialogueEnd;
-        _director.playableGraph.GetRootPlayable(0).SetSpeed(0);
+
+        if (_director && _director.playableGraph.IsValid())
+            _director.playableGraph.GetRootPlayable(0).SetSpeed(0);
     }
 
     void OnDialogueEnd()
     {
         if (!Application.isPlaying)
             return;
+
+        dialogueManager.onDialogueEnd -= OnDialogueEnd;
 
         if (_director && _director.playableGraph.IsValid())
             _director.playableGraph.GetRootPlayable(0).SetSpeed(1);

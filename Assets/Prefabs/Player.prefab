@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5187381320241409580}
   - component: {fileID: 5187381320241409578}
   - component: {fileID: 5187381320241409577}
+  - component: {fileID: 7021322569076685374}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -53,6 +54,7 @@ MonoBehaviour:
   _animations:
     idle: {fileID: 11400000, guid: 4c07aeda7f9e6204c83bc133f66f4e89, type: 2}
     walk: {fileID: 11400000, guid: 86c27c2d1ac9f9947b557d5cd3b089f4, type: 2}
+  _audio: {fileID: 0}
 --- !u!70 &5187381320241409583
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +178,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7021322569076685374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5187381320241409747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 536fddb95f74f7541929699f18a8a994, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5187381320241409579}
+          m_TargetAssemblyTypeName: TopDownPlayer, Assembly-CSharp
+          m_MethodName: DisableControls
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
