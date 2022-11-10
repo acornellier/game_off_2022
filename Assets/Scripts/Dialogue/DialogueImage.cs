@@ -109,9 +109,9 @@ public class DialogueImage : MonoBehaviour
     {
         contents.fontSize = dialogue.fontSize switch
         {
-            DialogueFontSize.Small => 12,
-            DialogueFontSize.Normal => 16,
-            DialogueFontSize.Large => 24,
+            DialogueFontSize.Small => 8,
+            DialogueFontSize.Normal => 12,
+            DialogueFontSize.Large => 16,
             _ => throw new ArgumentOutOfRangeException(),
         };
 

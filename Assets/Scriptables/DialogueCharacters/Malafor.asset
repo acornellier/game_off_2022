@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176b01f95be2436089952d6abbf42a71, type: 3}
   m_Name: Malafor
   m_EditorClassIdentifier: 
-  characterName: Malafor
-  mouthClosedSprite: {fileID: 1106776235, guid: 0ed45aa87bfe9df41ac068e27a92de9a, type: 3}
-  mouthOpenSprite: {fileID: 1489900710, guid: 0ed45aa87bfe9df41ac068e27a92de9a, type: 3}
+  characterName: MALAFOR
+  mouthClosedSprite: {fileID: 21300000, guid: 61450771122f1cc43b25c0ef14808fbe, type: 3}
+  mouthOpenSprite: {fileID: 21300000, guid: 61450771122f1cc43b25c0ef14808fbe, type: 3}

@@ -26,7 +26,7 @@ MonoBehaviour:
     line: "We won\u2019t let you plunge our universe into darkness!!!"
     topOfScreen: 0
   - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
-    fontSize: 2
+    fontSize: 0
     fontStyle: 0
     wobble: 0
     line: "Fools! You don\u2019t understand my\u2013... Oh, whatever."
