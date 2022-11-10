@@ -8,6 +8,7 @@ public class TopDownPlayer : Player
 {
     [SerializeField] float _speed = 10;
     [SerializeField] Animations _animations;
+    [SerializeField] PlayerAudio _audio;
 
     AnimancerComponent _animancer;
     Rigidbody2D _body;
@@ -50,6 +51,11 @@ public class TopDownPlayer : Player
         UpdateMovement();
         UpdateDirection();
         UpdateAnimations();
+    }
+
+    public void Footstep()
+    {
+        _audio.Footstep();
     }
 
     public void Fireball()

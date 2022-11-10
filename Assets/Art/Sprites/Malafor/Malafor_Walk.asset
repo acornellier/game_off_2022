@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Malafor_Walk
   m_EditorClassIdentifier: 
   _Up: {fileID: 7400000, guid: c2a2ca533a577a24282645c0384e2f0a, type: 2}
-  _Right: {fileID: 7400000, guid: 1e6e609349b660a40b1d485d9f801853, type: 2}
+  _Right: {fileID: 7400000, guid: e566e702e86cdb34e90130220937a3bc, type: 2}
   _Down: {fileID: 7400000, guid: c43115dbeaf46b044871eb8671a18a54, type: 2}
   _Left: {fileID: 7400000, guid: e566e702e86cdb34e90130220937a3bc, type: 2}
