@@ -34,7 +34,7 @@ namespace TimelineExtension
 
         SerializedProperty GetEventProperty(string key)
         {
-            if (TimelineEditor.playableDirector == null)
+            if (TimelineEditor.inspectedDirector == null)
             {
                 _unityEvent = null;
                 return null;
@@ -42,10 +42,10 @@ namespace TimelineExtension
 
             if (_unityEvent == null || _lastKey != key)
             {
-                var eventTable = TimelineEditor.playableDirector.GetComponent<EventTable>();
+                var eventTable = TimelineEditor.inspectedDirector.GetComponent<EventTable>();
                 if (eventTable == null)
                     eventTable =
-                        TimelineEditor.playableDirector.gameObject.AddComponent<EventTable>();
+                        TimelineEditor.inspectedDirector.gameObject.AddComponent<EventTable>();
 
                 var o = new SerializedObject(eventTable);
                 var evt = eventTable.GetEvent(key, true);

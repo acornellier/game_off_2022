@@ -10,13 +10,14 @@ public class TopDownPlayer : Player
     [SerializeField] Animations _animations;
     [SerializeField] PlayerAudio _audio;
 
+    public Action onInteract;
+
     AnimancerComponent _animancer;
     Rigidbody2D _body;
     InputActions.TopDownActions _inputActions;
 
     Vector2Int _facingDirection = Vector2Int.down;
-
-    public Action onInteract;
+    bool _animationsDisabled;
 
     void Awake()
     {
@@ -39,11 +40,13 @@ public class TopDownPlayer : Player
     public override void EnableControls()
     {
         _inputActions.Enable();
+        _animationsDisabled = false;
     }
 
     public override void DisableControls()
     {
         _inputActions.Disable();
+        _animationsDisabled = true;
     }
 
     void FixedUpdate()
@@ -90,6 +93,8 @@ public class TopDownPlayer : Player
 
     void UpdateAnimations()
     {
+        if (_animationsDisabled) return;
+
         var directionalAnimationSet = GetDirectionalAnimationSet();
         _animancer.Play(directionalAnimationSet.GetClip(_facingDirection));
     }
