@@ -20,5 +20,16 @@ public class DebugShortcuts : MonoBehaviour
         {
             _persistentDataManager.Save();
         }
+        else if (Keyboard.current.tKey.wasPressedThisFrame && Keyboard.current.shiftKey.isPressed)
+        {
+            foreach (var stage in new[] { "Fishing", })
+            {
+                _persistentDataManager.data.stages[stage] =
+                    new StageData { maxLevelIndexCompleted = 99, };
+            }
+
+            _persistentDataManager.Save();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
