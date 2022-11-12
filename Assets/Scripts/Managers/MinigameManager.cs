@@ -1,42 +1,30 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
-public class MinigameManager : MonoBehaviour, IPersistableData
+public class MinigameManager : MonoBehaviour
 {
-    [Inject] MinigameUi _minigameUi;
+    [SerializeField] MinigameUi _minigameUi;
+
+    [Inject] PersistentDataManager _persistentDataManager;
+    [Inject] Stage _stage;
 
     float _timeRemaining;
     float _lastTimeRemaining;
     int _totalLevelsLost;
 
-    readonly List<MinigameResult> _results = new();
-
-    public void Load(PersistentData data)
+    public void StartGame(int levelIndex)
     {
+        StartCoroutine(CO_StartGame(levelIndex));
     }
 
-    public void Save(PersistentData data)
+    IEnumerator CO_StartGame(int levelIndex)
     {
-        var scene = SceneManager.GetActiveScene().name;
-        var stage = scene[5..];
-        var stageData = data.GetStageData(stage);
-        stageData.complete = true;
-        stageData.levelsLost = TotalLevelsLost();
-    }
+        var minigame = Instantiate(_stage.levels[levelIndex]);
 
-    public IEnumerator StartGame(Minigame minigame, MinigameSettings settings)
-    {
-        _timeRemaining = settings.maxTime;
-        minigame.gameObject.SetActive(true);
+        _timeRemaining = minigame.maxTime;
 
-        _minigameUi.ShowTitle(minigame.gameName);
-        yield return new WaitForSeconds(2);
-
-        _minigameUi.ShowInGameUi(settings.maxTime);
+        _minigameUi.ShowInGameUi(minigame.maxTime);
         minigame.Begin();
 
         yield return new WaitUntil(
@@ -50,14 +38,14 @@ public class MinigameManager : MonoBehaviour, IPersistableData
                 if (_timeRemaining <= 0)
                     return true;
 
-                _minigameUi.SetTimeRemaining(_timeRemaining, settings.maxTime);
+                _minigameUi.SetTimeRemaining(_timeRemaining, minigame.maxTime);
                 return false;
             }
         );
 
         minigame.End();
 
-        var fracTime = _timeRemaining / settings.maxTime;
+        var fracTime = _timeRemaining / minigame.maxTime;
         var levelsLost = fracTime switch
         {
             >= 0.5f => 4,
@@ -69,19 +57,19 @@ public class MinigameManager : MonoBehaviour, IPersistableData
 
         var result = new MinigameResult
         {
-            settings = settings,
+            maxTime = minigame.maxTime,
             timeRemaining = _timeRemaining,
             levelsLost = levelsLost,
         };
-        _results.Add(result);
 
-        minigame.gameObject.SetActive(false);
+        var stageData = _persistentDataManager.data.GetStageData(_stage.id);
+        if (result.success && levelIndex > stageData.maxLevelIndexCompleted)
+            stageData.maxLevelIndexCompleted = levelIndex;
+
+        Utilities.DestroyGameObject(minigame.gameObject);
 
         yield return StartCoroutine(_minigameUi.ShowSummary(result));
-    }
 
-    int TotalLevelsLost()
-    {
-        return _results.Sum(result => result.levelsLost);
+        _minigameUi.ShowLevelSelectUi();
     }
 }

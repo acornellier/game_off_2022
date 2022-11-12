@@ -6,7 +6,7 @@ using Zenject;
 public class SceneLoader : MonoBehaviour
 {
     [Inject] FadeOverlay _fadeOverlay;
-    [Inject] MusicPlayer _musicPlayer;
+    [Inject] GlobalSounds _globalSounds;
     [Inject] PersistentDataManager _persistentDataManager;
 
     [SerializeField] float fadeTime = 1f;
@@ -24,9 +24,14 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadScene(scene));
     }
 
+    public void LoadSceneInstant(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+
     IEnumerator LoadScene(string scene)
     {
-        StartCoroutine(_musicPlayer.FadeOut(fadeTime));
+        StartCoroutine(_globalSounds.FadeOut(fadeTime));
         StartCoroutine(_fadeOverlay.FadeToBlack(fadeTime));
 
         yield return new WaitForSeconds(fadeTime);

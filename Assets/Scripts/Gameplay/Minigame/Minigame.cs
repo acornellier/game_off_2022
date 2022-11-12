@@ -2,9 +2,9 @@
 
 public abstract class Minigame : MonoBehaviour
 {
-    public bool isDone { get; protected set; }
+    public int maxTime;
 
-    public abstract string gameName { get; }
+    public bool isDone { get; protected set; }
 
     public abstract void Begin();
     public abstract void End();

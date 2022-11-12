@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 5187381320241409577}
   - component: {fileID: 7021322569076685374}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Malafor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

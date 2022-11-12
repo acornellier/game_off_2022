@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class FishingGame : Minigame
 {
-    [SerializeField] Collider2D _fishingArea;
-
-    [Header("Fish")] [SerializeField] Collider2D _fish;
-    [SerializeField] float _smoothMotion = 3f;
-    [SerializeField] float _maxTimeInterval = 3f;
+    [Header("Settings")] [SerializeField] float _moveDuration = 1f;
     [SerializeField] float _maxSpeed = 1f;
+    [SerializeField] Vector2 _timeBetweenMoves = Vector2.one;
+    [SerializeField] Vector2 _moveDistance = new(0.1f, 1);
+    [SerializeField] float _progressIncreaseRate = 0.3f;
+    [SerializeField] float _progressDecayRate = 0.3f;
 
-    [Header("Hook")] [SerializeField] Collider2D _hook;
+    [Header("Constants")] [SerializeField] Collider2D _fishingArea;
+    [SerializeField] Collider2D _fish;
+    [SerializeField] Collider2D _hook;
+    [SerializeField] Image _progressImage;
     [SerializeField] float _hookSpeed = 0.1f;
     [SerializeField] float _hookGravity = .05f;
-
-    [Header("Progress")] [SerializeField] Image _progressImage;
-    [SerializeField] float _hookPower = 0.5f;
-    [SerializeField] float _progressBarDecay = 0.1f;
-
-    public override string gameName => "Big Fish in a Small Pond";
 
     bool _running;
 
@@ -68,11 +66,13 @@ public class FishingGame : Minigame
 
         if (_fishTimer < 0)
         {
-            _fishTimer = 1 + Random.value * _maxTimeInterval;
+            _fishTimer = Random.Range(_timeBetweenMoves.x, _timeBetweenMoves.y);
 
             while (Mathf.Abs(_fishPosition - _fishTargetPosition) < 0.2f)
             {
-                _fishTargetPosition = Random.value;
+                var direction = Mathf.Sign(Random.value - _fishTargetPosition);
+                var distance = Random.Range(_moveDistance.x, _moveDistance.y);
+                _fishTargetPosition = Mathf.Clamp01(distance * direction);
             }
         }
 
@@ -80,7 +80,7 @@ public class FishingGame : Minigame
             _fishPosition,
             _fishTargetPosition,
             ref _fishSpeed,
-            _smoothMotion,
+            _moveDuration,
             _maxSpeed,
             Time.fixedDeltaTime
         );
@@ -107,15 +107,17 @@ public class FishingGame : Minigame
     {
         if (_fish.bounds.Intersects(_hook.bounds))
         {
-            _progress += _hookPower * Time.fixedDeltaTime;
+            _progress += _progressIncreaseRate * Time.fixedDeltaTime;
 
             if (_progress >= 1)
                 isDone = true;
         }
         else
         {
-            _progress -= _progressBarDecay * Time.fixedDeltaTime;
+            _progress -= _progressDecayRate * Time.fixedDeltaTime;
         }
+
+        _progress = Mathf.Clamp01(_progress);
 
         _progressImage.fillAmount = _progress;
     }

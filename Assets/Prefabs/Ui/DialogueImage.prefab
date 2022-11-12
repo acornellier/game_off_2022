@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4c361dd5a388a41b638b1d55ed2b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Animator: {fileID: 0}
+  _Animator: {fileID: 6640638706884920748}
   _Clip: {fileID: 7400000, guid: 93a61c730a0871c458c01cd98e3f3135, type: 2}
   _Speed: 1
   _FootIK: 0

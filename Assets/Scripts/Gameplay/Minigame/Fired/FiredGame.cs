@@ -1,19 +1,22 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class FiredGame : Minigame
 {
     [SerializeField] TopDownPlayer _player;
+    [SerializeField] TMP_Text _firedCounter;
     [SerializeField] Target _targetPrefab;
+
+    [SerializeField] int _numberToFire;
 
     [SerializeField] Vector2 _respawnRange;
     [SerializeField] Vector2 _yRange;
     [SerializeField] Vector2 _speedRange;
 
-    public override string gameName => "Fire the Underlings";
-
     float _screenHalfWidth;
     float _timeUntilSpawn;
+    int _numberFired;
 
     void Start()
     {
@@ -21,6 +24,9 @@ public class FiredGame : Minigame
             Camera.main.aspect * Camera.main.orthographicSize,
             Camera.main.orthographicSize
         ).x;
+
+        _numberFired = 0;
+        UpdateFiredCounter();
     }
 
     void Update()
@@ -49,5 +55,19 @@ public class FiredGame : Minigame
     public override void End()
     {
         _player.DisableControls();
+    }
+
+    public void OnFired(int firedCount)
+    {
+        _numberFired += firedCount;
+        UpdateFiredCounter();
+
+        if (_numberFired >= _numberToFire)
+            isDone = true;
+    }
+
+    void UpdateFiredCounter()
+    {
+        _firedCounter.text = $"Fired: {_numberFired}/{_numberToFire}";
     }
 }

@@ -11,8 +11,8 @@ public static class Utilities
 #endif
     }
 
-    public static void DestroyGameObject(GameObject go)
+    public static void DestroyGameObject(GameObject go, float t = 0f)
     {
-        Object.Destroy(go);
+        Object.Destroy(go, t);
     }
 }

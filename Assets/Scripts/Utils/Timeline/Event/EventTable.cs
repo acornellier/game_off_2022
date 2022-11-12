@@ -23,7 +23,7 @@ public class EventTable : MonoBehaviour
 
         if (addIfNotFound)
         {
-            m_Entries.Add(new Entry() { m_Key = key, m_Event = new UnityEvent(), });
+            m_Entries.Add(new Entry { m_Key = key, m_Event = new UnityEvent(), });
             return m_Entries[^1].m_Event;
         }
 

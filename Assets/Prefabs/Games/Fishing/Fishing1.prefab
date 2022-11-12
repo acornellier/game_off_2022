@@ -142,7 +142,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3754561517344388265}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -219,14 +219,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 2, y: 1}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &3754561517464228443
 GameObject:
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 3754561517464228440}
   - component: {fileID: 3754561517464228441}
   m_Layer: 0
-  m_Name: FishingGame
+  m_Name: Fishing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,17 +275,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9cd98715584ab38b0b3801f4106d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTime: 20
+  _moveDuration: 1
+  _maxSpeed: 1
+  _timeBetweenMoves: {x: 1, y: 1}
+  _moveDistance: {x: 0.1, y: 0.5}
+  _progressIncreaseRate: 0.15
+  _progressDecayRate: 0.1
   _fishingArea: {fileID: 3754561518445000657}
   _fish: {fileID: 3754561517344388268}
-  _smoothMotion: 1
-  _maxTimeInterval: 2
-  _maxSpeed: 1
   _hook: {fileID: 3754561518462587343}
+  _progressImage: {fileID: 3754561517615060220}
   _hookSpeed: 0.1
   _hookGravity: 0.05
-  _progressImage: {fileID: 3754561517615060220}
-  _hookPower: 0.3
-  _progressBarDecay: 0.1
 --- !u!1 &3754561517505281142
 GameObject:
   m_ObjectHideFlags: 0

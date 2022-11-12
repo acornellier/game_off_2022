@@ -1,18 +1,17 @@
 ﻿using System;
-using UnityEngine.Serialization;
+using System.Collections.Generic;
+using UnityEngine;
 
-[Serializable]
-public class Stage
+[CreateAssetMenu(fileName = "Stage", menuName = "Stage", order = 0)]
+public class Stage : ScriptableObject
 {
-    [FormerlySerializedAs("name")] public string id;
+    public string id;
     public string title;
-    public int maxLevelRequired;
-    public int maxLevelsToLose;
+    public List<Minigame> levels;
 }
 
 [Serializable]
 public class StageData
 {
-    public bool complete;
-    public int levelsLost;
+    public int maxLevelIndexCompleted = -1;
 }

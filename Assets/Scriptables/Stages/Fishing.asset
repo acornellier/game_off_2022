@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d18d20959c34d7b82e162a2648ba8ea, type: 3}
+  m_Name: Fishing
+  m_EditorClassIdentifier: 
+  id: Fishing
+  title: Fishing
+  levels:
+  - {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
+  - {fileID: 9106046602441399839, guid: 5291b9a3d1073ed45b0d61441843b83b, type: 3}
+  - {fileID: 9106046602441399839, guid: 3ece55fe570bf6c47b06ca62e9b8f7e4, type: 3}

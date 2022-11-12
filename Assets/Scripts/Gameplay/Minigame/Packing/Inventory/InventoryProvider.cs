@@ -4,10 +4,6 @@ public class InventoryProvider : IInventoryProvider
 {
     readonly List<IInventoryItem> _items = new();
 
-    public InventoryProvider()
-    {
-    }
-
     public int inventoryItemCount => _items.Count;
 
     public bool isInventoryFull => false;

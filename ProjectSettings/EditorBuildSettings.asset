@@ -6,9 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: abc451b01cf9194428bf58234dd6b674
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 689a5c0af9c1670488fda452aa20ac43
   - enabled: 1
-    path: Assets/Scenes/Stage1.unity
+    path: Assets/Scenes/Fishing.unity
     guid: 6d968f5850be71d4b88ff6537146e00a
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 1720689d575469741b4ae12c06fd7093, type: 2}

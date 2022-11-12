@@ -15,7 +15,7 @@ public class SceneInstaller : MonoInstaller
 
         Container.BindInterfacesAndSelfTo<DialogueManager>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<FadeOverlay>().FromComponentInHierarchy().AsSingle();
-        Container.BindInterfacesAndSelfTo<MusicPlayer>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<GlobalSounds>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<SceneLoader>().FromComponentInHierarchy().AsSingle();
     }
 }

@@ -8,8 +8,7 @@ public class StageUi : MonoBehaviour
 {
     [SerializeField] GameObject _wrapper;
     [SerializeField] TMP_Text _title;
-    [SerializeField] TMP_Text _requiredLevel;
-    [SerializeField] TMP_Text _levelsLost;
+    [SerializeField] TMP_Text _levelsComplete;
     [SerializeField] Button _startButton;
 
     [Inject] PersistentDataManager _persistentDataManager;
@@ -20,6 +19,7 @@ public class StageUi : MonoBehaviour
     void Awake()
     {
         _wrapper.SetActive(false);
+        _startButton.onClick.AddListener(RunStage);
     }
 
     public void Activate(Stage stage)
@@ -29,22 +29,11 @@ public class StageUi : MonoBehaviour
         var stageData = _persistentDataManager.data.GetStageData(stage.id);
 
         stageData ??= new StageData();
-
         _wrapper.SetActive(true);
 
         _title.text = stage.title;
-        _levelsLost.text = $"Levels Lost: {stageData.levelsLost}/{stage.maxLevelsToLose}";
-
-        if (stage.maxLevelRequired > 0 &&
-            _persistentDataManager.data.level > stage.maxLevelRequired)
-        {
-            _requiredLevel.gameObject.SetActive(true);
-            _requiredLevel.text = $"Power Maximum: {stage.maxLevelRequired}";
-        }
-        else
-        {
-            _requiredLevel.gameObject.SetActive(false);
-        }
+        _levelsComplete.text =
+            $"Levels complete: {stageData.maxLevelIndexCompleted + 1}/{stage.levels.Count}";
 
         EventSystem.current.SetSelectedGameObject(_startButton.gameObject);
     }
@@ -57,7 +46,6 @@ public class StageUi : MonoBehaviour
 
     public void RunStage()
     {
-        if (_stage != null)
-            _sceneLoader.SaveAndLoadScene("Stage" + _stage.id);
+        _sceneLoader.SaveAndLoadScene(_stage.id);
     }
 }

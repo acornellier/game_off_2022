@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class MusicPlayer : MonoBehaviour
+public class GlobalSounds : MonoBehaviour
 {
-    AudioSource _source;
+    [SerializeField] AudioSource _musicSource;
+    [SerializeField] AudioSource _soundSource;
 
-    void Awake()
+    public void PlayOneShotSound(AudioClip clip)
     {
-        _source = GetComponent<AudioSource>();
+        _soundSource.PlayOneShot(clip);
     }
 
     public void PlayMusic(AudioClip clip, float fadeOutTime = 0f)
     {
-        if (_source.clip != clip)
+        if (_musicSource.clip != clip)
             StartCoroutine(CO_PlayMusic(clip, fadeOutTime));
     }
 
@@ -25,10 +25,10 @@ public class MusicPlayer : MonoBehaviour
     public IEnumerator FadeOut(float fadeOutTime)
     {
         var t = 0f;
-        while (_source.volume > 0)
+        while (_musicSource.volume > 0)
         {
             t += Time.deltaTime;
-            _source.volume = Mathf.Clamp01(1 - t / fadeOutTime);
+            _musicSource.volume = Mathf.Clamp01(1 - t / fadeOutTime);
             yield return null;
         }
     }
@@ -38,16 +38,16 @@ public class MusicPlayer : MonoBehaviour
         if (fadeOutTime > 0)
             yield return StartCoroutine(FadeOut(fadeOutTime));
 
-        _source.clip = clip;
-        _source.volume = 1;
-        _source.Play();
+        _musicSource.clip = clip;
+        _musicSource.volume = 1;
+        _musicSource.Play();
     }
 
     IEnumerator CO_PlayClip(AudioClip clip)
     {
-        _source.Stop();
-        _source.PlayOneShot(clip);
-        yield return new WaitUntil(() => !_source.isPlaying);
-        _source.Play();
+        _musicSource.Stop();
+        _musicSource.PlayOneShot(clip);
+        yield return new WaitUntil(() => !_musicSource.isPlaying);
+        _musicSource.Play();
     }
 }

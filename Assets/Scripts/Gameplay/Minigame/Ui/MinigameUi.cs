@@ -2,29 +2,29 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class MinigameUi : MonoBehaviour
 {
-    [SerializeField] GameObject _titleUi;
-    [SerializeField] TMP_Text _titleText;
+    [SerializeField] LevelSelectUi _levelSelectUi;
 
     [SerializeField] GameObject _inGameUi;
     [SerializeField] TMP_Text _timerText;
     [SerializeField] Image _timerFill;
 
     [SerializeField] GameObject _summaryUi;
-    [SerializeField] TMP_Text _levelsLostCounter;
+    [SerializeField] TMP_Text _resultsText;
 
     void Awake()
     {
         HideAllUis();
+        _levelSelectUi.gameObject.SetActive(true);
     }
 
-    public void ShowTitle(string title)
+    public void ShowLevelSelectUi()
     {
         HideAllUis();
-        _titleUi.SetActive(true);
-        _titleText.text = title;
+        _levelSelectUi.gameObject.SetActive(true);
     }
 
     public void ShowInGameUi(float maxTime)
@@ -38,7 +38,7 @@ public class MinigameUi : MonoBehaviour
     {
         HideAllUis();
         _summaryUi.SetActive(true);
-        _levelsLostCounter.text = $"Levels lost: {result.levelsLost}";
+        _resultsText.text = result.success ? "Success!" : "Too slow";
         yield return new WaitForSeconds(2);
         _summaryUi.SetActive(false);
     }
@@ -47,12 +47,11 @@ public class MinigameUi : MonoBehaviour
     {
         _timerText.text = Mathf.CeilToInt(timeRemaining).ToString();
         _timerFill.fillAmount = timeRemaining / maxTime;
-        print(_timerFill.fillAmount);
     }
 
     void HideAllUis()
     {
-        _titleUi.SetActive(false);
+        _levelSelectUi.gameObject.SetActive(false);
         _inGameUi.SetActive(false);
         _summaryUi.SetActive(false);
     }

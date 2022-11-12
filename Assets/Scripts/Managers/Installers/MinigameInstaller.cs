@@ -1,10 +1,14 @@
+using UnityEngine;
 using Zenject;
 
 public class MinigameInstaller : MonoInstaller
 {
+    [SerializeField] Stage _stage;
+
     public override void InstallBindings()
     {
-        Container.BindInterfacesAndSelfTo<MinigameUi>().FromComponentInHierarchy().AsSingle();
+        Container.BindInstance(_stage);
+
         Container.BindInterfacesAndSelfTo<MinigameManager>().FromComponentInHierarchy().AsSingle();
     }
 }
