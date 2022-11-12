@@ -1,9 +1,11 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Playground : MonoBehaviour
+public class MinigameTester : MonoBehaviour
 {
     [SerializeField] TMP_Text _timer;
+    [SerializeField] Image _timerFill;
 
     Minigame _minigame;
     float _timeRemaining;
@@ -30,6 +32,7 @@ public class Playground : MonoBehaviour
         }
 
         _timeRemaining -= Time.deltaTime;
+        _timerFill.fillAmount = _timeRemaining / _minigame.maxTime;
         _timer.text = Mathf.CeilToInt(_timeRemaining).ToString();
     }
 }

@@ -123,7 +123,6 @@ public class DialogueImage : MonoBehaviour
             _ => throw new ArgumentOutOfRangeException(),
         };
 
-        contents.fontStyle = dialogue.fontStyle;
         contents.text = _currentDialogue.line;
     }
 

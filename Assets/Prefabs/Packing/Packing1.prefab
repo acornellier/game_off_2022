@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 7250616445504614832}
   - component: {fileID: 7250616445504614833}
   m_Layer: 0
-  m_Name: PackingGame
+  m_Name: Packing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143cee1b1ba24f948c0da67606593620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTime: 15
   _sourceDim: {x: 7, y: 6}
   _destDim: {x: 5, y: 6}
   _sourceRenderer: {fileID: 7203390617748413760}
