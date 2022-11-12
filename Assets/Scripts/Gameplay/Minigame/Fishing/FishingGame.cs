@@ -20,6 +20,9 @@ public class FishingGame : Minigame
     [SerializeField] float _hookSpeed = 0.1f;
     [SerializeField] float _hookGravity = .05f;
 
+    [SerializeField] AudioSource _constantReelSource;
+    [SerializeField] AudioSource _activeReelSource;
+
     bool _running;
 
     Vector3 _bottomBounds;
@@ -53,11 +56,14 @@ public class FishingGame : Minigame
     public override void Begin()
     {
         _running = true;
+        _constantReelSource.Play();
     }
 
     public override void End()
     {
         _running = false;
+        _constantReelSource.Stop();
+        _activeReelSource.Stop();
     }
 
     void MoveFish()
@@ -108,6 +114,7 @@ public class FishingGame : Minigame
         if (_fish.bounds.Intersects(_hook.bounds))
         {
             _progress += _progressIncreaseRate * Time.fixedDeltaTime;
+            _activeReelSource.Play();
 
             if (_progress >= 1)
                 isDone = true;
@@ -115,6 +122,7 @@ public class FishingGame : Minigame
         else
         {
             _progress -= _progressDecayRate * Time.fixedDeltaTime;
+            _activeReelSource.Stop();
         }
 
         _progress = Mathf.Clamp01(_progress);
