@@ -43,6 +43,9 @@ public class InventoryController : MonoBehaviour,
      */
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!inventoryRenderer.draggingEnabled)
+            return;
+
         if (_draggedItem != null)
         {
             if (_draggedItem.dropFailed)
@@ -143,7 +146,8 @@ public class InventoryController : MonoBehaviour,
 
         if (_draggedItem == null) return;
 
-        if (_draggedItem.currentController == this && Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame &&
+            (_draggedItem.currentController == this || _draggedItem.currentController == null))
             _draggedItem.RotateCw();
 
         // Update position while dragging

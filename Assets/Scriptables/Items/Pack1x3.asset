@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c444976083564cd9bade2bd56f0ee050, type: 3}
-  m_Name: TetrisL
+  m_Name: Pack1x3
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 7a442bde84fd76f499b62143eda5b80d, type: 3}
+  _sprite: {fileID: 21300000, guid: 0ce7589116ae5dd4aa26af3182a12976, type: 3}
   _shape:
-    _width: 2
+    _width: 1
     _height: 3
-    _shape: 010001000101
+    _shape: 010101

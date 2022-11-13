@@ -12,8 +12,8 @@ public class Item : ScriptableObject, IInventoryItem
     public int width => _shape.width;
     public int height => _shape.height;
     public int rotation { get; private set; }
-
-    public bool canDrop => true;
+    public bool canDrop => false;
+    public int squaresTaken => _shape.squaresTaken;
 
     public bool IsPartOfShape(Vector2Int localPosition)
     {

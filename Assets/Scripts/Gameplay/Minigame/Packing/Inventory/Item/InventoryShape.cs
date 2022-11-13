@@ -58,6 +58,8 @@ public class InventoryShape
     /// </summary>
     public int height => _height;
 
+    public int squaresTaken => _shape.Count(b => b);
+
     /// <summary>
     /// Returns true if given local point is part of this shape
     /// </summary>

@@ -25,6 +25,8 @@ public class InventoryRenderer : MonoBehaviour
     [Tooltip("The sprite to use for blocked cells")]
     Sprite _cellSpriteBlocked;
 
+    public bool draggingEnabled;
+
     internal IInventoryManager inventory;
     bool _haveListeners;
     Pool<Image> _imagePool;

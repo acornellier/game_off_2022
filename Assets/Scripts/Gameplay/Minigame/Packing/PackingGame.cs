@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using TMPro;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public class PackingGame : Minigame
@@ -12,7 +12,8 @@ public class PackingGame : Minigame
 
     [SerializeField] Item[] _items;
 
-    [SerializeField] TMP_Text _victoryText;
+    [ReadOnly] [SerializeField] int _destSpace;
+    [ReadOnly] [SerializeField] int _itemsSpace;
 
     InventoryManager _source;
     InventoryManager _dest;
@@ -47,44 +48,28 @@ public class PackingGame : Minigame
         if (_dest.allItems.Length < _items.Length)
             return;
 
-        if (_victoryStarted)
-            return;
-
         isDone = true;
-        _victoryStarted = true;
-        StartCoroutine(Victory());
     }
 
-    IEnumerator Victory()
+    void OnValidate()
     {
-        _victoryText.gameObject.SetActive(true);
-
-        var t = 0f;
-        const float duration = 3f;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            var frac = t / duration;
-            _victoryText.transform.localRotation = Quaternion.Euler(0, 0, frac * 5 * 360);
-            _victoryText.fontSize = Mathf.Lerp(0, 60, frac);
-            yield return null;
-        }
+        _destSpace = _destDim.x * _destDim.y;
+        _itemsSpace = _items.Aggregate(0, (cur, item) => cur + item.squaresTaken);
     }
 
     static void MonitorManager(IInventoryManager manager, string name)
     {
-        manager.onItemAdded += item => d.log(name, "added", item);
-        manager.onItemDropped += item => d.log(name, "dropped", item);
-        manager.onItemRemoved += item => d.log(name, "removed", item);
         manager.onItemAddedFailed += item => d.log(name, "add failed", item);
         manager.onItemDroppedFailed += item => d.log(name, "drop failed", item);
     }
 
     public override void Begin()
     {
+        _sourceRenderer.draggingEnabled = true;
     }
 
     public override void End()
     {
+        _sourceRenderer.draggingEnabled = false;
     }
 }
