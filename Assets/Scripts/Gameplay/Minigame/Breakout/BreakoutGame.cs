@@ -101,7 +101,7 @@ public class BreakoutGame : Minigame
 
     private void FireBall()
     {
-        if (currentBalls > 0 && Input.GetMouseButtonDown(0))
+        if (currentBalls > 0 && Mouse.current.leftButton.wasPressedThisFrame)
         {
             malaforRenderer.sprite = malaforCast;
             paddleCollider.enabled = false;
@@ -113,7 +113,7 @@ public class BreakoutGame : Minigame
             heldBall.myChargingFX.Play(false);
             heldBall.ballCollider.enabled = false;
         }
-        if (currentBalls > 0 && Input.GetMouseButtonUp(0))
+        if (currentBalls > 0 && Mouse.current.leftButton.wasReleasedThisFrame)
         {
             holdingBall = false;
             heldBall.ballCollider.enabled = true;
@@ -146,7 +146,7 @@ public class BreakoutGame : Minigame
 
     private void DebugMinigame()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Keyboard.current.rKey.isPressed)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
