@@ -14,6 +14,7 @@ public class BreakoutBall : MonoBehaviour
     public TrailRenderer myTrail;
     public ParticleSystem myChargingFX;
     [SerializeField] ParticleSystem myCollisionFX;
+    [SerializeField] public ParticleSystem myTrailFX;
 
 
     // Start is called before the first frame update

@@ -120,6 +120,7 @@ public class BreakoutGame : Minigame
             heldBall.ballReleased = true;
             heldBall.ballBody.velocity = new Vector2(0, ballStartSpeed);
             heldBall.myChargingFX.Stop();
+            heldBall.myTrailFX.Play();
             heldBall.myTrail.enabled = true;
             malaforRenderer.sprite = malaforIdle;
             paddleCollider.enabled = true;
