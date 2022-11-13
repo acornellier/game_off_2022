@@ -2,18 +2,19 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using Zenject;
 
 public class LevelSelectUi : MonoBehaviour
 {
     [SerializeField] TMP_Text _title;
-    [SerializeField] Button[] _buttons;
+    [SerializeField] LevelSelectButton[] _buttons;
 
     [Inject] MinigameManager _minigameManager;
     [Inject] PersistentDataManager _persistentDataManager;
     [Inject] SceneLoader _sceneLoader;
     [Inject] Stage _stage;
+
+    int _prevSelectedIndex = -1;
 
     void OnEnable()
     {
@@ -29,6 +30,8 @@ public class LevelSelectUi : MonoBehaviour
         if (_stage.levels.Count > _buttons.Length)
             throw new Exception("Max number of levels exceeded");
 
+        _title.text = _stage.title;
+
         for (var i = 0; i < _buttons.Length; ++i)
         {
             var button = _buttons[i];
@@ -40,20 +43,15 @@ public class LevelSelectUi : MonoBehaviour
             }
 
             button.gameObject.SetActive(true);
-            button.onClick.RemoveAllListeners();
-
-            var text = button.GetComponentInChildren<TMP_Text>();
-            text.text = $"Level {i + 1}";
 
             var interactable = i == 0 || stageData.maxLevelIndexCompleted >= i - 1;
-            text.color = interactable ? Color.white : Color.gray;
-            button.interactable = interactable;
+            var done = stageData.maxLevelIndexCompleted >= i;
             var levelIndex = i;
-            button.onClick.AddListener(() => StartLevel(levelIndex));
+            button.SetUp($"Level {i + 1}", interactable, done, () => StartLevel(levelIndex));
         }
 
-        EventSystem.current.SetSelectedGameObject(_buttons[0].gameObject);
-        _title.text = _stage.title;
+        var selectedIndex = _prevSelectedIndex == -1 ? 0 : _prevSelectedIndex;
+        EventSystem.current.SetSelectedGameObject(_buttons[selectedIndex].gameObject);
     }
 
     public void ReturnToMain()
@@ -63,6 +61,7 @@ public class LevelSelectUi : MonoBehaviour
 
     void StartLevel(int levelIndex)
     {
+        _prevSelectedIndex = levelIndex;
         _minigameManager.StartGame(levelIndex);
     }
 }

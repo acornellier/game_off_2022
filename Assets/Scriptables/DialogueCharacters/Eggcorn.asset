@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Eggcorn
   m_EditorClassIdentifier: 
   characterName: EGGCORN
-  mouthClosedSprite: {fileID: 1552891991, guid: d1be9f1e28e028946ab479e8d01cea23, type: 3}
-  mouthOpenSprite: {fileID: 1214074446, guid: d1be9f1e28e028946ab479e8d01cea23, type: 3}
+  mouthClosedSprite: {fileID: 21300000, guid: b763dc7d7863f3a4798fda9293bdec63, type: 3}
+  mouthOpenSprite: {fileID: 21300000, guid: b763dc7d7863f3a4798fda9293bdec63, type: 3}

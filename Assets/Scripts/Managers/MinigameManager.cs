@@ -9,28 +9,42 @@ public class MinigameManager : MonoBehaviour
     [Inject] PersistentDataManager _persistentDataManager;
     [Inject] Stage _stage;
 
+    Coroutine _minigameCoroutine;
+    Minigame _minigame;
     float _timeRemaining;
-    float _lastTimeRemaining;
-    int _totalLevelsLost;
 
     public void StartGame(int levelIndex)
     {
-        StartCoroutine(CO_StartGame(levelIndex));
+        _minigameCoroutine = StartCoroutine(CO_StartGame(levelIndex));
+    }
+
+    public void BackToLevelSelect()
+    {
+        if (_minigameCoroutine != null)
+            StopCoroutine(_minigameCoroutine);
+
+        if (_minigame)
+        {
+            Utilities.DestroyGameObject(_minigame.gameObject);
+            _minigame = null;
+        }
+
+        _minigameUi.ShowLevelSelectUi();
     }
 
     IEnumerator CO_StartGame(int levelIndex)
     {
-        var minigame = Instantiate(_stage.levels[levelIndex]);
+        _minigame = Instantiate(_stage.levels[levelIndex]);
 
-        _timeRemaining = minigame.maxTime;
+        _timeRemaining = _minigame.maxTime;
 
-        _minigameUi.ShowInGameUi(minigame.maxTime);
-        minigame.Begin();
+        _minigameUi.ShowInGameUi(_minigame.maxTime);
+        _minigame.Begin();
 
         yield return new WaitUntil(
             () =>
             {
-                if (minigame.isDone)
+                if (_minigame.isDone)
                     return true;
 
                 _timeRemaining -= Time.deltaTime;
@@ -38,35 +52,26 @@ public class MinigameManager : MonoBehaviour
                 if (_timeRemaining <= 0)
                     return true;
 
-                _minigameUi.SetTimeRemaining(_timeRemaining, minigame.maxTime);
+                _minigameUi.SetTimeRemaining(_timeRemaining, _minigame.maxTime);
                 return false;
             }
         );
 
-        minigame.End();
-
-        var fracTime = _timeRemaining / minigame.maxTime;
-        var levelsLost = fracTime switch
-        {
-            >= 0.5f => 4,
-            >= 0.33f => 3,
-            >= 0.166f => 2,
-            > 0 => 1,
-            _ => 0,
-        };
+        _minigame.End();
 
         var result = new MinigameResult
         {
-            maxTime = minigame.maxTime,
+            maxTime = _minigame.maxTime,
             timeRemaining = _timeRemaining,
-            levelsLost = levelsLost,
+            success = _timeRemaining > 0,
         };
 
         var stageData = _persistentDataManager.data.GetStageData(_stage.id);
         if (result.success && levelIndex > stageData.maxLevelIndexCompleted)
             stageData.maxLevelIndexCompleted = levelIndex;
 
-        Utilities.DestroyGameObject(minigame.gameObject);
+        Utilities.DestroyGameObject(_minigame.gameObject);
+        _minigame = null;
 
         yield return StartCoroutine(_minigameUi.ShowSummary(result));
 

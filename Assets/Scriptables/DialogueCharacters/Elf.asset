@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 176b01f95be2436089952d6abbf42a71, type: 3}
-  m_Name: Hero1
+  m_Name: Elf
   m_EditorClassIdentifier: 
-  characterName: HERO 1
-  mouthClosedSprite: {fileID: 21300000, guid: af04f3196abef440b94c03fbe3dab00f, type: 3}
-  mouthOpenSprite: {fileID: 21300000, guid: af04f3196abef440b94c03fbe3dab00f, type: 3}
+  characterName: FENULIEL
+  mouthClosedSprite: {fileID: 21300000, guid: 82754c28e5719d14fa23d756bd62df1a, type: 3}
+  mouthOpenSprite: {fileID: 21300000, guid: 82754c28e5719d14fa23d756bd62df1a, type: 3}

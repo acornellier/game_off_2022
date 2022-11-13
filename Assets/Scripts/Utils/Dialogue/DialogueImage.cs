@@ -47,7 +47,7 @@ public class DialogueImage : MonoBehaviour
 
         _downArrow.gameObject.SetActive(false);
         talkingHead.sprite = _currentDialogue.character.mouthClosedSprite;
-        title.text = _currentDialogue.character.characterName;
+        title.text = $"<uppercase>{_currentDialogue.character.characterName}</uppercase>";
         InitializeContents(_currentDialogue);
 
         if (_currentDialogue.wobble != Wobble.None)

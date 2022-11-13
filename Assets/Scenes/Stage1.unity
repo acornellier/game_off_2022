@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909a8f826fa342a5a61ec6b7282a0053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stage: {fileID: 0}
 --- !u!1 &299838526
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ad9a7e12b8433daba5a00755f1ad42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minigameUi: {fileID: 0}
 --- !u!4 &722879486
 Transform:
   m_ObjectHideFlags: 0
@@ -682,9 +684,6 @@ MonoBehaviour:
   startDelayTime: 0
   endDelayTime: 0
   nodeEvents:
-  - {fileID: 299838528}
-  - {fileID: 1133177112}
-  - {fileID: 1371084884}
   - {fileID: 961705481}
   playOnStart: 1
 --- !u!1 &1524360515
