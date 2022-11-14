@@ -660,7 +660,7 @@ Transform:
   - {fileID: 1076296383}
   - {fileID: 794414587}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513853731472540109
 GameObject:
@@ -1320,6 +1320,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 7876748711255091753}
     m_Modifications:
+    - target: {fileID: 3981109220296915061, guid: 1ef5979e99e9441b597becf86720c8ff, type: 3}
+      propertyPath: m_Name
+      value: DialogueArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879358011505752563, guid: 1ef5979e99e9441b597becf86720c8ff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -974145148, guid: a0ca70aad2b6e7a45a58e7c63bb9ddf6, type: 3}
     - target: {fileID: 8338807748379328947, guid: 1ef5979e99e9441b597becf86720c8ff, type: 3}
       propertyPath: m_Name
       value: ImageTop

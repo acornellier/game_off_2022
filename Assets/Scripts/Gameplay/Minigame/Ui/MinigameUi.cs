@@ -15,6 +15,8 @@ public class MinigameUi : MonoBehaviour
     [SerializeField] GameObject _summaryUi;
     [SerializeField] TMP_Text _resultsText;
 
+    [SerializeField] LevelDownUi _levelDownUi;
+
     void Awake()
     {
         HideAllUis();
@@ -25,6 +27,7 @@ public class MinigameUi : MonoBehaviour
     {
         HideAllUis();
         _levelSelectUi.gameObject.SetActive(true);
+        _levelSelectUi.Initialize();
     }
 
     public void ShowInGameUi(float maxTime)
@@ -40,7 +43,15 @@ public class MinigameUi : MonoBehaviour
         _summaryUi.SetActive(true);
         _resultsText.text = result.success ? "Success!" : "Too slow";
         yield return new WaitForSeconds(2);
+
         _summaryUi.SetActive(false);
+
+        if (result.firstSuccess)
+        {
+            HideAllUis();
+            _levelDownUi.gameObject.SetActive(true);
+            yield return StartCoroutine(_levelDownUi.CO_Run());
+        }
     }
 
     public void SetTimeRemaining(float timeRemaining, float maxTime)
@@ -54,5 +65,6 @@ public class MinigameUi : MonoBehaviour
         _levelSelectUi.gameObject.SetActive(false);
         _inGameUi.SetActive(false);
         _summaryUi.SetActive(false);
+        _levelDownUi.gameObject.SetActive(false);
     }
 }

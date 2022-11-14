@@ -14,4 +14,5 @@ public class Stage : ScriptableObject
 public class StageData
 {
     public int maxLevelIndexCompleted = -1;
+    public int levelsCompleted => maxLevelIndexCompleted + 1;
 }

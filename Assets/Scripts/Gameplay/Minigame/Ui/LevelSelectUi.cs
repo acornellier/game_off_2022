@@ -16,12 +16,12 @@ public class LevelSelectUi : MonoBehaviour
 
     int _prevSelectedIndex = -1;
 
-    void OnEnable()
+    void Start()
     {
         Initialize();
     }
 
-    void Initialize()
+    public void Initialize()
     {
         var stageData = _persistentDataManager.data.GetStageData(_stage.id);
 

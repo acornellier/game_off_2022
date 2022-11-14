@@ -10,7 +10,8 @@ public class PersistentData
     public Dictionary<string, StageData> stages = new();
     public Dictionary<string, bool> cinematicsDone = new();
 
-    public static int maxLevel = 99;
+    public static int maxLevel = 97;
+    public static int levelsLostPerLevel = 6;
 
     public bool IsCinematicDone(string key)
     {
@@ -34,7 +35,7 @@ public class PersistentData
         {
             return stages.Values.Aggregate(
                 maxLevel,
-                (current, stageData) => current - stageData.maxLevelIndexCompleted
+                (current, stageData) => current - stageData.levelsCompleted * levelsLostPerLevel
             );
         }
     }

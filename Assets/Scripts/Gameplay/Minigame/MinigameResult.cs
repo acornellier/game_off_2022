@@ -3,4 +3,5 @@
     public int maxTime;
     public float timeRemaining;
     public bool success;
+    public bool firstSuccess;
 }

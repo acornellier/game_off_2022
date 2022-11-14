@@ -5,6 +5,7 @@ using Zenject;
 public class StageStart : MonoBehaviour
 {
     [SerializeField] Stage _stage;
+    [SerializeField] bool _uiLeft = true;
 
     [Inject] StageUi _stageUi;
 
@@ -13,7 +14,7 @@ public class StageStart : MonoBehaviour
         var player = col.GetComponent<Player>();
         if (!player) return;
 
-        _stageUi.Activate(_stage);
+        _stageUi.Activate(_stage, _uiLeft);
     }
 
     void OnTriggerExit2D(Collider2D col)

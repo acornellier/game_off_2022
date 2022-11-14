@@ -4,9 +4,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
+[RequireComponent(typeof(RectTransform))]
 public class StageUi : MonoBehaviour
 {
-    [SerializeField] GameObject _wrapper;
+    [SerializeField] Image _wrapper;
     [SerializeField] TMP_Text _title;
     [SerializeField] TMP_Text _levelsComplete;
     [SerializeField] Button _startButton;
@@ -18,18 +19,20 @@ public class StageUi : MonoBehaviour
 
     void Awake()
     {
-        _wrapper.SetActive(false);
+        _wrapper.gameObject.SetActive(false);
         _startButton.onClick.AddListener(RunStage);
     }
 
-    public void Activate(Stage stage)
+    public void Activate(Stage stage, bool isLeft)
     {
         _stage = stage;
 
-        var stageData = _persistentDataManager.data.GetStageData(stage.id);
+        _wrapper.gameObject.SetActive(true);
+        _wrapper.rectTransform.anchorMin = new Vector2(isLeft ? 0 : 1, 0.5f);
+        _wrapper.rectTransform.anchorMax = new Vector2(isLeft ? 0 : 1, 0.5f);
+        _wrapper.rectTransform.pivot = new Vector2(isLeft ? 0 : 1, 0.5f);
 
-        stageData ??= new StageData();
-        _wrapper.SetActive(true);
+        var stageData = _persistentDataManager.data.GetStageData(stage.id);
 
         _title.text = stage.title;
         _levelsComplete.text =
@@ -41,10 +44,10 @@ public class StageUi : MonoBehaviour
     public void Deactivate()
     {
         _stage = null;
-        _wrapper.SetActive(false);
+        _wrapper.gameObject.SetActive(false);
     }
 
-    public void RunStage()
+    void RunStage()
     {
         _sceneLoader.SaveAndLoadScene(_stage.id);
     }

@@ -53,24 +53,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
-      propertyPath: maxTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
-      propertyPath: _maxSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _moveDistance.x
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _moveDistance.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
-      propertyPath: _progressIncreaseRate
-      value: 0.15
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228443, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: m_Name

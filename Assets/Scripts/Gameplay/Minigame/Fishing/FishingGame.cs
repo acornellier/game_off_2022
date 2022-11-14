@@ -71,9 +71,10 @@ public class FishingGame : Minigame
 
             while (Mathf.Abs(_fishPosition - _fishTargetPosition) < 0.2f)
             {
-                var direction = Mathf.Sign(Random.value - _fishTargetPosition);
+                var tempPosition = Random.value;
+                var direction = Mathf.Sign(tempPosition - _fishTargetPosition);
                 var distance = Random.Range(_moveDistance.x, _moveDistance.y);
-                _fishTargetPosition = Mathf.Clamp01(distance * direction);
+                _fishTargetPosition = Mathf.Clamp01(_fishPosition + distance * direction);
             }
         }
 

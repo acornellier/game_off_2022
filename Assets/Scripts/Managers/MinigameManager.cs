@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 public class MinigameManager : MonoBehaviour
@@ -44,6 +45,10 @@ public class MinigameManager : MonoBehaviour
         yield return new WaitUntil(
             () =>
             {
+                // TODO: remove debug
+                if (Keyboard.current.pKey.isPressed)
+                    return true;
+
                 if (_minigame.isDone)
                     return true;
 
@@ -59,15 +64,17 @@ public class MinigameManager : MonoBehaviour
 
         _minigame.End();
 
+        var success = _timeRemaining > 0;
+        var stageData = _persistentDataManager.data.GetStageData(_stage.id);
         var result = new MinigameResult
         {
             maxTime = _minigame.maxTime,
             timeRemaining = _timeRemaining,
-            success = _timeRemaining > 0,
+            success = success,
+            firstSuccess = success && levelIndex > stageData.maxLevelIndexCompleted,
         };
 
-        var stageData = _persistentDataManager.data.GetStageData(_stage.id);
-        if (result.success && levelIndex > stageData.maxLevelIndexCompleted)
+        if (result.firstSuccess)
             stageData.maxLevelIndexCompleted = levelIndex;
 
         Utilities.DestroyGameObject(_minigame.gameObject);

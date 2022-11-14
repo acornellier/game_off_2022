@@ -15,6 +15,7 @@ MonoBehaviour:
   id: Fishing
   title: Fishing
   levels:
-  - {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
+  - {fileID: 3769140993125835509, guid: 77a26dac6edba644f9661bebcaef9304, type: 3}
+  - {fileID: 9106046602441399839, guid: 470e80a4db47be1418e14e7c23a4f5e2, type: 3}
   - {fileID: 9106046602441399839, guid: 5291b9a3d1073ed45b0d61441843b83b, type: 3}
   - {fileID: 9106046602441399839, guid: 3ece55fe570bf6c47b06ca62e9b8f7e4, type: 3}

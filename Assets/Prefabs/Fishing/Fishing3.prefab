@@ -53,32 +53,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
-      propertyPath: maxTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _maxSpeed
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _moveDistance.x
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _moveDistance.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
-      propertyPath: _progressIncreaseRate
-      value: 0.1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228443, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: m_Name
       value: Fishing3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754561518462587337, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
