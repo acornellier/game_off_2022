@@ -24,11 +24,12 @@ public class GlobalSounds : MonoBehaviour
 
     public IEnumerator FadeOut(float fadeOutTime)
     {
+        var initialVolume = _musicSource.volume;
         var t = 0f;
         while (_musicSource.volume > 0)
         {
             t += Time.deltaTime;
-            _musicSource.volume = Mathf.Clamp01(1 - t / fadeOutTime);
+            _musicSource.volume = Mathf.Lerp(initialVolume, 0, t);
             yield return null;
         }
     }

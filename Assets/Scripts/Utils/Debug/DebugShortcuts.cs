@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using Zenject;
 
@@ -30,6 +31,18 @@ public class DebugShortcuts : MonoBehaviour
 
             _persistentDataManager.Save();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else if (Keyboard.current.xKey.wasPressedThisFrame)
+        {
+            foreach (var playableDirector in FindObjectsOfType<PlayableDirector>())
+            {
+                playableDirector.Stop();
+            }
+
+            foreach (var cinematicRunner in FindObjectsOfType<CinematicRunner>())
+            {
+                cinematicRunner.OnCinematicDone();
+            }
         }
     }
 }

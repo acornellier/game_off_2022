@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Playables;
 using Zenject;
 
 public class CinematicRunner : MonoBehaviour
 {
-    [SerializeField] string _cinematicKey;
     [SerializeField] PlayableDirector _playableDirector;
+    [SerializeField] string _cinematicKey;
+    [SerializeField] int _gamesDoneReq;
     [SerializeField] bool _skipIfDone = true;
-    [SerializeField] UnityEvent _eventOnDone;
 
     [Inject] PersistentDataManager _persistentDataManager;
 
@@ -17,20 +16,32 @@ public class CinematicRunner : MonoBehaviour
         if (_skipIfDone && _persistentDataManager.data.IsCinematicDone(_cinematicKey))
             return;
 
+        if (_persistentDataManager.data.gamesBeat < _gamesDoneReq)
+            return;
+
         foreach (var player in FindObjectsOfType<Player>())
         {
             player.DisableControls();
         }
 
         _playableDirector.Play();
+        _playableDirector.stopped += _ => OnCinematicDone();
+    }
+
+    public void Pause()
+    {
+        _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0);
+    }
+
+    public void Resume()
+    {
+        _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
     }
 
     public void OnCinematicDone()
     {
         _persistentDataManager.data.cinematicsDone[_cinematicKey] = true;
         _persistentDataManager.Save();
-
-        _eventOnDone?.Invoke();
 
         foreach (var player in FindObjectsOfType<Player>())
         {

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
 {
     [SerializeField] GameObject _optionsWrapper;
     [SerializeField] Button[] _options;
-    [SerializeField] PlayableDirector _playableDirector;
+    [SerializeField] UnityEvent _onSelectEvent;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class Combat : MonoBehaviour
 
     public void OnClick()
     {
-        _playableDirector.Play();
         _optionsWrapper.SetActive(false);
+        _onSelectEvent.Invoke();
     }
 }

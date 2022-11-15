@@ -123,6 +123,224 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &26515566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26515570}
+  - component: {fileID: 26515569}
+  - component: {fileID: 26515568}
+  - component: {fileID: 26515567}
+  m_Layer: 0
+  m_Name: CinematicGames8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &26515567
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26515566}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 79384243606077349, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 7979342552735152181, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 5187381320891272623}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &26515568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26515566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Key: 
+    m_Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_Key: CinematicDone
+    m_Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 26515569}
+          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
+          m_MethodName: OnCinematicDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &26515569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26515566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8004ce8ff964ee797f637ef82519e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematicKey: Games8
+  _gamesDoneReq: 8
+  _playableDirector: {fileID: 26515567}
+  _skipIfDone: 1
+  _eventOnDone:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &26515570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26515566}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &42939309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42939313}
+  - component: {fileID: 42939312}
+  - component: {fileID: 42939311}
+  - component: {fileID: 42939310}
+  m_Layer: 0
+  m_Name: CinematicGames16
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &42939310
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42939309}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 79384243606077349, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 7979342552735152181, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 5187381320891272623}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &42939311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42939309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Key: 
+    m_Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_Key: CinematicDone
+    m_Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 42939312}
+          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
+          m_MethodName: OnCinematicDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &42939312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42939309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8004ce8ff964ee797f637ef82519e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematicKey: Games16
+  _gamesDoneReq: 16
+  _playableDirector: {fileID: 42939310}
+  _skipIfDone: 1
+  _eventOnDone:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &42939313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42939309}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113874505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1265,115 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557628828}
   m_CullTransparentMesh: 1
+--- !u!1 &586881199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 586881203}
+  - component: {fileID: 586881202}
+  - component: {fileID: 586881201}
+  - component: {fileID: 586881200}
+  m_Layer: 0
+  m_Name: CinematicGames2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &586881200
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586881199}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 9f386199fbc9aea44be2d848d1952e6f, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 79384243606077349, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 7979342552735152181, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 5187381320891272623}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &586881201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586881199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Key: 
+    m_Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_Key: CinematicDone
+    m_Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 586881202}
+          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
+          m_MethodName: OnCinematicDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &586881202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586881199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8004ce8ff964ee797f637ef82519e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematicKey: Games2
+  _gamesDoneReq: 2
+  _playableDirector: {fileID: 586881200}
+  _skipIfDone: 1
+  _eventOnDone:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &586881203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586881199}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &661353338 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8552810859227908932, guid: 20fc716292e5d30468a56b9548a8eec9, type: 3}
@@ -1087,6 +1414,43 @@ Transform:
   - {fileID: 346871685}
   m_Father: {fileID: 0}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &818226098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818226099}
+  m_Layer: 0
+  m_Name: Cinematics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818226099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818226098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1455484271}
+  - {fileID: 586881203}
+  - {fileID: 1542063869}
+  - {fileID: 26515570}
+  - {fileID: 1471767507}
+  - {fileID: 42939313}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &897898982
 GameObject:
@@ -1640,6 +2004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cinematicKey: Intro2
+  _gamesDoneReq: 0
   _playableDirector: {fileID: 1455484272}
   _skipIfDone: 1
   _eventOnDone:
@@ -1652,13 +2017,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455484269}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &1455484272
 PlayableDirector:
@@ -1716,6 +2081,115 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &1471767503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1471767507}
+  - component: {fileID: 1471767506}
+  - component: {fileID: 1471767505}
+  - component: {fileID: 1471767504}
+  m_Layer: 0
+  m_Name: CinematicGames12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1471767504
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471767503}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 79384243606077349, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 7979342552735152181, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 5187381320891272623}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &1471767505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471767503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Key: 
+    m_Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_Key: CinematicDone
+    m_Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1471767506}
+          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
+          m_MethodName: OnCinematicDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1471767506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471767503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8004ce8ff964ee797f637ef82519e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematicKey: Games12
+  _gamesDoneReq: 12
+  _playableDirector: {fileID: 1471767504}
+  _skipIfDone: 1
+  _eventOnDone:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1471767507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471767503}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524360515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +2459,115 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1542063865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542063869}
+  - component: {fileID: 1542063868}
+  - component: {fileID: 1542063867}
+  - component: {fileID: 1542063866}
+  m_Layer: 0
+  m_Name: CinematicGames5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1542063866
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542063865}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 79384243606077349, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 7979342552735152181, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 5187381320891272623}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &1542063867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542063865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Key: 
+    m_Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_Key: CinematicDone
+    m_Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1542063868}
+          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
+          m_MethodName: OnCinematicDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1542063868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542063865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8004ce8ff964ee797f637ef82519e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematicKey: Games5
+  _gamesDoneReq: 5
+  _playableDirector: {fileID: 1542063866}
+  _skipIfDone: 1
+  _eventOnDone:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1542063869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542063865}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1543727958
 GameObject:
   m_ObjectHideFlags: 0

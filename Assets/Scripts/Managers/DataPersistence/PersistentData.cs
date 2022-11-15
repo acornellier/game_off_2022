@@ -30,16 +30,12 @@ public class PersistentData
         return data;
     }
 
-    public int level
-    {
-        get
-        {
-            return stages.Values.Aggregate(
-                maxLevel,
-                (current, stageData) => current - stageData.levelsCompleted * levelsLostPerLevel
-            );
-        }
-    }
+    public int gamesBeat => stages.Values.Aggregate(
+        0,
+        (acc, stageData) => acc + stageData.levelsCompleted
+    );
+
+    public int level => maxLevel - Math.Max(0, gamesBeat * levelsLostPerLevel);
 }
 
 [Serializable]
