@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Packing.unity
     guid: 1e8533ed307d9b74d82b4b821fd45709
   - enabled: 1
-    path: Assets/Scenes/BreakoutStage.unity
+    path: Assets/Scenes/Breakout.unity
     guid: 0b2bde88549138b4dbcc93ef3d1a21aa
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1720689d575469741b4ae12c06fd7093, type: 2}

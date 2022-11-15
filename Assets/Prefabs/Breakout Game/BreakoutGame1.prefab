@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16614da73c7a41e4cb0f27ff032c5e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 0
+  maxTime: 30
   paddle: {fileID: 8813610201063289069}
   moveSpeed: 500
   malaforIdle: {fileID: 21300000, guid: 8b933528068bf134b8d60714754616d0, type: 3}
