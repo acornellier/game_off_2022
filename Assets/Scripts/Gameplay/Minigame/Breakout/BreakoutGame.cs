@@ -23,8 +23,7 @@ public class BreakoutGame : Minigame
     [Tooltip("Distance above paddle to spawn")]
     float ballStartY;
 
-    [Header("Bricks")] [SerializeField] int bricksToWin;
-    [HideInInspector] public int bricksBroken = 0;
+    [Header("Bricks")] [HideInInspector] public int bricksLeft = 0;
     [HideInInspector] public Breakable[] breakables;
 
     EdgeCollider2D screenEdge;
@@ -33,9 +32,10 @@ public class BreakoutGame : Minigame
     Collider2D paddleCollider;
     SpriteRenderer malaforRenderer;
 
-    // bool _running;
+    bool _running;
     // bool holdingBall;
     public int currentBalls;
+    public int activeBalls;
     BreakoutBall heldBall;
     GameObject heldBallObject;
 
@@ -46,7 +46,6 @@ public class BreakoutGame : Minigame
         screenEdge = GetComponent<EdgeCollider2D>();
         var screenPoints = GenerateCameraBounds();
         screenEdge.points = screenPoints;
-        // holdingBall = true;
         malaforRenderer = paddle.GetComponentInChildren<SpriteRenderer>();
         currentBalls = startingBalls;
     }
@@ -54,31 +53,35 @@ public class BreakoutGame : Minigame
     void Start()
     {
         breakables = FindObjectsOfType<Breakable>();
-        if (breakables.Length < bricksToWin)
-            bricksToWin = breakables.Length;
+        bricksLeft = breakables.Length;
+        activeBalls = 0;
     }
 
     void Update()
     {
-        DebugMinigame(); //comment me out!
+        if (!_running) { return; }
+        //DebugMinigame(); //comment me out!
         FireBall();
+        CheckForWin();
     }
+
+    
 
     void FixedUpdate()
     {
-        //if (!_running) { return; }
+        if (!_running) { return; }
 
         MovePaddle();
     }
 
     public override void Begin()
     {
-        // _running = true;
+        _running = true;
     }
 
     public override void End()
     {
-        // _running = false;
+        _running = false;
     }
 
     void MovePaddle()
@@ -113,8 +116,7 @@ public class BreakoutGame : Minigame
                 ballPrefab,
                 new Vector2(paddle.transform.position.x, paddle.transform.position.y + ballStartY),
                 Quaternion.identity,
-                transform
-            );
+                transform);
             heldBall = heldBallObject.GetComponent<BreakoutBall>();
             heldBall.myChargingFX.Play(false);
             heldBall.ballCollider.enabled = false;
@@ -122,7 +124,6 @@ public class BreakoutGame : Minigame
 
         if (currentBalls > 0 && Mouse.current.leftButton.wasReleasedThisFrame)
         {
-            // holdingBall = false;
             heldBall.ballCollider.enabled = true;
             heldBall.ballReleased = true;
             heldBall.ballBody.velocity = new Vector2(0, ballStartSpeed);
@@ -132,20 +133,26 @@ public class BreakoutGame : Minigame
             malaforRenderer.sprite = malaforIdle;
             paddleCollider.enabled = true;
             heldBallObject = null;
+            activeBalls++;
             currentBalls--;
         }
     }
-
+    private void CheckForWin()
+    {
+        if(bricksLeft <= 0)
+        {
+            _running = false;
+        }
+    }
     Vector2[] GenerateCameraBounds()
     {
         var halfScreenHeight = Camera.main.orthographicSize;
         var halfScreenWidth = Camera.main.orthographicSize * Screen.width / Screen.height;
-        var bounds = new Vector2[5];
-        bounds[0] = new Vector2(-halfScreenWidth, halfScreenHeight);
-        bounds[1] = new Vector2(halfScreenWidth, halfScreenHeight);
-        bounds[2] = new Vector2(halfScreenWidth, -halfScreenHeight);
-        bounds[3] = new Vector2(-halfScreenWidth, -halfScreenHeight);
-        bounds[4] = new Vector2(-halfScreenWidth, halfScreenHeight);
+        var bounds = new Vector2[4];
+        bounds[0] = new Vector2(-halfScreenWidth, -halfScreenHeight);
+        bounds[1] = new Vector2(-halfScreenWidth, halfScreenHeight);
+        bounds[2] = new Vector2(halfScreenWidth, halfScreenHeight);
+        bounds[3] = new Vector2(halfScreenWidth, -halfScreenHeight);
         return bounds;
     }
 

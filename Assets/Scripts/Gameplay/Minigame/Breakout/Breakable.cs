@@ -22,7 +22,7 @@ public class Breakable : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<BreakoutBall>())
         {
-            gameRules.bricksBroken++;
+            gameRules.bricksLeft--;
             Destroy(gameObject);
         }
     }
