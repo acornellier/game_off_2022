@@ -9,6 +9,7 @@ public class PersistentData
     public Vector3Json playerPosition;
     public Dictionary<string, StageData> stages = new();
     public Dictionary<string, bool> cinematicsDone = new();
+    public bool nightmareUnlocked;
 
     public static int maxLevel = 97;
     public static int levelsLostPerLevel = 6;

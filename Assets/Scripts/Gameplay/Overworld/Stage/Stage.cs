@@ -15,4 +15,11 @@ public class StageData
 {
     public int maxLevelIndexCompleted = -1;
     public int levelsCompleted => maxLevelIndexCompleted + 1;
+
+    public bool IsLevelUnlocked(int levelIndex, bool nightmareUnlocked)
+    {
+        if (levelIndex == 0) return true;
+        if (levelIndex >= 3) return nightmareUnlocked;
+        return maxLevelIndexCompleted >= levelIndex - 1;
+    }
 }
