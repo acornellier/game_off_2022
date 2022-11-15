@@ -146,15 +146,17 @@ public class BreakoutGame : Minigame
 
     private void RemoveAmmo()
     {
-        currentBalls--;
-        for (int i = currentBalls; i <= 0; i--)
+        if (currentBalls == ammoCount.Count)
         {
-            if(ammoCount[i].value < 1f)
-            {
-
-            }
+            currentBalls--;
+            ammoCount[currentBalls].value = 0f;
         }
-        ammoCount[currentBalls].value = 0f;
+        else
+        {
+            currentBalls--;
+            ammoCount[currentBalls].value = ammoCount[currentBalls + 1].value;
+            ammoCount[currentBalls + 1].value = 0f;
+        }
     }
 
     private void RechargeAmmo()
