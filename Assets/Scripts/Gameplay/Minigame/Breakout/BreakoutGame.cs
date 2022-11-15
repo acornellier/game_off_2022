@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 public class BreakoutGame : Minigame
 {
+    [Header("Test Settings")]
+    [SerializeField] bool playgroundMode = false;
+    
     [Header("Malafor")] [SerializeField] public GameObject paddle;
     [SerializeField] float moveSpeed;
     [SerializeField] Sprite malaforIdle;
@@ -17,7 +20,9 @@ public class BreakoutGame : Minigame
     [SerializeField] public float ballMaxSpeed;
     [SerializeField] public float ballMinSpeed;
     [SerializeField] public float minBallAngle;
-    [SerializeField] int startingBalls = 3;
+    [SerializeField] List<Slider> ammoCount;
+    [SerializeField] bool rechargable = true;
+    [SerializeField] float rechargeTime = 1f;
 
     [SerializeField]
     [Tooltip("Distance above paddle to spawn")]
@@ -33,7 +38,6 @@ public class BreakoutGame : Minigame
     SpriteRenderer malaforRenderer;
 
     bool _running;
-    // bool holdingBall;
     public int currentBalls;
     public int activeBalls;
     BreakoutBall heldBall;
@@ -41,13 +45,14 @@ public class BreakoutGame : Minigame
 
     void Awake()
     {
+        if (playgroundMode) { _running = true; }
         paddleBody = paddle.GetComponent<Rigidbody2D>();
         paddleCollider = paddle.GetComponent<Collider2D>();
         screenEdge = GetComponent<EdgeCollider2D>();
         var screenPoints = GenerateCameraBounds();
         screenEdge.points = screenPoints;
         malaforRenderer = paddle.GetComponentInChildren<SpriteRenderer>();
-        currentBalls = startingBalls;
+        currentBalls = ammoCount.Count;
     }
 
     void Start()
@@ -62,6 +67,7 @@ public class BreakoutGame : Minigame
         if (!_running) { return; }
         //DebugMinigame(); //comment me out!
         FireBall();
+        RechargeAmmo();
         CheckForWin();
     }
 
@@ -134,14 +140,44 @@ public class BreakoutGame : Minigame
             paddleCollider.enabled = true;
             heldBallObject = null;
             activeBalls++;
-            currentBalls--;
+            RemoveAmmo();
         }
     }
+
+    private void RemoveAmmo()
+    {
+        currentBalls--;
+        for (int i = currentBalls; i <= 0; i--)
+        {
+            if(ammoCount[i].value < 1f)
+            {
+
+            }
+        }
+        ammoCount[currentBalls].value = 0f;
+    }
+
+    private void RechargeAmmo()
+    {
+        foreach(Slider ammo in ammoCount)
+        {
+            if(currentBalls == ammoCount.IndexOf(ammo))
+            {
+                ammo.value += Time.deltaTime * (1/rechargeTime);
+                if(ammo.value >= 1f)
+                {
+                    currentBalls++;
+                }
+            }
+        }
+    }
+
     private void CheckForWin()
     {
         if(bricksLeft <= 0)
         {
-            _running = false;
+            if (playgroundMode) { return; }
+            isDone = true;
         }
     }
     Vector2[] GenerateCameraBounds()
