@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using Zenject;
 
@@ -21,27 +20,21 @@ public class DebugShortcuts : MonoBehaviour
         {
             _persistentDataManager.Save();
         }
-        else if (Keyboard.current.tKey.wasPressedThisFrame && Keyboard.current.shiftKey.isPressed)
+        else if (Keyboard.current.tKey.wasPressedThisFrame)
         {
-            foreach (var stage in new[] { "Fishing", })
+            foreach (var stage in new[] { "Fishing", "Packing", "Breakout", })
             {
-                _persistentDataManager.data.stages[stage] =
-                    new StageData { maxLevelIndexCompleted = 99, };
+                _persistentDataManager.data.GetStageData(stage).maxLevelIndexCompleted += 1;
             }
 
             _persistentDataManager.Save();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else if (Keyboard.current.xKey.wasPressedThisFrame)
+        else if (Keyboard.current.xKey.isPressed)
         {
-            foreach (var playableDirector in FindObjectsOfType<PlayableDirector>())
-            {
-                playableDirector.Stop();
-            }
-
             foreach (var cinematicRunner in FindObjectsOfType<CinematicRunner>())
             {
-                cinematicRunner.OnCinematicDone();
+                cinematicRunner.Skip();
             }
         }
     }

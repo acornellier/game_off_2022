@@ -9,6 +9,7 @@ public class PersistentData
     public Vector3Json playerPosition;
     public Dictionary<string, StageData> stages = new();
     public Dictionary<string, bool> cinematicsDone = new();
+    public Dictionary<string, bool> dialoguesDone = new();
     public bool nightmareUnlocked;
 
     public static int maxLevel = 97;
@@ -17,6 +18,11 @@ public class PersistentData
     public bool IsCinematicDone(string key)
     {
         return cinematicsDone.TryGetValue(key, out var done) && done;
+    }
+
+    public bool IsDialogueDone(string key)
+    {
+        return dialoguesDone.TryGetValue(key, out var done) && done;
     }
 
     public StageData GetStageData(string stageId)

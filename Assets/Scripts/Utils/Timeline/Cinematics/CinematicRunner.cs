@@ -9,7 +9,10 @@ public class CinematicRunner : MonoBehaviour
     [SerializeField] int _gamesDoneReq;
     [SerializeField] bool _skipIfDone = true;
 
+    [Inject] DialogueManager _dialogueManager;
     [Inject] PersistentDataManager _persistentDataManager;
+
+    bool _running;
 
     public void Start()
     {
@@ -24,8 +27,9 @@ public class CinematicRunner : MonoBehaviour
             player.DisableControls();
         }
 
+        _running = true;
         _playableDirector.Play();
-        _playableDirector.stopped += _ => OnCinematicDone();
+        _playableDirector.stopped += _ => OnDirectorStopped();
     }
 
     public void Pause()
@@ -38,7 +42,7 @@ public class CinematicRunner : MonoBehaviour
         _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
     }
 
-    public void OnCinematicDone()
+    public void OnDirectorStopped()
     {
         _persistentDataManager.data.cinematicsDone[_cinematicKey] = true;
         _persistentDataManager.Save();
@@ -47,5 +51,15 @@ public class CinematicRunner : MonoBehaviour
         {
             player.EnableControls();
         }
+
+        _running = false;
+    }
+
+    public void Skip()
+    {
+        if (!_running) return;
+
+        _dialogueManager.StopDialogue();
+        _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(10);
     }
 }
