@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fishing
   m_EditorClassIdentifier: 
   id: Fishing
-  title: Fishing
+  title: Better Fish to Fry
   levels:
   - {fileID: 3769140993125835509, guid: 77a26dac6edba644f9661bebcaef9304, type: 3}
   - {fileID: 9106046602441399839, guid: 470e80a4db47be1418e14e7c23a4f5e2, type: 3}

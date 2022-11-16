@@ -36,7 +36,7 @@ public class StageUi : MonoBehaviour
 
         _title.text = stage.title;
         _levelsComplete.text =
-            $"Levels complete: {stageData.maxLevelIndexCompleted + 1}/{stage.levels.Count}";
+            $"Difficulties complete: {stageData.maxLevelIndexCompleted + 1}/{stage.levels.Count}";
 
         EventSystem.current.SetSelectedGameObject(_startButton.gameObject);
     }

@@ -42,7 +42,7 @@ public class CinematicRunner : MonoBehaviour
         _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
     }
 
-    public void OnDirectorStopped()
+    void OnDirectorStopped()
     {
         _persistentDataManager.data.cinematicsDone[_cinematicKey] = true;
         _persistentDataManager.Save();
