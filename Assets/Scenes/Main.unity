@@ -401,7 +401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185628447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.41, y: 7.84, z: -0.08182497}
+  m_LocalPosition: {x: 5.25, y: 8, z: -0.08182497}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 346871687}
   - component: {fileID: 346871686}
   m_Layer: 0
-  m_Name: Finale
+  m_Name: Gauntlet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -824,7 +824,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 0.9830491, b: 0, a: 0.5372549}
+  m_Color: {r: 1, g: 0.9830491, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1891,7 +1891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286850033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.5, y: 2.0900002, z: -0.08182497}
+  m_LocalPosition: {x: 8.5, y: 2, z: -0.08182497}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e9b58462663554ba47e01c8d9cfc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stage: {fileID: 11400000, guid: c795905feaa5fb74e8fc8aa178d30aa4, type: 2}
+  _stage: {fileID: 11400000, guid: 9fe072d8be3663140bf7e958573a6383, type: 2}
   _uiLeft: 1
 --- !u!1 &1317332595
 GameObject:
@@ -2650,7 +2650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529285475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.25, y: 8.01, z: -0.08182497}
+  m_LocalPosition: {x: -5.25, y: 8, z: -0.08182497}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2776,7 +2776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543727958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 2.04, z: -0.08182499}
+  m_LocalPosition: {x: -8.5, y: 2, z: -0.08182499}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []

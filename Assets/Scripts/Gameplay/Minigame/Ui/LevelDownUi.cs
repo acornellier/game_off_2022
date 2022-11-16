@@ -10,6 +10,7 @@ public class LevelDownUi : MonoBehaviour
     void OnEnable()
     {
         _description.SetActive(false);
+        _shrinkingMalafor.ResetSize();
     }
 
     public IEnumerator CO_Run()

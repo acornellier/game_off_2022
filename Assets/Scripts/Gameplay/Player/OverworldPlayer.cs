@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class OverworldPlayer : MonoBehaviour, IPersistableData
+public class OverworldPlayer : MonoBehaviour
 {
     [SerializeField] TopDownPlayer _player;
     [SerializeField] Interactors _interactors;
@@ -38,17 +38,6 @@ public class OverworldPlayer : MonoBehaviour, IPersistableData
         return _player.facingDirection.x < _player.facingDirection.y
             ? _interactors.left
             : _interactors.down;
-    }
-
-    public void Load(PersistentData data)
-    {
-        if (data.playerPosition != null)
-            _player.transform.position = data.playerPosition.ToVector3();
-    }
-
-    public void Save(PersistentData data)
-    {
-        data.playerPosition = new Vector3Json(_player.transform.position);
     }
 
     [Serializable]

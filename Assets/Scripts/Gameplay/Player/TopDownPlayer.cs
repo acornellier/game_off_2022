@@ -86,9 +86,9 @@ public class TopDownPlayer : Player
         );
     }
 
-    void SetFacingDirection(Vector2Int facingDirection)
+    void SetFacingDirection(Vector2Int newDirection)
     {
-        this.facingDirection = facingDirection;
+        facingDirection = newDirection;
     }
 
     void UpdateAnimations()
