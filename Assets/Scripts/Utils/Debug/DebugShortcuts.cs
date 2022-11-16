@@ -20,12 +20,29 @@ public class DebugShortcuts : MonoBehaviour
         {
             _persistentDataManager.Save();
         }
+        else if (Keyboard.current.oKey.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene("Main");
+        }
         else if (Keyboard.current.tKey.wasPressedThisFrame)
         {
-            foreach (var stage in new[] { "Fishing", "Packing", "Breakout", })
+            var noneLeftTo2 = true;
+            foreach (var stage in new[] { "Fishing", "Packing", "Breakout", "Fired", })
             {
-                _persistentDataManager.data.GetStageData(stage).maxLevelIndexCompleted += 1;
+                var stageData = _persistentDataManager.data.GetStageData(stage);
+                if (stageData.maxLevelIndexCompleted < 2)
+                {
+                    _persistentDataManager.data.GetStageData(stage).maxLevelIndexCompleted = 2;
+                    noneLeftTo2 = false;
+                    break;
+                }
             }
+
+            if (noneLeftTo2)
+                foreach (var stage in new[] { "Fishing", "Packing", "Breakout", "Fired", })
+                {
+                    _persistentDataManager.data.GetStageData(stage).maxLevelIndexCompleted = 3;
+                }
 
             _persistentDataManager.Save();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

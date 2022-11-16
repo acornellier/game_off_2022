@@ -25,10 +25,7 @@ public class MinigameManager : MonoBehaviour
             StopCoroutine(_minigameCoroutine);
 
         if (_minigame)
-        {
-            Utilities.DestroyGameObject(_minigame.gameObject);
-            _minigame = null;
-        }
+            EndMinigame();
 
         _minigameUi.ShowLevelSelectUi();
     }
@@ -62,8 +59,6 @@ public class MinigameManager : MonoBehaviour
             }
         );
 
-        _minigame.End();
-
         var success = _timeRemaining > 0;
         var stageData = _persistentDataManager.data.GetStageData(_stage.id);
         var result = new MinigameResult
@@ -77,11 +72,17 @@ public class MinigameManager : MonoBehaviour
         if (result.firstSuccess)
             stageData.maxLevelIndexCompleted = levelIndex;
 
-        Utilities.DestroyGameObject(_minigame.gameObject);
-        _minigame = null;
+        EndMinigame();
 
         yield return StartCoroutine(_minigameUi.ShowSummary(result));
 
         _minigameUi.ShowLevelSelectUi();
+    }
+
+    void EndMinigame()
+    {
+        _minigame.End();
+        Utilities.DestroyGameObject(_minigame.gameObject);
+        _minigame = null;
     }
 }

@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e9b58462663554ba47e01c8d9cfc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stage: {fileID: 11400000, guid: aac876b0df4e7e34aaf37de4782efd72, type: 2}
+  _stage: {fileID: 11400000, guid: 9fe072d8be3663140bf7e958573a6383, type: 2}
   _uiLeft: 1
 --- !u!1 &201485072
 GameObject:
@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e9b58462663554ba47e01c8d9cfc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stage: {fileID: 0}
+  _stage: {fileID: 11400000, guid: f7d70a02738cc0444b55f7b20c2c5457, type: 2}
   _uiLeft: 1
 --- !u!1 &542452481
 GameObject:

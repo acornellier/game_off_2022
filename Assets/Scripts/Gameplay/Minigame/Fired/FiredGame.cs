@@ -55,6 +55,21 @@ public class FiredGame : Minigame
     public override void End()
     {
         _player.DisableControls();
+
+        foreach (var obj in FindObjectsOfType<Target>())
+        {
+            Utilities.DestroyGameObject(obj.gameObject);
+        }
+
+        foreach (var obj in FindObjectsOfType<Fireball>())
+        {
+            Utilities.DestroyGameObject(obj.gameObject);
+        }
+
+        foreach (var obj in FindObjectsOfType<Explosion>())
+        {
+            Utilities.DestroyGameObject(obj.gameObject);
+        }
     }
 
     public void OnFired(int firedCount)

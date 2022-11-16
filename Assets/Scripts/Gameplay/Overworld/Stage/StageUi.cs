@@ -35,8 +35,17 @@ public class StageUi : MonoBehaviour
         var stageData = _persistentDataManager.data.GetStageData(stage.id);
 
         _title.text = stage.title;
-        _levelsComplete.text =
-            $"Difficulties complete: {stageData.maxLevelIndexCompleted + 1}/{stage.levels.Count}";
+
+        if (stage.levels.Count > 0)
+        {
+            _levelsComplete.gameObject.SetActive(true);
+            _levelsComplete.text =
+                $"Difficulties complete: {stageData.maxLevelIndexCompleted + 1}/{stage.levels.Count}";
+        }
+        else
+        {
+            _levelsComplete.gameObject.SetActive(false);
+        }
 
         EventSystem.current.SetSelectedGameObject(_startButton.gameObject);
     }
