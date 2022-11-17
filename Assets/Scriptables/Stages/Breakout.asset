@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Breakout
   m_EditorClassIdentifier: 
   id: Breakout
-  title: Breakout
+  title: Breaking Outside the Box
   levels:
   - {fileID: 4185462589571316020, guid: ce92e3e1fcbef99458a02a4b642b8a18, type: 3}
   - {fileID: 4497045859190020307, guid: 137914c4119ced548b601a34fe303756, type: 3}

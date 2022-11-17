@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -21,11 +22,13 @@ public class EggcornInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        foreach (var dialogue in _dialogues)
+        foreach (var dialogue in _dialogues.OrderBy(dialogue => dialogue.gamesDoneReq).Reverse())
         {
-            if (_persistentDataManager.data.IsDialogueDone(dialogue.key) ||
-                _persistentDataManager.data.gamesBeat < dialogue.gamesDoneReq)
+            if (_persistentDataManager.data.gamesBeat < dialogue.gamesDoneReq)
                 continue;
+
+            if (_persistentDataManager.data.IsDialogueDone(dialogue.key))
+                return;
 
             _dialogueManager.StartDialogue(dialogue.dialogues);
 

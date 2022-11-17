@@ -1229,8 +1229,6 @@ PlayableDirector:
     value: {fileID: 661353338}
   - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
     value: {fileID: 2034557829}
-  - key: {fileID: 3423216191614309863, guid: 9f386199fbc9aea44be2d848d1952e6f, type: 2}
-    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &586881201
@@ -1404,6 +1402,9 @@ Transform:
   - {fileID: 1455484271}
   - {fileID: 586881203}
   - {fileID: 1490403058}
+  - {fileID: 1183307578}
+  - {fileID: 1319558914}
+  - {fileID: 1232607031}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1787,6 +1788,114 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _level: {fileID: 2076822992}
+--- !u!1 &1183307577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183307578}
+  - component: {fileID: 1183307581}
+  - component: {fileID: 1183307580}
+  - component: {fileID: 1183307579}
+  m_Layer: 0
+  m_Name: CinematicGames8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183307578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183307577}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1183307579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183307577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Key: 
+    m_Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_Key: CinematicDone
+    m_Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1183307581}
+          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
+          m_MethodName: OnCinematicDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!320 &1183307580
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183307577}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 57d5f0952a49547fe90a2d0758892b31, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 79384243606077349, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 7979342552735152181, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 2034557829}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &1183307581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183307577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8004ce8ff964ee797f637ef82519e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playableDirector: {fileID: 1183307580}
+  _cinematicKey: Games8
+  _gamesDoneReq: 8
+  _skipIfDone: 1
 --- !u!1 &1195752419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,6 +1973,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195752419}
   m_CullTransparentMesh: 1
+--- !u!1 &1232607030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232607031}
+  - component: {fileID: 1232607034}
+  - component: {fileID: 1232607033}
+  - component: {fileID: 1232607032}
+  m_Layer: 0
+  m_Name: CinematicGames16
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1232607031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232607030}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1232607032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232607030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Key: 
+    m_Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_Key: CinematicDone
+    m_Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1232607034}
+          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
+          m_MethodName: OnCinematicDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!320 &1232607033
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232607030}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 628c365deb56d452081405e156c99ec3, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 79384243606077349, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 7979342552735152181, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 2034557829}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &1232607034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232607030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8004ce8ff964ee797f637ef82519e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playableDirector: {fileID: 1232607033}
+  _cinematicKey: Games16
+  _gamesDoneReq: 16
+  _skipIfDone: 1
 --- !u!1 &1286850033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,14 +2288,8 @@ MonoBehaviour:
     - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
       fontSize: 0
       wobble: 0
-      line: If you left now, any decent mage could use it to track your energy. We
-        would not be left alone for long.
-      topOfScreen: 0
-    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
-      fontSize: 0
-      wobble: 0
-      line: Certainly, Sire! In your genius, you designed a fortress that magnifies
-        your evil imprint on this land.
+      line: "If you left now, any decent mage could use it to track your energy.
+        We wouldn\u2019t be alone for long."
       topOfScreen: 0
     - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
       fontSize: 0
@@ -2089,6 +2300,160 @@ MonoBehaviour:
       fontSize: 0
       wobble: 0
       line: Yes, Sire. Thank you, Sire.
+      topOfScreen: 0
+  - gamesDoneReq: 5
+    dialogues:
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "I\u2019ve been thinking about what you said, Your Wondrousness. Perhaps,
+        in our new life, I can take on more duties around the lair."
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "But you already do so much! You\u2019ve earned a greater place in my
+        Dark Vision!"
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: For that, I thank you, Sire.
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: But a greater role would send me to a far-off castle, guarding ancient
+        weapons or magic wellsprings.
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: The truth is, I am happiest by your side..
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: ...
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "It wouldn\u2019t be the same without you, faithful Eggcorn."
+      topOfScreen: 0
+  - gamesDoneReq: 8
+    dialogues:
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "I can\u2019t believe it\u2019s been 400 years\u2026"
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: Longer still, if you count the time we spent in the Chaos Pits, preparing
+        our entrance to the mortal realm.
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "Before then, you know\u2026 Oh, this is embarrassing."
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: What?
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: As soon as I received your minionship application, I threw the rest out.
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: R-really?!
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "I\u2019ve admired your wit and wiles since the Dawning of All Things."
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "I\u2019m sorry I never told you how much I respect you. I\u2019ve been
+        a terrible friend."
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: Nonsense. I was just happy to be counted on. In our new life, things
+        can be different.
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: Things <i>will</i> be different. I promise.
+      topOfScreen: 0
+  - gamesDoneReq: 12
+    dialogues:
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "I can\u2019t believe this is really happening."
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "Me neither. My dreams are coming true\u2026"
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "Can we get married right away? I don\u2019t want to wait."
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: As soon as we get out of here, maybe?
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: The first moment we can spare!
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "Oh\u2026 I can\u2019t remember a time when I was this happy\u2026"
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: Can we have a cake?
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: With skulls and bats and blood roses?
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "Devil\u2019s food with raspberry filling?"
+      topOfScreen: 0
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: Deal!
+      topOfScreen: 0
+  - gamesDoneReq: 16
+    dialogues:
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+      fontSize: 0
+      wobble: 0
+      line: "Our work here is done, darling. Let\u2019s get out of here."
       topOfScreen: 0
 --- !u!61 &1317332598
 BoxCollider2D:
@@ -2116,6 +2481,114 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!1 &1319558913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319558914}
+  - component: {fileID: 1319558917}
+  - component: {fileID: 1319558916}
+  - component: {fileID: 1319558915}
+  m_Layer: 0
+  m_Name: CinematicGames12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1319558914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319558913}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1169.5586, y: 577.51025, z: 1.911212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818226099}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1319558915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319558913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Key: 
+    m_Event:
+      m_PersistentCalls:
+        m_Calls: []
+  - m_Key: CinematicDone
+    m_Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1319558917}
+          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
+          m_MethodName: OnCinematicDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!320 &1319558916
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319558913}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: e0b9872f60b7c42b48d6552b2fb486e4, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 79384243606077349, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 7979342552735152181, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 661353338}
+  - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 2034557829}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &1319558917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319558913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8004ce8ff964ee797f637ef82519e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playableDirector: {fileID: 1319558916}
+  _cinematicKey: Games12
+  _gamesDoneReq: 12
+  _skipIfDone: 1
 --- !u!1 &1394970885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,8 +2834,6 @@ PlayableDirector:
     value: {fileID: 661353338}
   - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
     value: {fileID: 2034557829}
-  - key: {fileID: 252968136357067490, guid: 494aff05be50bf34ebbd2c174bb276b8, type: 2}
-    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1490403060
