@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e9b58462663554ba47e01c8d9cfc20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stage: {fileID: 11400000, guid: 9fe072d8be3663140bf7e958573a6383, type: 2}
+  _stage: {fileID: 11400000, guid: c795905feaa5fb74e8fc8aa178d30aa4, type: 2}
   _uiLeft: 1
 --- !u!1 &1317332595
 GameObject:
