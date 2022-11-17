@@ -18,13 +18,13 @@ public class FiredPlayer : Player
     Vector2Int _facingDirection = Vector2Int.down;
     bool _animationsDisabled;
     float _timeUntilFireballAllowed;
+    bool _fireballPending;
 
     void Awake()
     {
         _animancer = GetComponent<AnimancerComponent>();
         _body = GetComponent<Rigidbody2D>();
         _inputActions = new InputActions().TopDown;
-        _inputActions.Interact.performed += _ => OnFireball();
     }
 
     void OnEnable()
@@ -40,6 +40,9 @@ public class FiredPlayer : Player
     void Update()
     {
         _timeUntilFireballAllowed -= Time.deltaTime;
+
+        if (_inputActions.Interact.IsPressed() || _fireballPending)
+            OnFireball();
     }
 
     public override void EnableControls()
@@ -68,10 +71,15 @@ public class FiredPlayer : Player
     void OnFireball()
     {
         if (_timeUntilFireballAllowed > 0)
+        {
+            if (_timeUntilFireballAllowed < 0.3f)
+                _fireballPending = true;
             return;
+        }
 
         Instantiate(_fireballPrefab, transform.position, Quaternion.identity);
         _timeUntilFireballAllowed = _fireballCooldown;
+        _fireballPending = false;
     }
 
     void UpdateMovement()

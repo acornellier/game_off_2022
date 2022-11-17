@@ -8,9 +8,21 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
+      propertyPath: _speedRange.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
+      propertyPath: _respawnTime.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
+      propertyPath: _respawnTime.y
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881989, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: m_Name
-      value: FiredGame
+      value: Fired1
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296882011, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: m_RootOrder

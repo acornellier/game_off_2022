@@ -9,6 +9,7 @@ public class MinigameTester : MonoBehaviour
 
     Minigame _minigame;
     float _timeRemaining;
+    bool _failed;
 
     void Start()
     {
@@ -19,14 +20,17 @@ public class MinigameTester : MonoBehaviour
 
     void Update()
     {
+        if (_failed) return;
+
         if (_minigame.isDone)
         {
-            _timer.text = "Done";
+            _timer.text = "Win";
             return;
         }
 
         if (_timeRemaining <= 0)
         {
+            _failed = true;
             _timer.text = "Fail";
             return;
         }

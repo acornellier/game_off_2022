@@ -54,7 +54,7 @@ MonoBehaviour:
     idle: {fileID: 11400000, guid: 4c07aeda7f9e6204c83bc133f66f4e89, type: 2}
     walk: {fileID: 11400000, guid: 86c27c2d1ac9f9947b557d5cd3b089f4, type: 2}
   _fireballPrefab: {fileID: 8439292237675469545, guid: cef2ff4fa297c7c44bef4cca3a2826f5, type: 3}
-  _fireballCooldown: 0.3
+  _fireballCooldown: 0.5
 --- !u!70 &776503965784468003
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -442,10 +442,13 @@ MonoBehaviour:
   _player: {fileID: 776503965784468188}
   _firedCounter: {fileID: 5565312165158511009}
   _targetPrefab: {fileID: 8018114249566242815, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+  _targetStrongPrefab: {fileID: 7858406756328062299, guid: e3305fd1bbcf3e343947b6c4942ee8e2, type: 3}
+  _targetFastPrefab: {fileID: 7858406756328062299, guid: d30e84fbae7fa024bb3e50dec85e2b3c, type: 3}
+  _yRange: {x: -3, y: 7}
   _numberToFire: 10
   _respawnTime: {x: 0.5, y: 1}
-  _yRange: {x: -3, y: 8}
-  _speedRange: {x: 7, y: 13}
+  _strongSpawnChance: 0
+  _fastSpawnChance: 0
 --- !u!1 &5565312165877083984
 GameObject:
   m_ObjectHideFlags: 0

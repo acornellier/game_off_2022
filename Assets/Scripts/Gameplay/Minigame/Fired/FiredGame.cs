@@ -7,16 +7,19 @@ public class FiredGame : Minigame
     [SerializeField] FiredPlayer _player;
     [SerializeField] TMP_Text _firedCounter;
     [SerializeField] Target _targetPrefab;
+    [SerializeField] Target _targetStrongPrefab;
+    [SerializeField] Target _targetFastPrefab;
+    [SerializeField] Vector2 _yRange;
 
     [SerializeField] int _numberToFire;
 
     [SerializeField] Vector2 _respawnTime;
-    [SerializeField] Vector2 _yRange;
-    [SerializeField] Vector2 _speedRange;
+    [SerializeField] [Range(0, 1)] float _strongSpawnChance;
+    [SerializeField] [Range(0, 1)] float _fastSpawnChance;
 
     float _screenHalfWidth;
     float _timeUntilSpawn;
-    int _numberFired;
+    int _points;
 
     void Start()
     {
@@ -25,7 +28,7 @@ public class FiredGame : Minigame
             Camera.main.orthographicSize
         ).x;
 
-        _numberFired = 0;
+        _points = 0;
         UpdateFiredCounter();
     }
 
@@ -39,10 +42,14 @@ public class FiredGame : Minigame
         var x = _screenHalfWidth * (isLeft ? -1 : 1);
         var y = Random.Range(_yRange.x, _yRange.y);
         var direction = isLeft ? Vector3.right : Vector3.left;
-        var speed = Random.Range(_speedRange.x, _speedRange.y);
 
-        var target = Instantiate(_targetPrefab, new Vector3(x, y), Quaternion.identity);
-        target.OnCreated(direction, speed);
+        var val = Random.value;
+        var isStrong = val < _strongSpawnChance;
+        var isFast = val > _strongSpawnChance && val < _fastSpawnChance + _strongSpawnChance;
+        var prefab = isStrong ? _targetStrongPrefab : isFast ? _targetFastPrefab : _targetPrefab;
+
+        var target = Instantiate(prefab, new Vector3(x, y), Quaternion.identity);
+        target.OnCreated(OnFired, direction);
 
         _timeUntilSpawn = Random.Range(_respawnTime.x, _respawnTime.y);
     }
@@ -72,17 +79,17 @@ public class FiredGame : Minigame
         }
     }
 
-    public void OnFired(int firedCount)
+    void OnFired(int points)
     {
-        _numberFired += firedCount;
+        _points += points;
         UpdateFiredCounter();
 
-        if (_numberFired >= _numberToFire)
+        if (_points >= _numberToFire)
             isDone = true;
     }
 
     void UpdateFiredCounter()
     {
-        _firedCounter.text = $"{_numberFired}/{_numberToFire}";
+        _firedCounter.text = $"{_points}/{_numberToFire}";
     }
 }

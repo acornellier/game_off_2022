@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class Explosion : MonoBehaviour
@@ -7,6 +8,7 @@ public class Explosion : MonoBehaviour
 
     bool _exploded;
     float _explosionStartTime;
+    readonly List<Target> _alreadyHit = new();
 
     void Awake()
     {
@@ -16,10 +18,10 @@ public class Explosion : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         var target = col.GetComponent<Target>();
-        if (!target) return;
+        if (!target || _alreadyHit.Contains(target)) return;
 
-        Utilities.DestroyGameObject(target.gameObject);
-        var firedGame = FindObjectOfType<FiredGame>();
-        firedGame.OnFired(1);
+        _alreadyHit.Add(target);
+
+        target.TakeDamage(1);
     }
 }

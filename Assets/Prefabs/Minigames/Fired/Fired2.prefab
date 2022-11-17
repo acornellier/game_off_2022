@@ -10,24 +10,36 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _numberToFire
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _speedRange.x
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _speedRange.y
-      value: 18
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _respawnTime.x
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _respawnTime.y
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
+      propertyPath: strongSpawnChance
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
+      propertyPath: _strongSpawnChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
+      propertyPath: _targetStrongPrefab
+      value: 
+      objectReference: {fileID: 7858406756328062299, guid: e3305fd1bbcf3e343947b6c4942ee8e2, type: 3}
     - target: {fileID: 5565312165296881989, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: m_Name
       value: Fired2
