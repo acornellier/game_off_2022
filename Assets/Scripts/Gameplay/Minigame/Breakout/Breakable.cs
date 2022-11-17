@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
+    [SerializeField] ParticleSystem dustFX;
     BreakoutGame gameRules;
+    Collider2D brickCollider;
+    SpriteRenderer brickRenderer;
     
     // Start is called before the first frame update
     void Start()
     {
         gameRules = FindObjectOfType<BreakoutGame>();
+        brickCollider = GetComponent<Collider2D>();
+        brickRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -23,7 +29,16 @@ public class Breakable : MonoBehaviour
         if(collision.gameObject.GetComponent<BreakoutBall>())
         {
             gameRules.bricksLeft--;
-            Destroy(gameObject);
+            StartCoroutine(PlayDustFX());
         }
+    }
+
+    private IEnumerator PlayDustFX()
+    {
+        brickCollider.enabled = false;
+        brickRenderer.enabled = false;
+        dustFX.Play();
+        yield return new WaitForSeconds(dustFX.main.duration);
+        Destroy(gameObject);
     }
 }

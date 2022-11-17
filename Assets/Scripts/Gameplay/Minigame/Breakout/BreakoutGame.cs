@@ -37,6 +37,7 @@ public class BreakoutGame : Minigame
     EdgeCollider2D screenEdge;
 
     Rigidbody2D paddleBody;
+    float paddleHalfWidth;
     Collider2D paddleCollider;
     SpriteRenderer malaforRenderer;
 
@@ -51,6 +52,7 @@ public class BreakoutGame : Minigame
         if (playgroundMode)
             _running = true;
         paddleBody = paddle.GetComponent<Rigidbody2D>();
+        paddleHalfWidth = paddle.GetComponentInChildren<Renderer>().bounds.size.x / 2;
         paddleCollider = paddle.GetComponent<Collider2D>();
         screenEdge = GetComponent<EdgeCollider2D>();
         var screenPoints = GenerateCameraBounds();
@@ -98,14 +100,14 @@ public class BreakoutGame : Minigame
     {
         var screenWidth = Camera.main.orthographicSize * Screen.width / Screen.height;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        if (mousePos.x > screenWidth)
+        if (mousePos.x > screenWidth - paddleHalfWidth)
             mousePos = new Vector2(
-                screenWidth - paddle.GetComponentInChildren<Renderer>().bounds.size.x / 2,
+                screenWidth - paddleHalfWidth,
                 mousePos.y
             );
-        if (mousePos.x < -screenWidth)
+        if (mousePos.x < -screenWidth + paddleHalfWidth)
             mousePos = new Vector2(
-                -screenWidth + paddle.GetComponentInChildren<Renderer>().bounds.size.x / 2,
+                -screenWidth + paddleHalfWidth,
                 mousePos.y
             );
         var targetPos = Vector2.MoveTowards(
