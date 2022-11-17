@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: maxTime
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _numberToFire
-      value: 15
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _speedRange.x
@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _respawnTime.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _respawnTime.y
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _fastSpawnChance
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _strongSpawnChance
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881989, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: m_Name
-      value: FiredGauntlet1
+      value: FiredGauntlet2
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296882011, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: m_RootOrder
