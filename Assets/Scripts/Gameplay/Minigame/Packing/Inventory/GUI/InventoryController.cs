@@ -38,6 +38,15 @@ public class InventoryController : MonoBehaviour,
         _canvas = canvases[^1];
     }
 
+    void OnDisable()
+    {
+        if (QuitUtil.isQuitting) return;
+
+        if (_draggedItem != null && (_draggedItem.currentController == this ||
+                                     _draggedItem.currentController == null))
+            _draggedItem = null;
+    }
+
     /*
      * Grid was clicked (IPointerDownHandler)
      */

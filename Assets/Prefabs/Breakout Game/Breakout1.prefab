@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8813610202015573439, guid: b2b7cb5fecd10724cbfaf71b1ab22e7e, type: 3}
       propertyPath: m_Name
-      value: BreakoutGame
+      value: Breakout1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
