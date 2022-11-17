@@ -7,15 +7,11 @@ using Zenject;
 public class MinigameUi : MonoBehaviour
 {
     [SerializeField] LevelSelectUi _levelSelectUi;
-
-    [SerializeField] GameObject _inGameUi;
-    [SerializeField] TMP_Text _timerText;
-    [SerializeField] Image _timerFill;
+    [SerializeField] InGameUi _inGameUi;
+    [SerializeField] LevelDownUi _levelDownUi;
 
     [SerializeField] GameObject _summaryUi;
     [SerializeField] TMP_Text _resultsText;
-
-    [SerializeField] LevelDownUi _levelDownUi;
 
     void Awake()
     {
@@ -33,7 +29,7 @@ public class MinigameUi : MonoBehaviour
     public void ShowInGameUi(float maxTime)
     {
         HideAllUis();
-        _inGameUi.SetActive(true);
+        _inGameUi.gameObject.SetActive(true);
         SetTimeRemaining(maxTime, maxTime);
     }
 
@@ -56,14 +52,13 @@ public class MinigameUi : MonoBehaviour
 
     public void SetTimeRemaining(float timeRemaining, float maxTime)
     {
-        _timerText.text = Mathf.CeilToInt(timeRemaining).ToString();
-        _timerFill.fillAmount = timeRemaining / maxTime;
+        _inGameUi.SetTimeRemaining(timeRemaining, maxTime);
     }
 
     void HideAllUis()
     {
         _levelSelectUi.gameObject.SetActive(false);
-        _inGameUi.SetActive(false);
+        _inGameUi.gameObject.SetActive(false);
         _summaryUi.SetActive(false);
         _levelDownUi.gameObject.SetActive(false);
     }

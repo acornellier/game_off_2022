@@ -7,16 +7,16 @@ using UnityEngine;
 public class TopDownPlayer : Player
 {
     [SerializeField] float _speed = 10;
-    [SerializeField] Animations _animations;
     [SerializeField] PlayerAudio _audio;
+    [SerializeField] Animations _animations;
 
     public Action onInteract;
+    public Vector2Int facingDirection = Vector2Int.down;
 
     AnimancerComponent _animancer;
     Rigidbody2D _body;
     InputActions.TopDownActions _inputActions;
 
-    Vector2Int _facingDirection = Vector2Int.down;
     bool _animationsDisabled;
 
     void Awake()
@@ -76,7 +76,7 @@ public class TopDownPlayer : Player
     void UpdateDirection()
     {
         var moveInput = _inputActions.Move.ReadValue<Vector2>();
-        if (moveInput == default || moveInput == _facingDirection)
+        if (moveInput == default || moveInput == facingDirection)
             return;
 
         SetFacingDirection(
@@ -86,9 +86,9 @@ public class TopDownPlayer : Player
         );
     }
 
-    void SetFacingDirection(Vector2Int facingDirection)
+    void SetFacingDirection(Vector2Int newDirection)
     {
-        _facingDirection = facingDirection;
+        facingDirection = newDirection;
     }
 
     void UpdateAnimations()
@@ -96,7 +96,7 @@ public class TopDownPlayer : Player
         if (_animationsDisabled) return;
 
         var directionalAnimationSet = GetDirectionalAnimationSet();
-        _animancer.Play(directionalAnimationSet.GetClip(_facingDirection));
+        _animancer.Play(directionalAnimationSet.GetClip(facingDirection));
     }
 
     DirectionalAnimationSet GetDirectionalAnimationSet()

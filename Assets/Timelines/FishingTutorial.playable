@@ -22,7 +22,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0.43333333333333335
+    m_Start: 0.4666666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 8066278700095454112}
     m_Duration: 0.8500000000000001
@@ -92,31 +92,6 @@ MonoBehaviour:
     m_DisplayName: DialogueAsset
   m_Markers:
     m_Objects: []
---- !u!114 &-1808845229900258847
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dfaf3114c5d7e54ca71f09215a34877, type: 3}
-  m_Name: EventClip
-  m_EditorClassIdentifier: 
-  eventName: CinematicDone
---- !u!114 &-232675974231343764
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
-  m_Name: ActivationPlayableAsset
-  m_EditorClassIdentifier: 
 --- !u!114 &-17222457759458344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +117,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 6594073421069638949}
-    m_Duration: 1.4833333333333334
+    m_Duration: 1.4333333333333333
     m_TimeScale: 1
     m_ParentTrack: {fileID: -17222457759458344}
     m_EaseInDuration: 0
@@ -226,199 +201,12 @@ MonoBehaviour:
   m_Tracks:
   - {fileID: -17222457759458344}
   - {fileID: -2679744135448683012}
-  - {fileID: 5591576107180635818}
-  - {fileID: 2198084110424951694}
-  m_FixedDuration: 0
+  m_FixedDuration: 1.4833333333333334
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
-  m_DurationMode: 0
+  m_DurationMode: 1
   m_MarkerTrack: {fileID: 0}
---- !u!114 &2198084110424951694
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65917a81aa3851438c33ab8c91859c7, type: 3}
-  m_Name: Event Track
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 0
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
-  m_Children: []
-  m_Clips:
-  - m_Version: 1
-    m_Start: 1.4833333333333334
-    m_ClipIn: 0
-    m_Asset: {fileID: -1808845229900258847}
-    m_Duration: 0.9666666666666668
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 2198084110424951694}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: CinematicDone
-  m_Markers:
-    m_Objects: []
---- !u!114 &5591576107180635818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21bf7f712d84d26478ebe6a299f21738, type: 3}
-  m_Name: Activation Track (1)
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 0
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
-  m_Children: []
-  m_Clips:
-  - m_Version: 1
-    m_Start: 1.4833333333333334
-    m_ClipIn: 0
-    m_Asset: {fileID: -232675974231343764}
-    m_Duration: 0.9666666666666668
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 5591576107180635818}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: 0
-    m_BlendOutDuration: 0
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: Active
-  m_Markers:
-    m_Objects: []
-  m_PostPlaybackState: 3
 --- !u!114 &6594073421069638949
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,18 +232,30 @@ MonoBehaviour:
   m_Name: DialogueAsset
   m_EditorClassIdentifier: 
   dialogues:
+  - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+    fontSize: 0
+    wobble: 0
+    line: Your Dastardliness, what about the aquatic horrors in the Moat of Infernal
+      Peril? We should remove them!
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
     fontSize: 0
     wobble: 0
-    line: Omg. Is this a tutorial??
+    line: "Ah, yes, that is a kettle of worms. Good thing I\u2019m\u2026 reel cool."
     topOfScreen: 0
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: It is! We've got to fish the monsters out of the moat!
+    line: "\u2026 Yes, Sire."
+    topOfScreen: 0
+  - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+    fontSize: 0
+    wobble: 0
+    line: "They call me The Rodfather\u2014"
     topOfScreen: 0
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: You just need to hold SPACE to keep the fish in the GREEN zone.
+    line: Use the SPACEBAR to control your hook! Keep your hook in line with the
+      fish!
     topOfScreen: 0

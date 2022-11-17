@@ -44,10 +44,13 @@ public class LevelSelectUi : MonoBehaviour
 
             button.gameObject.SetActive(true);
 
-            var interactable = i == 0 || stageData.maxLevelIndexCompleted >= i - 1;
+            var interactable = stageData.IsLevelUnlocked(
+                i,
+                _persistentDataManager.data.nightmareUnlocked
+            );
             var done = stageData.maxLevelIndexCompleted >= i;
             var levelIndex = i;
-            button.SetUp($"Level {i + 1}", interactable, done, () => StartLevel(levelIndex));
+            button.SetUp(interactable, done, () => StartLevel(levelIndex));
         }
 
         var selectedIndex = _prevSelectedIndex == -1 ? 0 : _prevSelectedIndex;

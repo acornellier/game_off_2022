@@ -8,6 +8,11 @@ public class ShrinkingMalafor : MonoBehaviour
     [SerializeField] float _delay1 = 0.1f;
     [SerializeField] float _delay2 = 0.4f;
 
+    public void ResetSize()
+    {
+        transform.localScale = Vector3.one;
+    }
+
     public IEnumerator CO_Shrink()
     {
         for (var i = 0; i < _repeat; ++i)

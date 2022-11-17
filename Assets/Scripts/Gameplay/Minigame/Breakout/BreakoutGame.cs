@@ -8,8 +8,9 @@ using Random = UnityEngine.Random;
 public class BreakoutGame : Minigame
 {
     [Header("Test Settings")]
-    [SerializeField] bool playgroundMode = false;
-    
+    [SerializeField]
+    bool playgroundMode = false;
+
     [Header("Malafor")] [SerializeField] public GameObject paddle;
     [SerializeField] float moveSpeed;
     [SerializeField] Sprite malaforIdle;
@@ -20,8 +21,10 @@ public class BreakoutGame : Minigame
     [SerializeField] public float ballMaxSpeed;
     [SerializeField] public float ballMinSpeed;
     [SerializeField] public float minBallAngle;
+
     [SerializeField] List<Slider> ammoCount;
-    [SerializeField] bool rechargable = true;
+
+    // [SerializeField] bool rechargable = true;
     [SerializeField] float rechargeTime = 1f;
 
     [SerializeField]
@@ -45,7 +48,8 @@ public class BreakoutGame : Minigame
 
     void Awake()
     {
-        if (playgroundMode) { _running = true; }
+        if (playgroundMode)
+            _running = true;
         paddleBody = paddle.GetComponent<Rigidbody2D>();
         paddleCollider = paddle.GetComponent<Collider2D>();
         screenEdge = GetComponent<EdgeCollider2D>();
@@ -64,18 +68,18 @@ public class BreakoutGame : Minigame
 
     void Update()
     {
-        if (!_running) { return; }
+        if (!_running)
+            return;
         //DebugMinigame(); //comment me out!
         FireBall();
         RechargeAmmo();
         CheckForWin();
     }
 
-    
-
     void FixedUpdate()
     {
-        if (!_running) { return; }
+        if (!_running)
+            return;
 
         MovePaddle();
     }
@@ -122,7 +126,8 @@ public class BreakoutGame : Minigame
                 ballPrefab,
                 new Vector2(paddle.transform.position.x, paddle.transform.position.y + ballStartY),
                 Quaternion.identity,
-                transform);
+                transform
+            );
             heldBall = heldBallObject.GetComponent<BreakoutBall>();
             heldBall.myChargingFX.Play(false);
             heldBall.ballCollider.enabled = false;
@@ -144,7 +149,7 @@ public class BreakoutGame : Minigame
         }
     }
 
-    private void RemoveAmmo()
+    void RemoveAmmo()
     {
         if (currentBalls == ammoCount.Count)
         {
@@ -159,29 +164,29 @@ public class BreakoutGame : Minigame
         }
     }
 
-    private void RechargeAmmo()
+    void RechargeAmmo()
     {
-        foreach(Slider ammo in ammoCount)
+        foreach (var ammo in ammoCount)
         {
-            if(currentBalls == ammoCount.IndexOf(ammo))
+            if (currentBalls == ammoCount.IndexOf(ammo))
             {
-                ammo.value += Time.deltaTime * (1/rechargeTime);
-                if(ammo.value >= 1f)
-                {
+                ammo.value += Time.deltaTime * (1 / rechargeTime);
+                if (ammo.value >= 1f)
                     currentBalls++;
-                }
             }
         }
     }
 
-    private void CheckForWin()
+    void CheckForWin()
     {
-        if(bricksLeft <= 0)
+        if (bricksLeft <= 0)
         {
-            if (playgroundMode) { return; }
+            if (playgroundMode)
+                return;
             isDone = true;
         }
     }
+
     Vector2[] GenerateCameraBounds()
     {
         var halfScreenHeight = Camera.main.orthographicSize;

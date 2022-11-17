@@ -47,7 +47,7 @@ public class DialogueManager : MonoBehaviour
         TypeNextLine();
     }
 
-    void StopDialogue()
+    public void StopDialogue()
     {
         _actions.Disable();
         if (_activeDialogueImage)

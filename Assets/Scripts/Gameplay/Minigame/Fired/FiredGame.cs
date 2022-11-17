@@ -4,13 +4,13 @@ using Random = UnityEngine.Random;
 
 public class FiredGame : Minigame
 {
-    [SerializeField] TopDownPlayer _player;
+    [SerializeField] FiredPlayer _player;
     [SerializeField] TMP_Text _firedCounter;
     [SerializeField] Target _targetPrefab;
 
     [SerializeField] int _numberToFire;
 
-    [SerializeField] Vector2 _respawnRange;
+    [SerializeField] Vector2 _respawnTime;
     [SerializeField] Vector2 _yRange;
     [SerializeField] Vector2 _speedRange;
 
@@ -44,7 +44,7 @@ public class FiredGame : Minigame
         var target = Instantiate(_targetPrefab, new Vector3(x, y), Quaternion.identity);
         target.OnCreated(direction, speed);
 
-        _timeUntilSpawn = Random.Range(_respawnRange.x, _respawnRange.y);
+        _timeUntilSpawn = Random.Range(_respawnTime.x, _respawnTime.y);
     }
 
     public override void Begin()
@@ -55,6 +55,21 @@ public class FiredGame : Minigame
     public override void End()
     {
         _player.DisableControls();
+
+        foreach (var obj in FindObjectsOfType<Target>())
+        {
+            Utilities.DestroyGameObject(obj.gameObject);
+        }
+
+        foreach (var obj in FindObjectsOfType<Fireball>())
+        {
+            Utilities.DestroyGameObject(obj.gameObject);
+        }
+
+        foreach (var obj in FindObjectsOfType<Explosion>())
+        {
+            Utilities.DestroyGameObject(obj.gameObject);
+        }
     }
 
     public void OnFired(int firedCount)
@@ -68,6 +83,6 @@ public class FiredGame : Minigame
 
     void UpdateFiredCounter()
     {
-        _firedCounter.text = $"Fired: {_numberFired}/{_numberToFire}";
+        _firedCounter.text = $"{_numberFired}/{_numberToFire}";
     }
 }

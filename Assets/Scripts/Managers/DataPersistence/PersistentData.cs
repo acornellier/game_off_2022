@@ -6,16 +6,30 @@ using UnityEngine;
 [Serializable]
 public class PersistentData
 {
-    public Vector3Json playerPosition;
-    public Dictionary<string, StageData> stages = new();
-    public Dictionary<string, bool> cinematicsDone = new();
-
     public static int maxLevel = 97;
     public static int levelsLostPerLevel = 6;
+
+    public Dictionary<string, StageData> stages = new();
+    public Dictionary<string, bool> cinematicsDone = new();
+    public Dictionary<string, bool> dialoguesDone = new();
+
+    public int gamesBeat => stages.Values.Aggregate(
+        0,
+        (acc, stageData) => acc + stageData.levelsCompleted
+    );
+
+    public int level => maxLevel - Math.Max(0, gamesBeat * levelsLostPerLevel);
+
+    public bool nightmareUnlocked => gamesBeat >= 12;
 
     public bool IsCinematicDone(string key)
     {
         return cinematicsDone.TryGetValue(key, out var done) && done;
+    }
+
+    public bool IsDialogueDone(string key)
+    {
+        return dialoguesDone.TryGetValue(key, out var done) && done;
     }
 
     public StageData GetStageData(string stageId)
@@ -27,17 +41,6 @@ public class PersistentData
         stages.Add(stageId, data);
 
         return data;
-    }
-
-    public int level
-    {
-        get
-        {
-            return stages.Values.Aggregate(
-                maxLevel,
-                (current, stageData) => current - stageData.levelsCompleted * levelsLostPerLevel
-            );
-        }
     }
 }
 
