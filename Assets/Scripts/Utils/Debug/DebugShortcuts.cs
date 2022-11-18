@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Zenject;
 
+// TODO: remove debug (or make it unlockable?)
 public class DebugShortcuts : MonoBehaviour
 {
     [Inject] PersistentDataManager _persistentDataManager;

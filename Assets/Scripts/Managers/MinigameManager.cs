@@ -46,6 +46,12 @@ public class MinigameManager : MonoBehaviour
                 if (Keyboard.current.pKey.isPressed)
                     return true;
 
+                if (Keyboard.current.fKey.isPressed)
+                {
+                    _timeRemaining = 0;
+                    return true;
+                }
+
                 if (_minigame.isDone)
                     return true;
 
@@ -74,7 +80,7 @@ public class MinigameManager : MonoBehaviour
 
         EndMinigame();
 
-        yield return StartCoroutine(_minigameUi.ShowSummary(result));
+        yield return StartCoroutine(_minigameUi.ShowResults(result));
 
         _minigameUi.ShowLevelSelectUi();
     }

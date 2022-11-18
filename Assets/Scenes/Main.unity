@@ -3288,10 +3288,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1076296382, guid: 26ba0eb87974517419ee517e25933d3d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1513853731350039932, guid: 26ba0eb87974517419ee517e25933d3d, type: 3}
       propertyPath: m_Name
       value: Globals
@@ -3863,7 +3859,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _footstepSource: {fileID: 5187381321008397890}
-  _footstepClip: {fileID: 8300000, guid: d66f14957f7b44dddbb3b3713f5a0e00, type: 3}
+  _footstepClips:
+  - {fileID: 8300000, guid: c8da5dec82a5aaa48b726c5c53683705, type: 3}
+  - {fileID: 8300000, guid: 8b03cf77657eebd4e87e3420b8c669cb, type: 3}
+  - {fileID: 8300000, guid: a0602caff5542a64fba798988f86963d, type: 3}
+  - {fileID: 8300000, guid: 6994061b463fe7b46a229219b4580f1b, type: 3}
+  - {fileID: 8300000, guid: 08594c905d0c8b047b6bbebfa9416b91, type: 3}
+  - {fileID: 8300000, guid: b042ff6ef5894314eba50a325624c321, type: 3}
 --- !u!1 &5187381321008397888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,7 +3910,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3650938738024089034, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -11,6 +11,13 @@ public class InventoryController : MonoBehaviour,
     IPointerDownHandler, IPointerMoveHandler, IBeginDragHandler, IDragHandler,
     IEndDragHandler, IPointerExitHandler, IPointerEnterHandler
 {
+    [SerializeField] AudioSource _pickUpSource;
+    [SerializeField] AudioClip _pickUpClip;
+    [SerializeField] AudioSource _placeSource;
+    [SerializeField] AudioClip _placeClip;
+    [SerializeField] AudioSource _rotateSource;
+    [SerializeField] AudioClip _rotateClip;
+
     // The dragged item is static and shared by all controllers
     // This way items can be moved between controllers easily
     static InventoryDraggedItem _draggedItem;
@@ -66,6 +73,7 @@ public class InventoryController : MonoBehaviour,
         // Get which item to drag (item will be null of none were found)
         var grid = ScreenToGrid(eventData.position);
         _itemToDrag = inventory.GetAtPoint(grid);
+        _pickUpSource.PlayOneShot(_pickUpClip);
     }
 
     public void OnPointerMove(PointerEventData eventData)
@@ -116,7 +124,10 @@ public class InventoryController : MonoBehaviour,
         if (_draggedItem == null) return;
 
         if (_draggedItem.Drop(eventData.position))
+        {
+            _placeSource.PlayOneShot(_placeClip);
             _draggedItem = null;
+        }
     }
 
     /*
@@ -157,7 +168,10 @@ public class InventoryController : MonoBehaviour,
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame &&
             (_draggedItem.currentController == this || _draggedItem.currentController == null))
+        {
             _draggedItem.RotateCw();
+            _rotateSource.PlayOneShot(_rotateClip);
+        }
 
         // Update position while dragging
         _draggedItem.position = _currentEventData.position;

@@ -144,10 +144,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7498640234979517378}
+  - component: {fileID: 5512447421739667800}
   - component: {fileID: 7498640234979517381}
   - component: {fileID: 7498640234979517380}
   - component: {fileID: 7498640234979517379}
-  - component: {fileID: 5512447421739667800}
   - component: {fileID: 714001761024747260}
   m_Layer: 5
   m_Name: Button
@@ -177,6 +177,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5512447421739667800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498640234979517377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e36a9668dd42489b5f9e56cabe63d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clickClip: {fileID: 8300000, guid: c55b04bde5786ab4a8a513209e87fc08, type: 3}
+  _hoverClip: {fileID: 8300000, guid: 530a793d888b37c4eab12083b0ec28bb, type: 3}
 --- !u!222 &7498640234979517381
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -259,19 +273,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5512447421739667800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498640234979517377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6e36a9668dd42489b5f9e56cabe63d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clickClip: {fileID: 8300000, guid: a2a90282d473ff44eac94711825f3ee3, type: 3}
 --- !u!114 &714001761024747260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +293,38 @@ MonoBehaviour:
         - m_Target: {fileID: 5512447421739667800}
           m_TargetAssemblyTypeName: ButtonWithSound, Assembly-CSharp
           m_MethodName: OnSubmit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5512447421739667800}
+          m_TargetAssemblyTypeName: ButtonWithSound, Assembly-CSharp
+          m_MethodName: OnSubmit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5512447421739667800}
+          m_TargetAssemblyTypeName: ButtonWithSound, Assembly-CSharp
+          m_MethodName: OnHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

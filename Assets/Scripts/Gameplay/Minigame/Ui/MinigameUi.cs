@@ -8,10 +8,8 @@ public class MinigameUi : MonoBehaviour
 {
     [SerializeField] LevelSelectUi _levelSelectUi;
     [SerializeField] InGameUi _inGameUi;
+    [SerializeField] ResultsUi _resultsUi;
     [SerializeField] LevelDownUi _levelDownUi;
-
-    [SerializeField] GameObject _summaryUi;
-    [SerializeField] TMP_Text _resultsText;
 
     void Awake()
     {
@@ -33,14 +31,12 @@ public class MinigameUi : MonoBehaviour
         SetTimeRemaining(maxTime, maxTime);
     }
 
-    public IEnumerator ShowSummary(MinigameResult result)
+    public IEnumerator ShowResults(MinigameResult result)
     {
         HideAllUis();
-        _summaryUi.SetActive(true);
-        _resultsText.text = result.success ? "Success!" : "Too slow";
+        _resultsUi.gameObject.SetActive(true);
+        _resultsUi.ShowResult(result.success);
         yield return new WaitForSeconds(2);
-
-        _summaryUi.SetActive(false);
 
         if (result.firstSuccess)
         {
@@ -59,7 +55,7 @@ public class MinigameUi : MonoBehaviour
     {
         _levelSelectUi.gameObject.SetActive(false);
         _inGameUi.gameObject.SetActive(false);
-        _summaryUi.SetActive(false);
+        _resultsUi.gameObject.SetActive(false);
         _levelDownUi.gameObject.SetActive(false);
     }
 }

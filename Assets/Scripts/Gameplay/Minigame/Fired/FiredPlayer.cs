@@ -6,6 +6,8 @@ using Animancer;
 [RequireComponent(typeof(Rigidbody2D))]
 public class FiredPlayer : Player
 {
+    [SerializeField] AudioSource _shootSource;
+    [SerializeField] AudioClip _shootClip;
     [SerializeField] float _speed = 10;
     [SerializeField] Animations _animations;
     [SerializeField] Fireball _fireballPrefab;
@@ -78,6 +80,7 @@ public class FiredPlayer : Player
         }
 
         Instantiate(_fireballPrefab, transform.position, Quaternion.identity);
+        _shootSource.PlayOneShot(_shootClip);
         _timeUntilFireballAllowed = _fireballCooldown;
         _fireballPending = false;
     }

@@ -530,6 +530,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1970680912621483895, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
+      propertyPath: _successClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 30eb0e2beb65a4343b7b60b1eaafc0ed, type: 3}
     - target: {fileID: 1970680913274893453, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -642,14 +646,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9205305817466067936, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205305817466067943, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300.46
-      objectReference: {fileID: 0}
     - target: {fileID: 9205305818629106123, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -667,28 +663,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
-      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 233.3
       objectReference: {fileID: 0}
     - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -697,10 +677,6 @@ PrefabInstance:
     - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9205305818932572118, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
-      propertyPath: m_text
-      value: Better Fish to Fry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

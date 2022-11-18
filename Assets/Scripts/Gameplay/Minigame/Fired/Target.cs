@@ -7,7 +7,10 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Target : MonoBehaviour
 {
+    [SerializeField] AudioSource _dieSource;
+    [SerializeField] AudioClip _dieClip;
     [SerializeField] TMP_Text _pointsText;
+
     [SerializeField] int health = 1;
     [SerializeField] int points = 1;
     [SerializeField] float _speed;
@@ -47,6 +50,7 @@ public class Target : MonoBehaviour
         _spriteRenderer.enabled = false;
         _pointsText.gameObject.SetActive(true);
         _pointsText.text = $"+{points}";
+        _dieSource.PlayOneShot(_dieClip);
         Utilities.DestroyGameObject(gameObject, 0.2f);
     }
 }
