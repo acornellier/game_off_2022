@@ -13,8 +13,8 @@ public class BreakoutGame : Minigame
 
     [Header("Malafor")] [SerializeField] public GameObject paddle;
     [SerializeField] float moveSpeed;
-    [SerializeField] Sprite malaforIdle;
-    [SerializeField] Sprite malaforCast;
+    //[SerializeField] Animation malaforIdle;
+    //[SerializeField] Animation malaforCast;
 
     [Header("Ball")] [SerializeField] public GameObject ballPrefab;
     [SerializeField] public float ballStartSpeed;
@@ -40,6 +40,7 @@ public class BreakoutGame : Minigame
     float paddleHalfWidth;
     Collider2D paddleCollider;
     SpriteRenderer malaforRenderer;
+    Animator malaforAnimator;
 
     bool _running;
     public int currentBalls;
@@ -58,6 +59,7 @@ public class BreakoutGame : Minigame
         var screenPoints = GenerateCameraBounds();
         screenEdge.points = screenPoints;
         malaforRenderer = paddle.GetComponentInChildren<SpriteRenderer>();
+        malaforAnimator = paddle.GetComponentInChildren<Animator>();
         currentBalls = ammoCount.Count;
     }
 
@@ -122,7 +124,7 @@ public class BreakoutGame : Minigame
     {
         if (currentBalls > 0 && Mouse.current.leftButton.wasPressedThisFrame)
         {
-            malaforRenderer.sprite = malaforCast;
+            malaforAnimator.Play("Breakout Cast");
             paddleCollider.enabled = false;
             heldBallObject = Instantiate(
                 ballPrefab,
@@ -143,7 +145,7 @@ public class BreakoutGame : Minigame
             heldBall.myChargingFX.Stop();
             heldBall.myTrailFX.Play();
             heldBall.myTrail.enabled = true;
-            malaforRenderer.sprite = malaforIdle;
+            malaforAnimator.Play("Breakout Idle");
             paddleCollider.enabled = true;
             heldBallObject = null;
             activeBalls++;
