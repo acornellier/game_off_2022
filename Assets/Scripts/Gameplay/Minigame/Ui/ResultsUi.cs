@@ -10,13 +10,16 @@ public class ResultsUi : MonoBehaviour
     [SerializeField] AudioSource _sucessSource;
     [SerializeField] AudioClip _successClip;
 
-    public void ShowResult(bool success)
+    public void PlaySound(bool success)
     {
-        _resultsText.text = success ? "Success!" : "Too slow";
-
         if (success)
             _sucessSource.PlayOneShot(_successClip);
         else
             _failSource.PlayOneShot(_failClip);
+    }
+
+    public void SetText(string text)
+    {
+        _resultsText.text = text;
     }
 }

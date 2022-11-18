@@ -8,8 +8,7 @@ public class Gauntlet : MonoBehaviour
 {
     [SerializeField] List<Minigame> _games;
     [SerializeField] InGameUi _inGameUi;
-    [SerializeField] GameObject _resultsUi;
-    [SerializeField] TMP_Text _resultsText;
+    [SerializeField] ResultsUi _resultsUi;
 
     float _timeRemaining;
     bool _failed;
@@ -30,7 +29,7 @@ public class Gauntlet : MonoBehaviour
         ShowResults();
         for (var i = 3; i > 0; --i)
         {
-            _resultsText.text = $"Get ready!\n{i}...";
+            _resultsUi.SetText($"Get ready!\n{i}...");
             yield return new WaitForSeconds(1);
         }
 
@@ -44,14 +43,15 @@ public class Gauntlet : MonoBehaviour
 
             if (_failed)
             {
-                _resultsText.text = "Too slow.\nRestarting...";
+                _resultsUi.PlaySound(false);
+                _resultsUi.SetText("Too slow.\nRestarting...");
                 yield return new WaitForSeconds(3);
                 break;
             }
 
             for (var i = 2; i > 0; --i)
             {
-                _resultsText.text = $"Success!\n{i}...";
+                _resultsUi.SetText($"Get ready!\n{i}...");
                 yield return new WaitForSeconds(1);
             }
         }

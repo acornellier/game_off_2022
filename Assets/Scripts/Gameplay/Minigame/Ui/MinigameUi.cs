@@ -35,7 +35,8 @@ public class MinigameUi : MonoBehaviour
     {
         HideAllUis();
         _resultsUi.gameObject.SetActive(true);
-        _resultsUi.ShowResult(result.success);
+        _resultsUi.SetText(result.success ? "Success!" : "Too slow");
+        _resultsUi.PlaySound(result.success);
         yield return new WaitForSeconds(2);
 
         if (result.firstSuccess)
