@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -10,8 +11,9 @@ public class Target : MonoBehaviour
     [SerializeField] AudioSource _dieSource;
     [SerializeField] AudioClip _dieClip;
     [SerializeField] TMP_Text _pointsText;
+    [SerializeField] Image _healthBarFill;
 
-    [SerializeField] int health = 1;
+    [SerializeField] int maxHealth = 1;
     [SerializeField] int points = 1;
     [SerializeField] float _speed;
 
@@ -19,10 +21,13 @@ public class Target : MonoBehaviour
 
     Action<int> _onFired;
     Vector3 _direction;
+    float _health;
 
     void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _health = maxHealth;
+        UpdateHealthBar();
     }
 
     void FixedUpdate()
@@ -38,9 +43,10 @@ public class Target : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        _health -= damage;
+        UpdateHealthBar();
 
-        if (health <= 0)
+        if (_health <= 0)
             Die();
     }
 
@@ -52,5 +58,11 @@ public class Target : MonoBehaviour
         _pointsText.text = $"+{points}";
         _dieSource.PlayOneShot(_dieClip);
         Utilities.DestroyGameObject(gameObject, 0.2f);
+    }
+
+    void UpdateHealthBar()
+    {
+        if (_healthBarFill != null)
+            _healthBarFill.fillAmount = _health / maxHealth;
     }
 }
