@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,17 +8,13 @@ public class FiredGame : Minigame
 {
     [SerializeField] FiredPlayer _player;
     [SerializeField] TMP_Text _firedCounter;
-    [SerializeField] Target _targetPrefab;
-    [SerializeField] Target _targetStrongPrefab;
-    [SerializeField] Target _targetFastPrefab;
     [SerializeField] Vector2 _yRange;
 
+    [SerializeField] TargetConfig[] _targets;
     [SerializeField] int _numberToFire;
-
     [SerializeField] Vector2 _respawnTime;
-    [SerializeField] [Range(0, 1)] float _strongSpawnChance;
-    [SerializeField] [Range(0, 1)] float _fastSpawnChance;
 
+    WeightedDistribution _weightedDistribution;
     float _screenHalfWidth;
     float _timeUntilSpawn;
     int _points;
@@ -27,6 +25,9 @@ public class FiredGame : Minigame
             Camera.main.aspect * Camera.main.orthographicSize,
             Camera.main.orthographicSize
         ).x;
+
+
+        _weightedDistribution = new WeightedDistribution(_targets.Select(t => t.weight));
 
         _points = 0;
         UpdateFiredCounter();
@@ -43,11 +44,8 @@ public class FiredGame : Minigame
         var y = Random.Range(_yRange.x, _yRange.y);
         var direction = isLeft ? Vector3.right : Vector3.left;
 
-        var val = Random.value;
-        var isStrong = val < _strongSpawnChance;
-        var isFast = val > _strongSpawnChance && val < _fastSpawnChance + _strongSpawnChance;
-        var prefab = isStrong ? _targetStrongPrefab : isFast ? _targetFastPrefab : _targetPrefab;
-
+        var type = _weightedDistribution.PickRandom();
+        var prefab = _targets[type].prefab;
         var target = Instantiate(prefab, new Vector3(x, y), Quaternion.identity);
         target.OnCreated(OnFired, direction);
 
@@ -91,5 +89,12 @@ public class FiredGame : Minigame
     void UpdateFiredCounter()
     {
         _firedCounter.text = $"{_points}/{_numberToFire}";
+    }
+
+    [Serializable]
+    public class TargetConfig
+    {
+        public Target prefab;
+        public float weight;
     }
 }

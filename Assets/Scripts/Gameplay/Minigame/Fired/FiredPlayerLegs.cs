@@ -4,11 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(AnimancerComponent))]
 public class FiredPlayerLegs : MonoBehaviour
 {
-    [SerializeField] AnimationClip _idle;
+    [SerializeField] AnimationClip _idleLeft;
+    [SerializeField] AnimationClip _idleRight;
     [SerializeField] AnimationClip _strafeLeft;
     [SerializeField] AnimationClip _strafeRight;
 
     AnimancerComponent _animancer;
+    float _lastMovement;
 
     void Awake()
     {
@@ -22,7 +24,12 @@ public class FiredPlayerLegs : MonoBehaviour
                 ? _strafeRight
                 : movement < 0
                     ? _strafeLeft
-                    : _idle
+                    : _lastMovement > 0
+                        ? _idleRight
+                        : _idleLeft
         );
+
+        if (movement != 0)
+            _lastMovement = movement;
     }
 }
