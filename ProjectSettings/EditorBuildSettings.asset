@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gauntlet.unity
     guid: ad70c67895efa6f4c95c1c18d0598b2a
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 89c6fd396e1c03a4090281c43037e278
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1720689d575469741b4ae12c06fd7093, type: 2}

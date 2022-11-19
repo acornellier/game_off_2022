@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class Gauntlet : MonoBehaviour
 {
     [SerializeField] List<Minigame> _games;
     [SerializeField] InGameUi _inGameUi;
     [SerializeField] ResultsUi _resultsUi;
+
+    [Inject] SceneLoader _sceneLoader;
 
     float _timeRemaining;
     bool _failed;
@@ -26,45 +28,49 @@ public class Gauntlet : MonoBehaviour
 
     IEnumerator CO_RunAll()
     {
-        ShowResults();
-        for (var i = 3; i > 0; --i)
+        for (var i = 0; i < _games.Count; ++i)
         {
-            _resultsUi.SetText($"Get ready!\n{i}...");
-            yield return new WaitForSeconds(1);
-        }
-
-        foreach (var minigame in _games)
-        {
-            ShowInGameUi();
-
-            yield return StartCoroutine(CO_RunGame(minigame));
-
-            ShowResults();
+            yield return StartCoroutine(CO_RunGame(_games[i], i == 0));
 
             if (_failed)
             {
+                ShowResults();
                 _resultsUi.PlaySound(false);
                 _resultsUi.SetText("Too slow.\nRestarting...");
                 yield return new WaitForSeconds(3);
                 break;
             }
-
-            for (var i = 2; i > 0; --i)
-            {
-                _resultsUi.SetText($"Get ready!\n{i}...");
-                yield return new WaitForSeconds(1);
-            }
         }
 
         if (_failed)
             RunAll();
+        else
+            _sceneLoader.SaveAndLoadScene("End");
     }
 
-    IEnumerator CO_RunGame(Minigame minigamePrefab)
+    IEnumerator CO_RunGame(Minigame minigamePrefab, bool isFirst)
     {
         var minigame = Instantiate(minigamePrefab);
 
+        _inGameUi.gameObject.SetActive(true);
+        _resultsUi.gameObject.SetActive(true);
         _timeRemaining = minigame.maxTime;
+        _inGameUi.SetTimeRemaining(_timeRemaining, minigame.maxTime);
+
+        if (!isFirst)
+        {
+            _resultsUi.PlaySound(true);
+            _resultsUi.SetText("Success!");
+            yield return new WaitForSeconds(1);
+        }
+
+        for (var i = 2; i > 0; --i)
+        {
+            _resultsUi.SetText($"Get ready!\n{i}...");
+            yield return new WaitForSeconds(1);
+        }
+
+        _resultsUi.gameObject.SetActive(false);
 
         minigame.Begin();
 

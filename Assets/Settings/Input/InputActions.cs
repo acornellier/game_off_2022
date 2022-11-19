@@ -24,109 +24,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     ""name"": ""InputActions"",
     ""maps"": [
         {
-            ""name"": ""Platformer"",
-            ""id"": ""557c52b2-3a15-4171-8871-71a87c746dcd"",
-            ""actions"": [
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""Button"",
-                    ""id"": ""9d4068a1-6a9b-4f1c-9a85-38e737e6fa27"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""027df353-992e-4587-8f6f-d2d128c7f433"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""Arrows"",
-                    ""id"": ""8f3be687-55ac-4cc2-88fe-dafd156f593b"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""42f6b74f-71ec-4ed4-9a93-bbb69cc68fa4"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""734c5635-5814-4d45-a949-0cb24b835dff"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""AD"",
-                    ""id"": ""63329505-c194-451b-b4bb-d2278d9122a7"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""26dc57b1-353d-41cf-8795-6b0f9182f7d5"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""c82f120b-329b-4039-bf1a-f4b0949a7dd0"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5352b26e-06ac-44b2-9362-20f9551be06f"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""TopDown"",
             ""id"": ""1131f538-2f4e-4d14-aaea-10927b9bd3e8"",
             ""actions"": [
@@ -914,10 +811,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Platformer
-        m_Platformer = asset.FindActionMap("Platformer", throwIfNotFound: true);
-        m_Platformer_Move = m_Platformer.FindAction("Move", throwIfNotFound: true);
-        m_Platformer_Jump = m_Platformer.FindAction("Jump", throwIfNotFound: true);
         // TopDown
         m_TopDown = asset.FindActionMap("TopDown", throwIfNotFound: true);
         m_TopDown_Move = m_TopDown.FindAction("Move", throwIfNotFound: true);
@@ -992,47 +885,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     {
         return asset.FindBinding(bindingMask, out action);
     }
-
-    // Platformer
-    private readonly InputActionMap m_Platformer;
-    private IPlatformerActions m_PlatformerActionsCallbackInterface;
-    private readonly InputAction m_Platformer_Move;
-    private readonly InputAction m_Platformer_Jump;
-    public struct PlatformerActions
-    {
-        private @InputActions m_Wrapper;
-        public PlatformerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Platformer_Move;
-        public InputAction @Jump => m_Wrapper.m_Platformer_Jump;
-        public InputActionMap Get() { return m_Wrapper.m_Platformer; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlatformerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlatformerActions instance)
-        {
-            if (m_Wrapper.m_PlatformerActionsCallbackInterface != null)
-            {
-                @Move.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnMove;
-                @Jump.started -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlatformerActionsCallbackInterface.OnJump;
-            }
-            m_Wrapper.m_PlatformerActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
-            }
-        }
-    }
-    public PlatformerActions @Platformer => new PlatformerActions(this);
 
     // TopDown
     private readonly InputActionMap m_TopDown;
@@ -1256,11 +1108,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
             if (m_XRSchemeIndex == -1) m_XRSchemeIndex = asset.FindControlSchemeIndex("XR");
             return asset.controlSchemes[m_XRSchemeIndex];
         }
-    }
-    public interface IPlatformerActions
-    {
-        void OnMove(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
     }
     public interface ITopDownActions
     {
