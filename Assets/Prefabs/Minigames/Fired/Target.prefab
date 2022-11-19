@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -281,7 +281,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3650938738024089034, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.495
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -376,8 +376,10 @@ GameObject:
   - component: {fileID: 8018114249566242808}
   - component: {fileID: 8018114249566242815}
   - component: {fileID: 8018114249566242814}
-  - component: {fileID: 8018114249566242813}
+  - component: {fileID: 4406292486178866101}
   - component: {fileID: 8018114249566242812}
+  - component: {fileID: 1841063075267909136}
+  - component: {fileID: 4777882490636996621}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -394,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 8018114249566242803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 638884204}
@@ -415,9 +417,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dieSource: {fileID: 3570945431086797203}
-  _dieClip: {fileID: 8300000, guid: 1d657bd4a89525d459f0f770c945b756, type: 3}
+  _dieClip: {fileID: 8300000, guid: bd2ff8f40c0050640a841451a3997693, type: 3}
   _pointsText: {fileID: 95855353}
-  health: 1
+  _healthBarFill: {fileID: 0}
+  _walkClip: {fileID: 7400000, guid: 65d4aadf72248fa4f81b16a8a80ce20b, type: 2}
+  _banishClip: {fileID: 7400000, guid: 737390dde2e0ccc47bd0ef425cc1d5a5, type: 2}
+  _damagedClip: {fileID: 0}
+  maxHealth: 1
   points: 1
   _speed: 12
 --- !u!212 &8018114249566242814
@@ -461,8 +467,8 @@ SpriteRenderer:
   m_SortingLayerID: -1802662025
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.025922537, a: 1}
+  m_Sprite: {fileID: -532399264, guid: 3ff13fb580d28704d83f9a0ce0c4661c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -472,8 +478,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8018114249566242813
-CircleCollider2D:
+--- !u!61 &4406292486178866101
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -486,8 +492,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
 --- !u!50 &8018114249566242812
 Rigidbody2D:
   serializedVersion: 4
@@ -509,3 +525,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1841063075267909136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8018114249566242803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 4777882490636996621}
+  _ActionOnDisable: 0
+--- !u!95 &4777882490636996621
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8018114249566242803}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a93bef6b8d97c2943b33e1fea77229d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -161,7 +161,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 479.7, y: 330.8}
+  m_SizeDelta: {x: 503.6, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381980721
 MonoBehaviour:
@@ -386,9 +386,12 @@ MonoBehaviour:
 
     Programmer
 
+    SFX
+
     Music
 
-    SFX
+    Addtl
+    Music
 
     Writing'
   m_isRightToLeft: 0
@@ -553,7 +556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7498640234979517378, guid: 6b025c584f811264289500b1414a236f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 29.5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7498640234979517378, guid: 6b025c584f811264289500b1414a236f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1038,7 +1041,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 235, y: 200}
+  m_SizeDelta: {x: 267.4, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2126946615
 MonoBehaviour:
@@ -1062,18 +1065,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Harrison Dunn
 
-    (he/him)
 
 
-    Danny
+    Danny Cragg
 
-    Alex
+    Alex Cornellier
+
+    John Cornellier
 
     John
+    Praw
 
     Jei
 
-    M'
+    M
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
   m_sharedMaterial: {fileID: 2540316304747274291, guid: ebebca3082442c64b9fb9cf985375617, type: 2}

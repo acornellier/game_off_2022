@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 2.25}
   m_SizeDelta: {x: 32, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3906123107992708042
@@ -161,6 +161,34 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777882490636996621, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d504f82f829e016478dbf4a99e94cc07, type: 2}
     - target: {fileID: 8018114249566242803, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_Name
       value: TargetStrong
@@ -210,16 +238,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8018114249566242814, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1068465841, guid: e6f819c912e23e04d863bb48d62352b4, type: 3}
+    - target: {fileID: 8018114249566242814, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_Color.b
-      value: 0.13016199
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8018114249566242814, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_Color.g
-      value: 0.14257835
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8018114249566242814, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_Color.r
-      value: 0.4245283
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8018114249566242815, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: _speed
@@ -242,9 +274,21 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8018114249566242815, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: _walkClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 9e5a659a1c5512f4896cd7e678c6ea11, type: 2}
+    - target: {fileID: 8018114249566242815, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: maxHealth
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8018114249566242815, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: _banishClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 54321f1d0152a134e9e89067a18ef47e, type: 2}
+    - target: {fileID: 8018114249566242815, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
+      propertyPath: _damagedClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 2f7f9f6b8175119428d2397c37aed57d, type: 2}
     - target: {fileID: 8018114249566242815, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: _speedRange.x
       value: 5
