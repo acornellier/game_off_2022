@@ -704,6 +704,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9205305817466067943, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 9205305818629106123, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -729,12 +733,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 270.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9205305818932572116, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205305818932572118, guid: b13733c46fd77404aa381cd809a7a8d5, type: 3}
+      propertyPath: m_text
+      value: 'Better Fish to Fry '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -36,6 +36,9 @@ public class MinigameManager : MonoBehaviour
 
         _timeRemaining = _minigame.maxTime;
 
+        _minigameUi.ShowPreparation();
+        yield return new WaitForSeconds(2);
+
         _minigameUi.ShowInGameUi(_minigame.maxTime);
         _minigame.Begin();
 

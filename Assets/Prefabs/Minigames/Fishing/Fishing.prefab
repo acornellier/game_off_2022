@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3650938738024089034, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7f33d29c3fdac7342a286c8f635b33f0, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -204,7 +204,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3650938738024089034, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 10aef2211200a5d4fbeac8890bdc9769, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.433
   m_Pitch: 1
   Loop: 1
@@ -617,7 +617,7 @@ Transform:
   - {fileID: 550622625290026268}
   - {fileID: 1905411302}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3754561517464228441
 MonoBehaviour:

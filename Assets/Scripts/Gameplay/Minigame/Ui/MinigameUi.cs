@@ -1,8 +1,5 @@
 ﻿using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using Zenject;
 
 public class MinigameUi : MonoBehaviour
 {
@@ -15,6 +12,13 @@ public class MinigameUi : MonoBehaviour
     {
         HideAllUis();
         _levelSelectUi.gameObject.SetActive(true);
+    }
+
+    public void ShowPreparation()
+    {
+        HideAllUis();
+        _resultsUi.gameObject.SetActive(true);
+        _resultsUi.SetText("Get ready...");
     }
 
     public void ShowLevelSelectUi()

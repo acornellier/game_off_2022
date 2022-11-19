@@ -14,6 +14,7 @@ public class FiredGame : Minigame
     [SerializeField] int _numberToFire;
     [SerializeField] Vector2 _respawnTime;
 
+    bool _running;
     WeightedDistribution _weightedDistribution;
     float _screenHalfWidth;
     float _timeUntilSpawn;
@@ -35,6 +36,8 @@ public class FiredGame : Minigame
 
     void Update()
     {
+        if (!_running) return;
+
         _timeUntilSpawn -= Time.deltaTime;
         if (_timeUntilSpawn > 0)
             return;
@@ -54,11 +57,13 @@ public class FiredGame : Minigame
 
     public override void Begin()
     {
+        _running = true;
         _player.EnableControls();
     }
 
     public override void End()
     {
+        _running = false;
         _player.DisableControls();
 
         foreach (var obj in FindObjectsOfType<Target>())
