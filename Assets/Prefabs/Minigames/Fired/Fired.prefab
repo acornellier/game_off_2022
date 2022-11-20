@@ -274,7 +274,7 @@ MonoBehaviour:
   _shootSource: {fileID: 7706418105885530595}
   _shootClip: {fileID: 8300000, guid: 5c757a9240371a546b0608f560591b48, type: 3}
   _speed: 15
-  _fireballPrefab: {fileID: 8439292237675469545, guid: cef2ff4fa297c7c44bef4cca3a2826f5, type: 3}
+  _fireballPrefab: {fileID: -768921754982743330, guid: 657aed2f3197bd043b6d2aa563fd105a, type: 3}
   _fireballCooldown: 0.5
 --- !u!61 &2924765766918211143
 BoxCollider2D:
