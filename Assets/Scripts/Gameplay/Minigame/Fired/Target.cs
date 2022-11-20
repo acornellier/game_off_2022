@@ -13,7 +13,6 @@ public class Target : MonoBehaviour
     [SerializeField] AudioSource _dieSource;
     [SerializeField] AudioClip _dieClip;
     [SerializeField] TMP_Text _pointsText;
-    [SerializeField] Image _healthBarFill;
 
     [SerializeField] AnimationClip _walkClip;
     [SerializeField] AnimationClip _banishClip;
@@ -36,7 +35,6 @@ public class Target : MonoBehaviour
         _animancer = GetComponent<AnimancerComponent>();
         _collider = GetComponent<Collider2D>();
         _health = maxHealth;
-        UpdateHealthBar();
         _animancer.Play(_walkClip);
     }
 
@@ -65,7 +63,6 @@ public class Target : MonoBehaviour
         if (_dead) return;
 
         _health -= damage;
-        UpdateHealthBar();
 
         if (_health <= 0)
             Die();
@@ -85,11 +82,5 @@ public class Target : MonoBehaviour
         _dieSource.PlayOneShot(_dieClip);
         var state = _animancer.Play(_banishClip);
         state.Events.OnEnd += () => Utilities.DestroyGameObject(gameObject);
-    }
-
-    void UpdateHealthBar()
-    {
-        if (_healthBarFill != null)
-            _healthBarFill.fillAmount = _health / maxHealth;
     }
 }

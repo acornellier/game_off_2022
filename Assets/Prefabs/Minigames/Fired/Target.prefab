@@ -76,7 +76,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -419,7 +419,6 @@ MonoBehaviour:
   _dieSource: {fileID: 3570945431086797203}
   _dieClip: {fileID: 8300000, guid: bd2ff8f40c0050640a841451a3997693, type: 3}
   _pointsText: {fileID: 95855353}
-  _healthBarFill: {fileID: 0}
   _walkClip: {fileID: 7400000, guid: 65d4aadf72248fa4f81b16a8a80ce20b, type: 2}
   _banishClip: {fileID: 7400000, guid: 737390dde2e0ccc47bd0ef425cc1d5a5, type: 2}
   _damagedClip: {fileID: 0}
