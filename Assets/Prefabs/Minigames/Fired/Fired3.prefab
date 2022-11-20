@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 463227671559500977, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
     - target: {fileID: 5565312165296881988, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: _numberToFire
       value: 20
@@ -66,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296882011, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5565312165296882011, guid: c02dc0f7113bfde4eaf7be03429338fe, type: 3}
       propertyPath: m_LocalPosition.x
