@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2172171901058393815}
   - component: {fileID: 3644889471272947638}
   m_Layer: 0
-  m_Name: youre_fired_bg_square_rugsl
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,7 +367,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3650938738024089034, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.467
   m_Pitch: 1
   Loop: 0
   Mute: 0
