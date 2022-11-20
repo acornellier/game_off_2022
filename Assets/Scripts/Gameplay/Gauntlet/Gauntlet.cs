@@ -61,7 +61,7 @@ public class Gauntlet : MonoBehaviour
         {
             _resultsUi.PlaySound(true);
             _resultsUi.SetText("Success!");
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
         }
 
         for (var i = 2; i > 0; --i)

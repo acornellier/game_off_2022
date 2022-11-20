@@ -1432,9 +1432,9 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4.5625}
-    newSize: {x: 5.375, y: 8.75}
+    pivot: {x: 0.56, y: 0.31}
+    oldSize: {x: 4.9375, y: 8.5625}
+    newSize: {x: 4.9375, y: 8.5625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1492,12 +1492,12 @@ SpriteRenderer:
   m_SortingLayerID: -748940431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -109887360, guid: 8db09c78c19841b44a81e313951726d9, type: 3}
+  m_Sprite: {fileID: 1563138462, guid: d4ed5fa9f85f5fe41950ee94239c1814, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.375, y: 8.75}
+  m_Size: {x: 4.9375, y: 8.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3032,6 +3032,14 @@ PlayableDirector:
     value: {fileID: 661353338}
   - key: {fileID: 8311842874851080426, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
     value: {fileID: 2034557829}
+  - key: {fileID: 333909876193239603, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 1581942871}
+  - key: {fileID: -157513951787733819, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 879641154}
+  - key: {fileID: 905023179345540684, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 1822180141}
+  - key: {fileID: -477531021477238603, guid: d0254c64763a56b41b4966f3efb77203, type: 2}
+    value: {fileID: 2107248608}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1455484273
@@ -3653,9 +3661,9 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4.5625}
-    newSize: {x: 5.375, y: 8.75}
+    pivot: {x: 0.56, y: 0.31}
+    oldSize: {x: 4.9375, y: 8.5625}
+    newSize: {x: 4.9375, y: 8.5625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -3713,12 +3721,12 @@ SpriteRenderer:
   m_SortingLayerID: -748940431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -482983779, guid: 92577d290a5ccb44c879a8f02f25aa44, type: 3}
+  m_Sprite: {fileID: 228919743, guid: 9dcaa9a5ee77c6343b8b0ec1f288581d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.375, y: 8.75}
+  m_Size: {x: 4.9375, y: 8.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4113,6 +4121,7 @@ GameObject:
   - component: {fileID: 1822180138}
   - component: {fileID: 1822180140}
   - component: {fileID: 1822180139}
+  - component: {fileID: 1822180141}
   m_Layer: 0
   m_Name: Breakout
   m_TagString: Untagged
@@ -4152,9 +4161,9 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4.5625}
-    newSize: {x: 5.375, y: 8.75}
+    pivot: {x: 0.56, y: 0.31}
+    oldSize: {x: 4.9375, y: 8.5625}
+    newSize: {x: 4.9375, y: 8.5625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -4212,17 +4221,37 @@ SpriteRenderer:
   m_SortingLayerID: -748940431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -997653159, guid: 31def61eb5bdc2646bd5990dc7d68ff6, type: 3}
+  m_Sprite: {fileID: 1723794582, guid: ff226489dc078bf4fa676204a191792f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.375, y: 8.75}
+  m_Size: {x: 4.9375, y: 8.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1822180141
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822180137}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8bddf5b6056e35f43a06a251c67c2682, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1880354352
 GameObject:
   m_ObjectHideFlags: 0
@@ -4696,6 +4725,7 @@ GameObject:
   - component: {fileID: 2107248605}
   - component: {fileID: 2107248607}
   - component: {fileID: 2107248606}
+  - component: {fileID: 2107248608}
   m_Layer: 0
   m_Name: Packing
   m_TagString: Untagged
@@ -4735,9 +4765,9 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4.5625}
-    newSize: {x: 5.375, y: 8.75}
+    pivot: {x: 0.56, y: 0.31}
+    oldSize: {x: 4.9375, y: 8.5625}
+    newSize: {x: 4.9375, y: 8.5625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -4795,17 +4825,37 @@ SpriteRenderer:
   m_SortingLayerID: -748940431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1291954050, guid: 731b6780ba3a13e40ba1c3ec2f86a0c3, type: 3}
+  m_Sprite: {fileID: 1595307857, guid: 5664114b8610e584eaf6f88df7848dcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.375, y: 8.75}
+  m_Size: {x: 4.9375, y: 8.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2107248608
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107248604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 774003ad7fb8e2845947275baa1c3b1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2778149768915269522
 MonoBehaviour:
   m_ObjectHideFlags: 0
