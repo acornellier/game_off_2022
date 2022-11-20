@@ -424,7 +424,7 @@ MonoBehaviour:
   _damagedClip: {fileID: 0}
   maxHealth: 1
   points: 1
-  _speed: 12
+  _speed: 10
 --- !u!212 &8018114249566242814
 SpriteRenderer:
   m_ObjectHideFlags: 0
