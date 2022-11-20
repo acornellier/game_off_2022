@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c444976083564cd9bade2bd56f0ee050, type: 3}
   m_Name: PackZ
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 103d2ccfdc5d6a64dbd845e52f8dab1b, type: 3}
+  _sprite: {fileID: -1946059673, guid: 875ea68c467b80347b4ee30cda81ed88, type: 3}
   _shape:
     _width: 3
     _height: 2

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c444976083564cd9bade2bd56f0ee050, type: 3}
   m_Name: Pack1x4
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 8ee770fd7507a54498128da4766f4f97, type: 3}
+  _sprite: {fileID: -590570461, guid: 875ea68c467b80347b4ee30cda81ed88, type: 3}
   _shape:
     _width: 1
     _height: 4
