@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class LevelDownUi : MonoBehaviour
 {
@@ -8,20 +7,36 @@ public class LevelDownUi : MonoBehaviour
     [SerializeField] AudioClip _levelDownClip;
     [SerializeField] GameObject _description;
 
+    InputActions.DialogueActions _actions;
+    bool _skip;
+
+    void Awake()
+    {
+        _actions = new InputActions().Dialogue;
+        _actions.Interact.performed += _ => _skip = true;
+    }
+
     void OnEnable()
     {
+        _actions.Enable();
         _description.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        _actions.Disable();
     }
 
     public IEnumerator CO_Run()
     {
-        yield return new WaitForSeconds(0.5f);
+        _skip = false;
         _levelDownSource.PlayOneShot(_levelDownClip);
-        yield return new WaitForSeconds(1.5f);
+
+        var start = Time.time;
+        yield return new WaitUntil(() => Time.time - start >= 2f || _skip);
+        yield return null;
+
         _description.SetActive(true);
-        yield return new WaitUntil(
-            () => Keyboard.current.spaceKey.isPressed ||
-                  Keyboard.current.enterKey.isPressed
-        );
+        yield return new WaitUntil(() => _actions.Interact.WasPressedThisFrame());
     }
 }
