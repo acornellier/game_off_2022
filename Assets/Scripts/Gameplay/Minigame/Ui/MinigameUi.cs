@@ -42,13 +42,13 @@ public class MinigameUi : MonoBehaviour
         _resultsUi.SetText(result.success ? "Success!" : "Too slow");
         _resultsUi.PlaySound(result.success);
         yield return new WaitForSeconds(2);
+    }
 
-        if (result.firstSuccess)
-        {
-            HideAllUis();
-            _levelDownUi.gameObject.SetActive(true);
-            yield return StartCoroutine(_levelDownUi.CO_Run());
-        }
+    public IEnumerator ShowLevelDown()
+    {
+        HideAllUis();
+        _levelDownUi.gameObject.SetActive(true);
+        yield return StartCoroutine(_levelDownUi.CO_Run());
     }
 
     public void SetTimeRemaining(float timeRemaining, float maxTime)

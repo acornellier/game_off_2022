@@ -28,13 +28,14 @@ public class Gauntlet : MonoBehaviour
 
     IEnumerator CO_RunAll()
     {
-        for (var i = 0; i < _games.Count; ++i)
+        foreach (var minigame in _games)
         {
-            yield return StartCoroutine(CO_RunGame(_games[i], i == 0));
+            yield return StartCoroutine(CO_RunGame(minigame));
 
             if (_failed)
             {
-                ShowResults();
+                _inGameUi.gameObject.SetActive(false);
+                _resultsUi.gameObject.SetActive(true);
                 _resultsUi.PlaySound(false);
                 _resultsUi.SetText("Too slow.\nRestarting...");
                 yield return new WaitForSeconds(3);
@@ -48,7 +49,7 @@ public class Gauntlet : MonoBehaviour
             _sceneLoader.SaveAndLoadScene("End");
     }
 
-    IEnumerator CO_RunGame(Minigame minigamePrefab, bool isFirst)
+    IEnumerator CO_RunGame(Minigame minigamePrefab)
     {
         var minigame = Instantiate(minigamePrefab);
 
@@ -56,13 +57,6 @@ public class Gauntlet : MonoBehaviour
         _resultsUi.gameObject.SetActive(true);
         _timeRemaining = minigame.maxTime;
         _inGameUi.SetTimeRemaining(_timeRemaining, minigame.maxTime);
-
-        if (!isFirst)
-        {
-            _resultsUi.PlaySound(true);
-            _resultsUi.SetText("Success!");
-            yield return new WaitForSeconds(2);
-        }
 
         for (var i = 2; i > 0; --i)
         {
@@ -94,21 +88,14 @@ public class Gauntlet : MonoBehaviour
         );
 
         minigame.End();
+        _failed = _timeRemaining <= 0;
+
+        _resultsUi.gameObject.SetActive(true);
+        _resultsUi.PlaySound(true);
+        _resultsUi.SetText("Success!");
+        yield return new WaitForSeconds(1);
+
         Utilities.DestroyGameObject(minigame.gameObject);
         minigame = null;
-
-        _failed = _timeRemaining <= 0;
-    }
-
-    void ShowResults()
-    {
-        _inGameUi.gameObject.SetActive(false);
-        _resultsUi.gameObject.SetActive(true);
-    }
-
-    void ShowInGameUi()
-    {
-        _inGameUi.gameObject.SetActive(true);
-        _resultsUi.gameObject.SetActive(false);
     }
 }

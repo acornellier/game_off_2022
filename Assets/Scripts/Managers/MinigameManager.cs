@@ -25,7 +25,11 @@ public class MinigameManager : MonoBehaviour
             StopCoroutine(_minigameCoroutine);
 
         if (_minigame)
-            EndMinigame();
+        {
+            _minigame.End();
+            Utilities.DestroyGameObject(_minigame.gameObject);
+            _minigame = null;
+        }
 
         _minigameUi.ShowLevelSelectUi();
     }
@@ -81,17 +85,16 @@ public class MinigameManager : MonoBehaviour
         if (result.firstSuccess)
             stageData.maxLevelIndexCompleted = levelIndex;
 
-        EndMinigame();
+        _minigame.End();
 
         yield return StartCoroutine(_minigameUi.ShowResults(result));
 
-        _minigameUi.ShowLevelSelectUi();
-    }
-
-    void EndMinigame()
-    {
-        _minigame.End();
         Utilities.DestroyGameObject(_minigame.gameObject);
         _minigame = null;
+
+        if (result.firstSuccess)
+            yield return StartCoroutine(_minigameUi.ShowLevelDown());
+
+        _minigameUi.ShowLevelSelectUi();
     }
 }
