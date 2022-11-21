@@ -15,7 +15,10 @@ public class BreakoutBall : MonoBehaviour
     public ParticleSystem myChargingFX;
     [SerializeField] ParticleSystem myCollisionFX;
     [SerializeField] public ParticleSystem myTrailFX;
-
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _ricochetClip;
+    [SerializeField] AudioClip _ricochetPaddleClip;
+    [SerializeField] AudioClip _destroyClip;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,24 +38,27 @@ public class BreakoutBall : MonoBehaviour
         MoveBall();
     }
 
-    private void Update()
+    void Update()
     {
         ParticlesFollow();
     }
 
-    private void ParticlesFollow()
+    void ParticlesFollow()
     {
         var particles = new ParticleSystem.Particle[myChargingFX.particleCount];
         myChargingFX.GetParticles(particles);
-        for (int i = 0; i < particles.GetUpperBound(0); i++)
+        for (var i = 0; i < particles.GetUpperBound(0); i++)
         {
-            float ForceToAdd = (particles[i].startLifetime - particles[i].remainingLifetime) * (10 * Vector3.Distance(transform.position, particles[i].position));
-            particles[i].velocity = (transform.position - particles[i].position).normalized * ForceToAdd;
+            var ForceToAdd = (particles[i].startLifetime - particles[i].remainingLifetime) *
+                             (10 * Vector3.Distance(transform.position, particles[i].position));
+            particles[i].velocity =
+                (transform.position - particles[i].position).normalized * ForceToAdd;
         }
+
         myChargingFX.SetParticles(particles, particles.Length);
     }
 
-    private void MoveBall()
+    void MoveBall()
     {
         if (!ballReleased)
         {
@@ -61,26 +67,25 @@ public class BreakoutBall : MonoBehaviour
         else
         {
             if (ballBody.velocity.y < 0f && ballBody.velocity.y > -gameRules.minBallAngle)
-            {
                 ballBody.velocity = new Vector2(ballBody.velocity.x, -gameRules.minBallAngle);
-            }
             if (ballBody.velocity.y > 0f && ballBody.velocity.y < gameRules.minBallAngle)
-            {
                 ballBody.velocity = new Vector2(ballBody.velocity.x, gameRules.minBallAngle);
-            }
             if (ballBody.velocity.magnitude > gameRules.ballMaxSpeed)
-            {
                 ballBody.velocity = ballBody.velocity.normalized * gameRules.ballMaxSpeed;
-            }
             if (ballBody.velocity.magnitude < gameRules.ballMinSpeed)
-            {
                 ballBody.velocity = ballBody.velocity.normalized * gameRules.ballMinSpeed;
-            }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
         myCollisionFX.Play();
-    }
 
+        if (collision.collider.GetComponent<Breakable>())
+            _audioSource.PlayOneShot(_destroyClip);
+        else if (collision.collider.GetComponent<Paddle>())
+            _audioSource.PlayOneShot(_ricochetPaddleClip);
+        else
+            _audioSource.PlayOneShot(_ricochetClip);
+    }
 }
