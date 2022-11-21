@@ -273,5 +273,12 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: "Erm, well\u2026 [MECHANICS]"
+    line: Erm, well... Use your mouse to move! Left-click to cast a castle-busting
+      fireball!
+    topOfScreen: 0
+  - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+    fontSize: 0
+    wobble: 0
+    line: You can cast three fireballs at a time. Use your shield to bounce them
+      back into play!
     topOfScreen: 0

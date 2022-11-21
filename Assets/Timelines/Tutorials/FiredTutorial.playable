@@ -258,5 +258,10 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: "Eep! I\u2019d better stay out of the line of fire\u2026 [mechanics]"
+    line: "Eep! I\u2019d better stay out of the line of fire\u2026"
+    topOfScreen: 0
+  - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
+    fontSize: 0
+    wobble: 0
+    line: Use the arrow keys to move and SPACEBAR to fire!
     topOfScreen: 0
