@@ -49,7 +49,7 @@ public class FiredGame : Minigame
 
         var type = _weightedDistribution.PickRandom();
         var prefab = _targets[type].prefab;
-        var target = Instantiate(prefab, new Vector3(x, y), Quaternion.identity);
+        var target = Instantiate(prefab, new Vector3(x, y), Quaternion.identity, transform);
         target.OnCreated(OnFired, direction);
 
         _timeUntilSpawn = Random.Range(_respawnTime.x, _respawnTime.y);
@@ -65,16 +65,6 @@ public class FiredGame : Minigame
     {
         _running = false;
         _player.DisableControls();
-
-        foreach (var obj in FindObjectsOfType<Target>())
-        {
-            Utilities.DestroyGameObject(obj.gameObject);
-        }
-
-        foreach (var obj in FindObjectsOfType<Fireball>())
-        {
-            Utilities.DestroyGameObject(obj.gameObject);
-        }
 
         foreach (var obj in FindObjectsOfType<Explosion>())
         {

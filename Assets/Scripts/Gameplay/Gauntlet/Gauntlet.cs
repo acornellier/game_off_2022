@@ -14,43 +14,37 @@ public class Gauntlet : MonoBehaviour
 
     float _timeRemaining;
     bool _failed;
+    int _checkpoint;
 
     void Awake()
     {
-        RunAll();
+        RunFromCheckpoint();
     }
 
-    void RunAll()
+    void RunFromCheckpoint()
     {
         _failed = false;
-        StartCoroutine(CO_RunAll());
+        StartCoroutine(CO_RunFromCheckpoint());
     }
 
-    IEnumerator CO_RunAll()
+    IEnumerator CO_RunFromCheckpoint()
     {
-        foreach (var minigame in _games)
+        for (var i = _checkpoint; i < _games.Count; ++i)
         {
-            yield return StartCoroutine(CO_RunGame(minigame));
-
+            yield return StartCoroutine(CO_RunGame(i));
             if (_failed)
             {
-                _inGameUi.gameObject.SetActive(false);
-                _resultsUi.gameObject.SetActive(true);
-                _resultsUi.PlaySound(false);
-                _resultsUi.SetText("Too slow.\nRestarting...");
-                yield return new WaitForSeconds(3);
-                break;
+                RunFromCheckpoint();
+                yield break;
             }
         }
 
-        if (_failed)
-            RunAll();
-        else
-            _sceneLoader.SaveAndLoadScene("End");
+        _sceneLoader.SaveAndLoadScene("End");
     }
 
-    IEnumerator CO_RunGame(Minigame minigamePrefab)
+    IEnumerator CO_RunGame(int gameIndex)
     {
+        var minigamePrefab = _games[gameIndex];
         var minigame = Instantiate(minigamePrefab);
 
         _inGameUi.gameObject.SetActive(true);
@@ -90,10 +84,29 @@ public class Gauntlet : MonoBehaviour
         minigame.End();
         _failed = _timeRemaining <= 0;
 
-        _resultsUi.gameObject.SetActive(true);
-        _resultsUi.PlaySound(true);
-        _resultsUi.SetText("Success!");
-        yield return new WaitForSeconds(1);
+
+        if (_failed)
+        {
+            _inGameUi.gameObject.SetActive(false);
+            _resultsUi.gameObject.SetActive(true);
+            _resultsUi.PlaySound(false);
+            _resultsUi.SetText("Too slow.\nRestarting...");
+            yield return new WaitForSeconds(3);
+        }
+        else
+        {
+            _resultsUi.gameObject.SetActive(true);
+            _resultsUi.PlaySound(true);
+            _resultsUi.SetText("Success!");
+            yield return new WaitForSeconds(1.5f);
+
+            if (gameIndex is 3)
+            {
+                _checkpoint = gameIndex + 1;
+                _resultsUi.SetText("Checkpoint reached!");
+                yield return new WaitForSeconds(2);
+            }
+        }
 
         Utilities.DestroyGameObject(minigame.gameObject);
         minigame = null;

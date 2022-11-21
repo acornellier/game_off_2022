@@ -338,24 +338,14 @@ MonoBehaviour:
   m_Name: DialogueAsset
   m_EditorClassIdentifier: 
   dialogues:
-  - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
-    fontSize: 0
-    wobble: 0
-    line: This is it, the final frontier to freedom.
-    topOfScreen: 0
   - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
     fontSize: 0
     wobble: 0
-    line: "We\u2019ve must finish this post-haste, before the castle comes down around
-      our heads!"
+    line: No time to waste like the present!
     topOfScreen: 0
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: You'll have to beat multiple levels in quick succession.
-    topOfScreen: 0
-  - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
-    fontSize: 0
-    wobble: 0
-    line: If you fail one, you'll need to restart the whole gauntlet!
+    line: Complete your final tasks in rapid succession. If you fail one, the whole
+      gauntlet restarts!
     topOfScreen: 0

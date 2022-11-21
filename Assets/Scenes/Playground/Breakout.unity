@@ -123,85 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &159067896
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601394, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4750980082747601395, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_Name
-      value: Fireball
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877367782567505438, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: _audioSource
-      value: 
-      objectReference: {fileID: 946430084}
-    - target: {fileID: 4877367782567505438, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: _destroyClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a66e630e035bd88489b0c570b61f9a3a, type: 3}
-    - target: {fileID: 4877367782567505438, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: _ricochetPaddleClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b7f74ad113de0c842b4cc7c8531b2af4, type: 3}
-    - target: {fileID: 5579174805415026480, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_Name
-      value: AudioSource
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842173381212194390, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-      propertyPath: m_Volume
-      value: 0.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
 --- !u!1001 &595478026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328,11 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &946430084 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7842173381212194390, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
-  m_PrefabInstance: {fileID: 159067896}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &977775007
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,10 +466,6 @@ PrefabInstance:
     - target: {fileID: 4497045859190020305, guid: 137914c4119ced548b601a34fe303756, type: 3}
       propertyPath: m_Name
       value: Breakout2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4497045859190020307, guid: 137914c4119ced548b601a34fe303756, type: 3}
-      propertyPath: _breakSourcePrefab
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4915833653202224643, guid: 137914c4119ced548b601a34fe303756, type: 3}
       propertyPath: m_AnchorMax.x

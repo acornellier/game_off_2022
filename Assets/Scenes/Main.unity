@@ -2430,8 +2430,8 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: "Is it time?! Are you <i>sure</i> you\u2019ve done everything you wish
-      to do?"
+    line: "Is it time?! Once you start, the castle will become uninhabitable. There\u2019s
+      no going back."
     topOfScreen: 0
   _choiceUi: {fileID: 1988159425}
   _defaultButton: {fileID: 683620863}
@@ -4887,7 +4887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5789a1768848fc9217581d45deb418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gauntlet: {fileID: 346871684}
+  _gauntlet: {fileID: 1682162813}
 --- !u!224 &1704041218 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7498640234979517378, guid: 6b025c584f811264289500b1414a236f, type: 3}
