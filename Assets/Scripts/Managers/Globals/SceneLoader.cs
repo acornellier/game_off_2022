@@ -15,7 +15,7 @@ public class SceneLoader : MonoBehaviour
     {
         _fadeOverlay.SetBlack();
 
-        StartCoroutine(_fadeOverlay.FadeToWhite());
+        StartCoroutine(_fadeOverlay.FadeToWhite(fadeTime));
     }
 
     public void SaveAndLoadScene(string scene)
