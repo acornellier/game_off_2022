@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 207644174}
-  - component: {fileID: 207644180}
   - component: {fileID: 207644178}
   - component: {fileID: 207644177}
   - component: {fileID: 207644176}
@@ -41,19 +40,6 @@ RectTransform:
   m_AnchoredPosition: {x: -40, y: 0}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &207644180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207644173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1885de72550f4035a307c8ac34fdaa09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 207644177}
 --- !u!222 &207644178
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -236,6 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076296383}
+  - component: {fileID: 3489903972964580587}
   - component: {fileID: 1076296386}
   - component: {fileID: 1076296385}
   - component: {fileID: 1076296384}
@@ -267,6 +254,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &3489903972964580587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076296382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1885de72550f4035a307c8ac34fdaa09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 207644177}
 --- !u!223 &1076296386
 Canvas:
   m_ObjectHideFlags: 0
@@ -661,7 +661,7 @@ Transform:
   - {fileID: 794414587}
   - {fileID: 6722405454201928943}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513853731472540109
 GameObject:
@@ -876,9 +876,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1337263996234552346, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.505
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
