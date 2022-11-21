@@ -20,7 +20,7 @@ public class PersistentData
 
     public int level => maxLevel - Math.Max(0, gamesBeat * levelsLostPerLevel);
 
-    public bool gauntletUnlocked => gamesBeat >= 8;
+    public bool gauntletUnlocked => IsCinematicDone("Games8");
 
     public bool nightmareUnlocked => gamesBeat >= 12;
 

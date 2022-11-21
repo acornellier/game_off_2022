@@ -15,7 +15,7 @@ public class Gauntlet : MonoBehaviour
     float _timeRemaining;
     bool _failed;
 
-    void Start()
+    void Awake()
     {
         RunAll();
     }
