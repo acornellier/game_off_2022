@@ -1528,7 +1528,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
     fontSize: 0
     wobble: 0
-    line: Stop the music.
+    line: Stop.
     topOfScreen: 0
   - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
     fontSize: 0

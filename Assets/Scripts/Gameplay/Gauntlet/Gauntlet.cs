@@ -85,17 +85,16 @@ public class Gauntlet : MonoBehaviour
         _failed = _timeRemaining <= 0;
 
 
+        _inGameUi.gameObject.SetActive(false);
+        _resultsUi.gameObject.SetActive(true);
         if (_failed)
         {
-            _inGameUi.gameObject.SetActive(false);
-            _resultsUi.gameObject.SetActive(true);
             _resultsUi.PlaySound(false);
             _resultsUi.SetText("Too slow.\nRestarting...");
             yield return new WaitForSeconds(3);
         }
         else
         {
-            _resultsUi.gameObject.SetActive(true);
             _resultsUi.PlaySound(true);
             _resultsUi.SetText("Success!");
             yield return new WaitForSeconds(1.5f);
