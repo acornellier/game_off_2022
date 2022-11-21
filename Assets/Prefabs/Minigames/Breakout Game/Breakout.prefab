@@ -6250,7 +6250,7 @@ GameObject:
   - component: {fileID: 8813610201063289059}
   - component: {fileID: 8813610201063289057}
   - component: {fileID: 8813610201063289058}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paddle - Malafor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6298,20 +6298,21 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.4069344, y: 2.0091362}
-      - {x: -1.3809804, y: 2.0091367}
-      - {x: -2.8133068, y: 1.8048191}
-      - {x: -4.0240946, y: 1.4773607}
-      - {x: -4.045683, y: 0.42957354}
-      - {x: -4.0274096, y: -0.37208843}
-      - {x: -3.3187253, y: -2.0473843}
-      - {x: -2.5182729, y: -2.0409126}
+    - - {x: 1.4, y: 2.2}
+      - {x: -2, y: 2.2}
+      - {x: -3.2, y: 2}
+      - {x: -4.5, y: 1.6}
+      - {x: -4.673352, y: 0.93170786}
+      - {x: -4.5295444, y: 0.14260006}
+      - {x: -3.7706463, y: -0.5284262}
+      - {x: -2.6312532, y: -1.9906988}
       - {x: -2.1875, y: -2}
       - {x: 3.1875, y: -2}
       - {x: 3.3610935, y: -2.010188}
-      - {x: 3.762451, y: -2.2027035}
-      - {x: 4.0147963, y: 1.4661312}
-      - {x: 2.9036198, y: 1.8139553}
+      - {x: 3.64947, y: -0.7088518}
+      - {x: 3.6857088, y: 0.04038191}
+      - {x: 3.9, y: 1.6}
+      - {x: 2.6, y: 2}
   m_UseDelaunayMesh: 0
 --- !u!50 &8813610201063289058
 Rigidbody2D:
@@ -6325,7 +6326,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 30.22147
+  m_Mass: 31.135653
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -6539,7 +6540,7 @@ GameObject:
   - component: {fileID: 8813610202015573437}
   - component: {fileID: 8813610202015573436}
   - component: {fileID: 8813610202015573427}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Breakout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6582,6 +6583,7 @@ MonoBehaviour:
   playgroundMode: 0
   paddle: {fileID: 8813610201063289069}
   moveSpeed: 500
+  castDuration: 0.3
   ballPrefab: {fileID: 4750980082747601395, guid: 627223f8f62102d43b2c15a83db6bd7c, type: 3}
   ballStartSpeed: 20
   ballMaxSpeed: 30
@@ -6745,7 +6747,7 @@ GameObject:
   - component: {fileID: 8813610202921254052}
   - component: {fileID: 8813610202921254075}
   - component: {fileID: 4483879763228764358}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Malafor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

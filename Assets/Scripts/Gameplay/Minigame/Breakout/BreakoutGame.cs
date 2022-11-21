@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Collections;
 using Random = UnityEngine.Random;
 
 public class BreakoutGame : Minigame
@@ -13,6 +14,7 @@ public class BreakoutGame : Minigame
 
     [Header("Malafor")] [SerializeField] public GameObject paddle;
     [SerializeField] float moveSpeed;
+    [SerializeField] float castDuration = .3f;
     //[SerializeField] Animation malaforIdle;
     //[SerializeField] Animation malaforCast;
 
@@ -43,6 +45,7 @@ public class BreakoutGame : Minigame
     Animator malaforAnimator;
 
     bool _running;
+    bool firing = false;
     public int currentBalls;
     public int activeBalls;
     BreakoutBall heldBall;
@@ -53,7 +56,7 @@ public class BreakoutGame : Minigame
         if (playgroundMode)
             _running = true;
         paddleBody = paddle.GetComponent<Rigidbody2D>();
-        paddleHalfWidth = paddle.GetComponentInChildren<Renderer>().bounds.size.x / 2;
+        paddleHalfWidth = paddle.GetComponentInChildren<Renderer>().bounds.size.x / 4;
         paddleCollider = paddle.GetComponent<Collider2D>();
         screenEdge = GetComponent<EdgeCollider2D>();
         var screenPoints = GenerateCameraBounds();
@@ -122,35 +125,39 @@ public class BreakoutGame : Minigame
 
     void FireBall()
     {
-        if (currentBalls > 0 && Mouse.current.leftButton.wasPressedThisFrame)
+        //float currentAmmo = ammoCount[0].value + ammoCount[1].value + ammoCount[2].value;
+        if (currentBalls >=1 && Mouse.current.leftButton.wasPressedThisFrame && !firing)
         {
-            malaforAnimator.Play("Breakout Cast");
-            paddleCollider.enabled = false;
-            heldBallObject = Instantiate(
+            StartCoroutine(ShootNewFireball());  
+        }
+    }
+
+    private IEnumerator ShootNewFireball()
+    {
+        firing = true;
+        malaforAnimator.Play("Breakout Cast");
+        paddleCollider.enabled = false;
+        heldBallObject = Instantiate(
                 ballPrefab,
                 new Vector2(paddle.transform.position.x, paddle.transform.position.y + ballStartY),
                 Quaternion.identity,
                 transform
             );
-            heldBall = heldBallObject.GetComponent<BreakoutBall>();
-            heldBall.myChargingFX.Play(false);
-            heldBall.ballCollider.enabled = false;
-        }
-
-        if (currentBalls > 0 && Mouse.current.leftButton.wasReleasedThisFrame)
-        {
-            heldBall.ballCollider.enabled = true;
-            heldBall.ballReleased = true;
-            heldBall.ballBody.velocity = new Vector2(0, ballStartSpeed);
-            heldBall.myChargingFX.Stop();
-            heldBall.myTrailFX.Play();
-            heldBall.myTrail.enabled = true;
-            malaforAnimator.Play("Breakout Idle");
-            paddleCollider.enabled = true;
-            heldBallObject = null;
-            activeBalls++;
-            RemoveAmmo();
-        }
+        heldBall = heldBallObject.GetComponent<BreakoutBall>();
+        heldBall.myChargingFX.Play(false);
+        RemoveAmmo();
+        yield return new WaitForSeconds(castDuration);
+        heldBall.ballReleased = true;
+        heldBall.ballBody.velocity = new Vector2(0, ballStartSpeed);
+        heldBall.myChargingFX.Stop();
+        heldBall.myTrailFX.Play();
+        heldBall.myTrail.enabled = true;
+        malaforAnimator.Play("Breakout Idle");
+        paddleCollider.enabled = true;
+        heldBallObject = null;
+        heldBall = null;
+        activeBalls++;
+        firing = false;
     }
 
     void RemoveAmmo()

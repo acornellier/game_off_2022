@@ -11,9 +11,9 @@ TagManager:
   - Collision
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Fireballs
+  - BreakoutPaddle
+  - BreakoutBorder
   - 
   - 
   - 

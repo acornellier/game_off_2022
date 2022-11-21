@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4750980082747601397}
   - component: {fileID: 4750980082747601398}
   - component: {fileID: 4750980082747601396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5120,7 +5120,7 @@ GameObject:
   - component: {fileID: 2199008411278182130}
   - component: {fileID: 5522752115241637669}
   - component: {fileID: 480017780870986001}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10003,7 +10003,7 @@ GameObject:
   - component: {fileID: 4923964145911778859}
   - component: {fileID: 3874495272941123774}
   - component: {fileID: 6077000243155435185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trail FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
