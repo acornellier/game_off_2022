@@ -24,11 +24,6 @@ public class FiredPlayer : Player
         _inputActions = new InputActions().TopDown;
     }
 
-    void OnEnable()
-    {
-        EnableControls();
-    }
-
     void OnDisable()
     {
         DisableControls();
@@ -66,7 +61,7 @@ public class FiredPlayer : Player
             return;
         }
 
-        Instantiate(_fireballPrefab, transform.position, Quaternion.identity);
+        Instantiate(_fireballPrefab, transform.position, Quaternion.identity, transform);
         _arms.Shoot();
         _shootSource.PlayOneShot(_shootClip);
         _timeUntilFireballAllowed = _fireballCooldown;

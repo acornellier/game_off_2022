@@ -417,11 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ca7b223f54479b9ada2d326fb3b2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSettings:
-    masterMixer: {fileID: 24100000, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
-    masterGroup: {fileID: 24300002, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
-    musicGroup: {fileID: -1337263996234552346, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
-    soundGroup: {fileID: -3650938738024089034, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
 --- !u!1 &117166513
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,7 +2124,7 @@ GameObject:
   - component: {fileID: 1441086802}
   - component: {fileID: 1441086801}
   m_Layer: 0
-  m_Name: ResultText
+  m_Name: ResultText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

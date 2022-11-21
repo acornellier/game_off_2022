@@ -263,18 +263,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: "\u2026 What does that mean, Sire?"
-    topOfScreen: 0
-  - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
-    fontSize: 0
-    wobble: 0
-    line: "\u2026 I don\u2019t know."
-    topOfScreen: 0
-  - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
-    fontSize: 0
-    wobble: 0
-    line: Erm, well... Use your mouse to move! Left-click to cast a castle-busting
-      fireball!
+    line: Use your MOUSE to move! Left-click to cast a castle-busting fireball!
     topOfScreen: 0
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
