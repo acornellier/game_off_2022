@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dieSource: {fileID: 3570945431086797203}
-  _dieClip: {fileID: 8300000, guid: bd2ff8f40c0050640a841451a3997693, type: 3}
+  _dieClip: {fileID: 8300000, guid: f5101d8a889ed9c4aad50a297c003a7e, type: 3}
   _pointsText: {fileID: 95855353}
   _walkClip: {fileID: 7400000, guid: 65d4aadf72248fa4f81b16a8a80ce20b, type: 2}
   _banishClip: {fileID: 7400000, guid: 737390dde2e0ccc47bd0ef425cc1d5a5, type: 2}
