@@ -40,6 +40,8 @@ public class StageUi : MonoBehaviour
         _levelsComplete.text =
             $"Complete: {stageData.maxLevelIndexCompleted + 1}/{stage.levels.Count}";
 
+        // hacky select null to trigger audio
+        EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_startButton.gameObject);
     }
 
