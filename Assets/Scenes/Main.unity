@@ -2982,7 +2982,7 @@ MonoBehaviour:
       wobble: 0
       line: I see. As always, your input is invaluable.
       topOfScreen: 0
-    - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
+    - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
       fontSize: 0
       wobble: 0
       line: Yes, Sire. Thank you, Sire.
