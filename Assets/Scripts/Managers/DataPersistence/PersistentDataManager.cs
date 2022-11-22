@@ -1,58 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using UnityEngine;
-using Zenject;
 
-public class PersistentDataManager : IInitializable
+public class PersistentDataManager
 {
-    [Inject] IEnumerable<IPersistableData> _persistableDatas;
-
     PersistentData _data;
 
     public PersistentData data => _data ??= ParseData();
 
     const string _key = "SavedData";
 
-    public void Initialize()
-    {
-        LoadObjects();
-    }
-
     public void Save()
     {
-        foreach (var dataPersistence in AllPersistableDatas())
-        {
-            dataPersistence.Save(_data);
-        }
-
         var jsonString = JsonConvert.SerializeObject(data);
         PlayerPrefs.SetString(_key, jsonString);
         PlayerPrefs.Save();
     }
 
-    public static void Reset()
+    public void Reset()
     {
         PlayerPrefs.SetString(_key, "");
         PlayerPrefs.Save();
-    }
-
-    void LoadObjects()
-    {
-        foreach (var dataPersistence in AllPersistableDatas())
-        {
-            dataPersistence.Load(data);
-        }
-    }
-
-    IEnumerable<IPersistableData> AllPersistableDatas()
-    {
-        var objects = Object
-            .FindObjectsOfType<MonoBehaviour>(true)
-            .OfType<IPersistableData>()
-            .Where(persistableData => !_persistableDatas.Contains(persistableData));
-
-        return _persistableDatas.Concat(objects);
+        _data = ParseData();
     }
 
     static PersistentData ParseData()

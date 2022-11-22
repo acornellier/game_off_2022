@@ -29,7 +29,7 @@ public class StartMenu : MonoBehaviour
 
     public void NewGame()
     {
-        PersistentDataManager.Reset();
+        _persistentDataManager.Reset();
         _sceneLoader.SaveAndLoadScene("Intro");
     }
 
