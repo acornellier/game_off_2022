@@ -400,6 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: {fileID: 11400000, guid: 32ed3007d34169f42bd47b32406f26de, type: 2}
   _uiLeft: 1
+  _door: {fileID: 2107248609}
 --- !u!1 &310047419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: {fileID: 11400000, guid: 9fe072d8be3663140bf7e958573a6383, type: 2}
   _uiLeft: 0
+  _door: {fileID: 1581942872}
 --- !u!1 &732154198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1829,8 @@ GameObject:
   - component: {fileID: 879641153}
   - component: {fileID: 879641152}
   - component: {fileID: 879641154}
+  - component: {fileID: 879641156}
+  - component: {fileID: 879641155}
   m_Layer: 0
   m_Name: Fishing
   m_TagString: Untagged
@@ -1926,7 +1930,7 @@ SpriteRenderer:
   m_SortingLayerID: -748940431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1563138462, guid: d4ed5fa9f85f5fe41950ee94239c1814, type: 3}
+  m_Sprite: {fileID: 116074563, guid: d4ed5fa9f85f5fe41950ee94239c1814, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1957,6 +1961,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &879641155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879641150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08fac4b3bd34ad1ad25045361ef0d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _open: {fileID: 7400000, guid: 94d4c9c20f35a4330a533667fbbab466, type: 2}
+--- !u!114 &879641156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879641150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 879641154}
+  _ActionOnDisable: 0
 --- !u!1001 &884404694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3151,7 +3182,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4302,6 +4333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: {fileID: 11400000, guid: c795905feaa5fb74e8fc8aa178d30aa4, type: 2}
   _uiLeft: 1
+  _door: {fileID: 1822180142}
 --- !u!1 &1543727958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4334,6 +4366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: {fileID: 11400000, guid: aac876b0df4e7e34aaf37de4782efd72, type: 2}
   _uiLeft: 0
+  _door: {fileID: 1822180142}
 --- !u!4 &1543727961
 Transform:
   m_ObjectHideFlags: 0
@@ -4387,6 +4420,8 @@ GameObject:
   - component: {fileID: 1581942870}
   - component: {fileID: 1581942869}
   - component: {fileID: 1581942871}
+  - component: {fileID: 1581942873}
+  - component: {fileID: 1581942872}
   m_Layer: 0
   m_Name: Fired
   m_TagString: Untagged
@@ -4435,15 +4470,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.30895042, y: 1.3813934}
-      - {x: 0.2675047, y: 1.7649562}
+    - - {x: 0.2675047, y: 1.7649562}
       - {x: -0.019176483, y: 2.009943}
       - {x: -1.853693, y: 0.8636365}
       - {x: -1.8327417, y: -1.9254267}
       - {x: -1.5195312, y: -2.2602987}
-      - {x: 0.04083824, y: -1.0511367}
-      - {x: 1.7702417, y: -0.98863673}
-      - {x: 1.7702413, y: 1.3011367}
+      - {x: 0.2610531, y: -0.9882183}
   m_UseDelaunayMesh: 0
 --- !u!212 &1581942870
 SpriteRenderer:
@@ -4486,7 +4518,7 @@ SpriteRenderer:
   m_SortingLayerID: -748940431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 228919743, guid: 9dcaa9a5ee77c6343b8b0ec1f288581d, type: 3}
+  m_Sprite: {fileID: -1296788065, guid: 9dcaa9a5ee77c6343b8b0ec1f288581d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4517,6 +4549,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1581942872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581942867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08fac4b3bd34ad1ad25045361ef0d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _open: {fileID: 7400000, guid: 82bc46ccba9f9454e926af927ac21895, type: 2}
+--- !u!114 &1581942873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581942867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 1581942871}
+  _ActionOnDisable: 0
 --- !u!1 &1602193299
 GameObject:
   m_ObjectHideFlags: 0
@@ -5028,6 +5087,8 @@ GameObject:
   - component: {fileID: 1822180140}
   - component: {fileID: 1822180139}
   - component: {fileID: 1822180141}
+  - component: {fileID: 1822180143}
+  - component: {fileID: 1822180142}
   m_Layer: 0
   m_Name: Breakout
   m_TagString: Untagged
@@ -5127,7 +5188,7 @@ SpriteRenderer:
   m_SortingLayerID: -748940431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1723794582, guid: ff226489dc078bf4fa676204a191792f, type: 3}
+  m_Sprite: {fileID: -843145627, guid: ff226489dc078bf4fa676204a191792f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5158,6 +5219,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1822180142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822180137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08fac4b3bd34ad1ad25045361ef0d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _open: {fileID: 7400000, guid: 6abab858c97d34e35a40118df5aa042e, type: 2}
+--- !u!114 &1822180143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822180137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 1822180141}
+  _ActionOnDisable: 0
 --- !u!1 &1880354352
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,6 +5852,8 @@ GameObject:
   - component: {fileID: 2107248607}
   - component: {fileID: 2107248606}
   - component: {fileID: 2107248608}
+  - component: {fileID: 2107248610}
+  - component: {fileID: 2107248609}
   m_Layer: 0
   m_Name: Packing
   m_TagString: Untagged
@@ -5863,7 +5953,7 @@ SpriteRenderer:
   m_SortingLayerID: -748940431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1595307857, guid: 5664114b8610e584eaf6f88df7848dcf, type: 3}
+  m_Sprite: {fileID: -1410790192, guid: 5664114b8610e584eaf6f88df7848dcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5894,6 +5984,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2107248609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107248604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08fac4b3bd34ad1ad25045361ef0d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _open: {fileID: 0}
+--- !u!114 &2107248610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107248604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad50f81b1d25c441943c37a89ba23f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Animator: {fileID: 2107248608}
+  _ActionOnDisable: 0
 --- !u!114 &2778149768915269522
 MonoBehaviour:
   m_ObjectHideFlags: 0
