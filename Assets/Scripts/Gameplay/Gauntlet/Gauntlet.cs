@@ -52,11 +52,8 @@ public class Gauntlet : MonoBehaviour
         _timeRemaining = minigame.maxTime;
         _inGameUi.SetTimeRemaining(_timeRemaining, minigame.maxTime);
 
-        for (var i = 2; i > 0; --i)
-        {
-            _resultsUi.SetText($"Get ready!\n{i}...");
-            yield return new WaitForSeconds(1);
-        }
+        _resultsUi.SetText("Get ready...");
+        yield return new WaitForSeconds(2);
 
         _resultsUi.gameObject.SetActive(false);
 
