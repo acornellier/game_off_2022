@@ -13,7 +13,7 @@ public class DebugShortcuts : MonoBehaviour
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             if (Keyboard.current.shiftKey.isPressed)
-                PersistentDataManager.Reset();
+                _persistentDataManager.Reset();
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

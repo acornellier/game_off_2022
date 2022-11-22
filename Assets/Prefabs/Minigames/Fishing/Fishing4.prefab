@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 681ca3ed406b60542b3e77a0be9a9658, type: 3}
     - target: {fileID: 3754561517464228440, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228440, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65,8 +65,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
+      propertyPath: maxTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _maxSpeed
-      value: 2
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
+      propertyPath: _moveDuration
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _moveDistance.x
@@ -75,6 +83,10 @@ PrefabInstance:
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _moveDistance.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
+      propertyPath: _timeBetweenMoves.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _progressIncreaseRate
