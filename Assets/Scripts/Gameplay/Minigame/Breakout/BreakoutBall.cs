@@ -15,9 +15,10 @@ public class BreakoutBall : MonoBehaviour
     public ParticleSystem myChargingFX;
     [SerializeField] ParticleSystem myCollisionFX;
     [SerializeField] public ParticleSystem myTrailFX;
-    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioSource _ricochetSource;
     [SerializeField] AudioClip _ricochetClip;
     [SerializeField] AudioClip _ricochetPaddleClip;
+    [SerializeField] AudioSource _destroySource;
     [SerializeField] AudioClip _destroyClip;
 
     // Start is called before the first frame update
@@ -82,10 +83,10 @@ public class BreakoutBall : MonoBehaviour
         myCollisionFX.Play();
 
         if (collision.collider.GetComponent<Breakable>())
-            _audioSource.PlayOneShot(_destroyClip);
+            _destroySource.PlayOneShot(_destroyClip);
         else if (collision.collider.GetComponent<Paddle>())
-            _audioSource.PlayOneShot(_ricochetPaddleClip);
+            _ricochetSource.PlayOneShot(_ricochetPaddleClip);
         else
-            _audioSource.PlayOneShot(_ricochetClip);
+            _ricochetSource.PlayOneShot(_ricochetClip);
     }
 }

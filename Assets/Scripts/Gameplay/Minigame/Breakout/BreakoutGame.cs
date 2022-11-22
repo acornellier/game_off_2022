@@ -50,6 +50,9 @@ public class BreakoutGame : Minigame
     public int activeBalls;
     BreakoutBall heldBall;
     GameObject heldBallObject;
+    
+    [SerializeField] AudioSource _fireballSource;
+    [SerializeField] AudioClip _fireballClip;
 
     void Awake()
     {
@@ -146,6 +149,7 @@ public class BreakoutGame : Minigame
         heldBall = heldBallObject.GetComponent<BreakoutBall>();
         heldBall.myChargingFX.Play(false);
         RemoveAmmo();
+        _fireballSource.PlayOneShot(_fireballClip);
         yield return new WaitForSeconds(castDuration);
         heldBall.ballReleased = true;
         heldBall.ballBody.velocity = new Vector2(0, ballStartSpeed);

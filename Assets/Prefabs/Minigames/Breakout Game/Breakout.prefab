@@ -1327,7 +1327,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3650938738024089034, guid: fd41e416584a2d147be59ef5d35a5fb7, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.481
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6724,12 +6724,12 @@ MonoBehaviour:
   - {fileID: 990175425}
   rechargeTime: 1
   ballStartY: 3
+  bricksLeft: 0
   breakables: []
   currentBalls: 0
   activeBalls: 0
-  _shootSource: {fileID: 6654666279420095760}
-  _shootClip: {fileID: 8300000, guid: 339bfefc6ebf5934986b84cab35bd93e, type: 3}
-  _breakSoundPrefab: {fileID: 592854192783828058, guid: 2c7f230bcccd00c45b9ab6658d0f111f, type: 3}
+  _fireballSource: {fileID: 6654666279420095760}
+  _fireballClip: {fileID: 8300000, guid: 339bfefc6ebf5934986b84cab35bd93e, type: 3}
 --- !u!50 &8813610202015573436
 Rigidbody2D:
   serializedVersion: 4
