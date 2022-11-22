@@ -8,7 +8,7 @@ public class OverworldUi : MonoBehaviour
 
     [Inject] PersistentDataManager _persistentDataManager;
 
-    void Start()
+    void OnEnable()
     {
         _level.text = $"Level: {_persistentDataManager.data.level}";
     }

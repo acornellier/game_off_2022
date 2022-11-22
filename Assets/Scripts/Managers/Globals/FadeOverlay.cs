@@ -10,11 +10,11 @@ public class FadeOverlay : MonoBehaviour
         _canvasGroup.alpha = 1;
     }
 
-    public IEnumerator FadeToBlack(float fadeTime = 0.3f)
+    public IEnumerator FadeToBlack(float fadeTime)
     {
         var t = 0f;
         _canvasGroup.alpha = 0;
-        while (t < 1)
+        while (t < fadeTime)
         {
             t += Time.deltaTime;
             _canvasGroup.alpha = Mathf.Lerp(0, 1, t / fadeTime);
@@ -22,13 +22,24 @@ public class FadeOverlay : MonoBehaviour
         }
     }
 
-    public IEnumerator FadeToWhite(float fadeTime = 0.3f)
+    public IEnumerator FadeToWhite(float fadeTime)
     {
+        const float breakpoint = 0.75f;
+        var halfFadeTime = fadeTime / 2;
+
         var t = 0f;
-        while (t < 1)
+        while (t < halfFadeTime)
         {
             t += Time.deltaTime;
-            _canvasGroup.alpha = Mathf.Lerp(1, 0, t / fadeTime);
+            _canvasGroup.alpha = Mathf.Lerp(1, breakpoint, t / halfFadeTime);
+            yield return null;
+        }
+
+        t = 0f;
+        while (t < halfFadeTime)
+        {
+            t += Time.deltaTime;
+            _canvasGroup.alpha = Mathf.Lerp(breakpoint, 0, t / halfFadeTime);
             yield return null;
         }
     }

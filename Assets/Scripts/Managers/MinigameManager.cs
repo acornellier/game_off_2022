@@ -83,7 +83,10 @@ public class MinigameManager : MonoBehaviour
         };
 
         if (result.firstSuccess)
+        {
             stageData.maxLevelIndexCompleted = levelIndex;
+            _persistentDataManager.Save();
+        }
 
         _minigame.End();
 
