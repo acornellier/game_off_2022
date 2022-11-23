@@ -1885,9 +1885,7 @@ PolygonCollider2D:
       - {x: -1.853693, y: 0.8636365}
       - {x: -1.8327417, y: -1.9254267}
       - {x: -1.5195312, y: -2.2602987}
-      - {x: 0.04083824, y: -1.0511367}
-      - {x: 1.7702417, y: -0.98863673}
-      - {x: 1.7702413, y: 1.3011367}
+      - {x: 0.25713968, y: -0.9921453}
   m_UseDelaunayMesh: 0
 --- !u!212 &879641153
 SpriteRenderer:
@@ -4366,7 +4364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stage: {fileID: 11400000, guid: aac876b0df4e7e34aaf37de4782efd72, type: 2}
   _uiLeft: 0
-  _door: {fileID: 1822180142}
+  _door: {fileID: 879641155}
 --- !u!4 &1543727961
 Transform:
   m_ObjectHideFlags: 0
@@ -5143,9 +5141,7 @@ PolygonCollider2D:
       - {x: -1.853693, y: 0.8636365}
       - {x: -1.8327417, y: -1.9254267}
       - {x: -1.5195312, y: -2.2602987}
-      - {x: 0.04083824, y: -1.0511367}
-      - {x: 1.7702417, y: -0.98863673}
-      - {x: 1.7702413, y: 1.3011367}
+      - {x: 0.25714016, y: -1.0511367}
   m_UseDelaunayMesh: 0
 --- !u!212 &1822180140
 SpriteRenderer:
@@ -5908,9 +5904,7 @@ PolygonCollider2D:
       - {x: -1.853693, y: 0.8636365}
       - {x: -1.8327417, y: -1.9254267}
       - {x: -1.5195312, y: -2.2602987}
-      - {x: 0.04083824, y: -1.0511367}
-      - {x: 1.7702417, y: -0.98863673}
-      - {x: 1.7702413, y: 1.3011367}
+      - {x: 0.27680397, y: -1.0314729}
   m_UseDelaunayMesh: 0
 --- !u!212 &2107248607
 SpriteRenderer:
@@ -5996,7 +5990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08fac4b3bd34ad1ad25045361ef0d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _open: {fileID: 0}
+  _open: {fileID: 7400000, guid: 7fa1b876a583d4bc78b094a080cd5307, type: 2}
 --- !u!114 &2107248610
 MonoBehaviour:
   m_ObjectHideFlags: 0

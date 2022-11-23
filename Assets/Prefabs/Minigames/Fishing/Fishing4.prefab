@@ -85,6 +85,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
+      propertyPath: _progressDecayRate
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754561517464228441, guid: 32a5b2f4102cb18489921f1e19babee1, type: 3}
       propertyPath: _timeBetweenMoves.x
       value: 0.5
       objectReference: {fileID: 0}
