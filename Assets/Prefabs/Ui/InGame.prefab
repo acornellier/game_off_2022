@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db4d37ed6054248b94d9dd75dae5311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timer: {fileID: 5811359624316261698}
   _timerText: {fileID: 7824800130998006200}
   _timerFill: {fileID: 7533555145762281943}
 --- !u!1001 &632250713119969312
@@ -367,6 +368,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e3fd732062d1df84a8add54c78213a6e, type: 3}
+--- !u!1 &5811359624316261698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 691439747791416704, guid: e3fd732062d1df84a8add54c78213a6e, type: 3}
+  m_PrefabInstance: {fileID: 6430687270501251266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7533555145762281943 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3581193474728288533, guid: e3fd732062d1df84a8add54c78213a6e, type: 3}

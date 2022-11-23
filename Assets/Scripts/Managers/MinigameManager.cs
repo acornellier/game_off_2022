@@ -64,7 +64,7 @@ public class MinigameManager : MonoBehaviour
 
                 _timeRemaining -= Time.deltaTime;
 
-                if (_timeRemaining <= 0)
+                if (_timeRemaining <= 0 && _minigame.maxTime > 0)
                     return true;
 
                 _minigameUi.SetTimeRemaining(_timeRemaining, _minigame.maxTime);

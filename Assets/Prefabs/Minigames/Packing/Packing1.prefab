@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7250616445504614833, guid: 3ae5bf3b2b8ca194d8578d2189e5334b, type: 3}
       propertyPath: maxTime
-      value: 300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7250616445504614833, guid: 3ae5bf3b2b8ca194d8578d2189e5334b, type: 3}
       propertyPath: _destDim.x
