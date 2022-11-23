@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_Size.y
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_Offset.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4406292486178866101, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_IsTrigger
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8018114249566242808, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8018114249566242808, guid: b957a48de503eed4daed0d0cdc00e6be, type: 3}
       propertyPath: m_LocalPosition.x

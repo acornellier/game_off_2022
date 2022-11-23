@@ -43,10 +43,6 @@ public class InventoryRenderer : MonoBehaviour
         // Create the image container
         imageContainer = new GameObject("Image Pool").AddComponent<RectTransform>();
         imageContainer.transform.SetParent(transform);
-        // imageContainer.anchorMin = new Vector2(0, 1);
-        // imageContainer.anchorMax = new Vector2(0, 1);
-        // imageContainer.pivot = new Vector2(0, 1);
-        // imageContainer.anchoredPosition = Vector3.zero;
         imageContainer.transform.localScale = Vector3.one;
 
         imageContainer.transform.localPosition = Vector3.zero;
@@ -58,9 +54,6 @@ public class InventoryRenderer : MonoBehaviour
                 var image = new GameObject("Image").AddComponent<Image>();
                 image.transform.SetParent(imageContainer);
                 image.transform.localScale = Vector3.one;
-                // image.rectTransform.anchorMin = new Vector2(0, 1);
-                // image.rectTransform.anchorMax = new Vector2(0, 1);
-                // image.rectTransform.pivot = new Vector2(0, 1);
                 return image;
             }
         );

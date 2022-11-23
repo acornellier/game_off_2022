@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 8551903699470269801}
   - component: {fileID: 3234538326271575511}
   m_Layer: 0
-  m_Name: packing_splash_placeholder
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,7 @@ MonoBehaviour:
   _cellSpriteEmpty: {fileID: 825919565, guid: f21f4cfbebfb87e4db68982682ebccf3, type: 3}
   _cellSpriteSelected: {fileID: 1678161152, guid: f21f4cfbebfb87e4db68982682ebccf3, type: 3}
   _cellSpriteBlocked: {fileID: 1910096829, guid: f21f4cfbebfb87e4db68982682ebccf3, type: 3}
-  draggingEnabled: 1
+  draggingEnabled: 0
 --- !u!114 &7203390617748413761
 MonoBehaviour:
   m_ObjectHideFlags: 0
