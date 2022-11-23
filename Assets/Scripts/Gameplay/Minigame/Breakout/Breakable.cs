@@ -28,6 +28,9 @@ public class Breakable : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<BreakoutBall>())
         {
+            brickCollider.enabled = false;
+            brickRenderer.enabled = false;
+            dustFX.Play();
             gameRules.bricksLeft--;
             StartCoroutine(PlayDustFX());
         }
@@ -35,9 +38,6 @@ public class Breakable : MonoBehaviour
 
     private IEnumerator PlayDustFX()
     {
-        brickCollider.enabled = false;
-        brickRenderer.enabled = false;
-        dustFX.Play();
         yield return new WaitForSeconds(dustFX.main.duration);
         Destroy(gameObject);
     }

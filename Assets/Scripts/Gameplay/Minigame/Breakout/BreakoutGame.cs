@@ -33,8 +33,8 @@ public class BreakoutGame : Minigame
     [Tooltip("Distance above paddle to spawn")]
     float ballStartY;
 
-    [Header("Bricks")] [HideInInspector] public int bricksLeft = 0;
-    [HideInInspector] public Breakable[] breakables;
+    [Header("Bricks")] public int bricksLeft = 0;
+     public Breakable[] breakables;
 
     EdgeCollider2D screenEdge;
 
@@ -129,7 +129,8 @@ public class BreakoutGame : Minigame
     void FireBall()
     {
         //float currentAmmo = ammoCount[0].value + ammoCount[1].value + ammoCount[2].value;
-        if (currentBalls >=1 && Mouse.current.leftButton.wasPressedThisFrame && !firing)
+        bool inputDetected = (Mouse.current.leftButton.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame);
+        if (currentBalls >=1 && inputDetected && !firing)
         {
             StartCoroutine(ShootNewFireball());  
         }
@@ -149,6 +150,7 @@ public class BreakoutGame : Minigame
         heldBall = heldBallObject.GetComponent<BreakoutBall>();
         heldBall.myChargingFX.Play(false);
         RemoveAmmo();
+        activeBalls++;
         _fireballSource.PlayOneShot(_fireballClip);
         yield return new WaitForSeconds(castDuration);
         heldBall.ballReleased = true;
@@ -160,7 +162,6 @@ public class BreakoutGame : Minigame
         paddleCollider.enabled = true;
         heldBallObject = null;
         heldBall = null;
-        activeBalls++;
         firing = false;
     }
 
@@ -183,7 +184,7 @@ public class BreakoutGame : Minigame
     {
         foreach (var ammo in ammoCount)
         {
-            if (currentBalls == ammoCount.IndexOf(ammo))
+            if (currentBalls == ammoCount.IndexOf(ammo) && activeBalls < ammoCount.Count - ammoCount.IndexOf(ammo))
             {
                 ammo.value += Time.deltaTime * (1 / rechargeTime);
                 if (ammo.value >= 1f)
@@ -196,9 +197,14 @@ public class BreakoutGame : Minigame
     {
         if (bricksLeft <= 0)
         {
-            if (playgroundMode)
-                return;
-            isDone = true;
+            //breakables = FindObjectsOfType<Breakable>();
+            //bricksLeft = breakables.Length;
+            //if (bricksLeft <= 0)
+            //{
+                if (playgroundMode)
+                    return;
+                isDone = true;
+            //}
         }
     }
 
