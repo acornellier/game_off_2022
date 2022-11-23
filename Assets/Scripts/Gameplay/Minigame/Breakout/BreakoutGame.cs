@@ -152,12 +152,12 @@ public class BreakoutGame : Minigame
         RemoveAmmo();
         activeBalls++;
         _fireballSource.PlayOneShot(_fireballClip);
-        yield return new WaitForSeconds(castDuration);
         heldBall.ballReleased = true;
         heldBall.ballBody.velocity = new Vector2(0, ballStartSpeed);
         heldBall.myChargingFX.Stop();
         heldBall.myTrailFX.Play();
         heldBall.myTrail.enabled = true;
+        yield return new WaitForSeconds(castDuration);
         malaforAnimator.Play("Breakout Idle");
         paddleCollider.enabled = true;
         heldBallObject = null;
