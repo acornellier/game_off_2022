@@ -147,18 +147,6 @@ public class InventoryManager : IInventoryManager
         return true;
     }
 
-    public bool TryForceDrop(IInventoryItem item)
-    {
-        if (!item.canDrop)
-        {
-            onItemDroppedFailed?.Invoke(item);
-            return false;
-        }
-
-        onItemDropped?.Invoke(item);
-        return true;
-    }
-
     public bool CanAddAt(IInventoryItem item, Vector2Int point)
     {
         if (!_provider.CanAddInventoryItem(item) || _provider.isInventoryFull)

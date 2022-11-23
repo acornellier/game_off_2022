@@ -21,6 +21,7 @@ public class InventoryController : MonoBehaviour,
     // The dragged item is static and shared by all controllers
     // This way items can be moved between controllers easily
     static InventoryDraggedItem _draggedItem;
+    static int _lastFrameDragUpdate;
 
     Canvas _canvas;
     internal InventoryRenderer inventoryRenderer;
@@ -166,8 +167,11 @@ public class InventoryController : MonoBehaviour,
 
         if (_draggedItem == null) return;
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame &&
-            (_draggedItem.currentController == this || _draggedItem.currentController == null))
+        if (_lastFrameDragUpdate == Time.frameCount) return;
+
+        _lastFrameDragUpdate = Time.frameCount;
+
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             _draggedItem.RotateCw();
             _rotateSource.PlayOneShot(_rotateClip);

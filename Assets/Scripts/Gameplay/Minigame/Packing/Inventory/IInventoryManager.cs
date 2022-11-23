@@ -116,8 +116,6 @@ public interface IInventoryManager : IDisposable
     /// </summary>
     bool TryDrop(IInventoryItem item);
 
-    bool TryForceDrop(IInventoryItem item);
-
     /// <summary>
     /// Drops all items from this inventory
     /// </summary>

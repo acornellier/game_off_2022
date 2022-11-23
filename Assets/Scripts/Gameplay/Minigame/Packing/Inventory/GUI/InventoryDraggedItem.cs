@@ -123,47 +123,44 @@ public class InventoryDraggedItem
     /// </summary>
     public bool Drop(Vector2 pos)
     {
-        if (currentController != null)
+        if (currentController == null)
         {
-            var grid = currentController.ScreenToGrid(
-                pos + _offset + GetDraggedItemOffset(currentController.inventoryRenderer, _item)
-            );
-
-            // Try to add new item
-            if (currentController.inventory.CanAddAt(_item, grid))
-            {
-                // Place the item in a new location
-                currentController.inventory.TryAddAt(_item, grid);
-            }
-            // Adding did not work, try to swap
-            else if (CanSwapAt(grid))
-            {
-                var otherItem = currentController.inventory.allItems[0];
-                currentController.inventory.TryRemove(otherItem);
-                _originalController.inventory.TryAdd(otherItem);
-                currentController.inventory.TryAdd(_item);
-            }
-            else if (!_originalController.inventory.CanAddAt(_item, _originPoint))
-                // Could not return
-            {
-                dropFailed = true;
-                return false;
-            }
-            // Return
-            else
-            {
-                // Return the item to its previous location
-                _originalController.inventory.TryAddAt(_item, _originPoint);
-            }
-
-            currentController.inventoryRenderer.ClearSelection();
+            dropFailed = true;
+            return false;
         }
+
+        var grid = currentController.ScreenToGrid(
+            pos + _offset + GetDraggedItemOffset(currentController.inventoryRenderer, _item)
+        );
+
+        // Try to add new item
+        if (currentController.inventory.CanAddAt(_item, grid))
+        {
+            // Place the item in a new location
+            currentController.inventory.TryAddAt(_item, grid);
+        }
+        // Adding did not work, try to swap
+        else if (CanSwapAt(grid))
+        {
+            var otherItem = currentController.inventory.allItems[0];
+            currentController.inventory.TryRemove(otherItem);
+            _originalController.inventory.TryAdd(otherItem);
+            currentController.inventory.TryAdd(_item);
+        }
+        else if (!_originalController.inventory.CanAddAt(_item, _originPoint))
+            // Could not return
+        {
+            dropFailed = true;
+            return false;
+        }
+        // Return
         else
         {
-            // Drop the item on the ground
-            if (!_originalController.inventory.TryForceDrop(_item))
-                _originalController.inventory.TryAddAt(_item, _originPoint);
+            // Return the item to its previous location
+            _originalController.inventory.TryAddAt(_item, _originPoint);
         }
+
+        currentController.inventoryRenderer.ClearSelection();
 
         dropFailed = false;
 
