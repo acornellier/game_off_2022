@@ -152,12 +152,12 @@ public class BreakoutGame : Minigame
         RemoveAmmo();
         activeBalls++;
         _fireballSource.PlayOneShot(_fireballClip);
-        yield return new WaitForSeconds(castDuration);
         heldBall.ballReleased = true;
         heldBall.ballBody.velocity = new Vector2(0, ballStartSpeed);
         heldBall.myChargingFX.Stop();
         heldBall.myTrailFX.Play();
         heldBall.myTrail.enabled = true;
+        yield return new WaitForSeconds(castDuration);
         malaforAnimator.Play("Breakout Idle");
         paddleCollider.enabled = true;
         heldBallObject = null;
@@ -182,9 +182,10 @@ public class BreakoutGame : Minigame
 
     void RechargeAmmo()
     {
+        var allBalls = FindObjectsOfType<BreakoutBall>();
         foreach (var ammo in ammoCount)
         {
-            if (currentBalls == ammoCount.IndexOf(ammo) && activeBalls < ammoCount.Count - ammoCount.IndexOf(ammo))
+            if (currentBalls == ammoCount.IndexOf(ammo) && allBalls.Length < ammoCount.Count - ammoCount.IndexOf(ammo))
             {
                 ammo.value += Time.deltaTime * (1 / rechargeTime);
                 if (ammo.value >= 1f)
@@ -195,6 +196,7 @@ public class BreakoutGame : Minigame
 
     void CheckForWin()
     {
+        
         if (bricksLeft <= 0)
         {
             //breakables = FindObjectsOfType<Breakable>();

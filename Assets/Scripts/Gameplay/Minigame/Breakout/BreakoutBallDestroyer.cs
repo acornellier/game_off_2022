@@ -12,6 +12,7 @@ public class BreakoutBallDestroyer : MonoBehaviour
     {
         if (collision.GetComponent<BreakoutBall>())
         {
+            
             StartCoroutine(DelayDestroy(collision));
         }
     }
@@ -19,7 +20,7 @@ public class BreakoutBallDestroyer : MonoBehaviour
     private IEnumerator DelayDestroy(Collider2D collision)
     {
         gameRules.activeBalls--;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         Destroy(collision.gameObject);
     }
 }
