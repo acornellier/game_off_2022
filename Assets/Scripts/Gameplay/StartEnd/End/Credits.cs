@@ -1,25 +1,28 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine;
+using Zenject;
 
 public class Credits : MonoBehaviour
 {
-    [SerializeField] Button _continueButton;
-    [SerializeField] GameObject _names;
-    [SerializeField] GameObject _playtesters;
-    [SerializeField] Button _continueButton2;
+    [SerializeField] TMP_Text _polaroid1Text;
+    [SerializeField] GameObject _bestBuddies;
+    [SerializeField] GameObject _wedding;
+    [SerializeField] GameObject _children;
 
-    void OnEnable()
-    {
-        _names.SetActive(true);
-        _playtesters.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(_continueButton.gameObject);
-    }
+    [Inject] PersistentDataManager _persistentDataManager;
 
-    public void Continue()
+    void Awake()
     {
-        _names.SetActive(false);
-        _playtesters.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(_continueButton2.gameObject);
+        var ending = _persistentDataManager.data.gamesBeat >= 16
+            ? 3
+            : _persistentDataManager.data.gamesBeat >= 12
+                ? 2
+                : 1;
+
+        _polaroid1Text.text = $"Ending {ending} unlocked!";
+
+        _bestBuddies.gameObject.SetActive(ending == 1);
+        _wedding.gameObject.SetActive(ending == 2);
+        _children.gameObject.SetActive(ending == 3);
     }
 }
