@@ -269,6 +269,6 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: <color=#FF00FF>Purple <color=white>bricks are keystones. Targetting them
+    line: <color=#FF00FF>Purple <color=white>bricks are keystones. Targeting them
       may prove useful...
     topOfScreen: 0
