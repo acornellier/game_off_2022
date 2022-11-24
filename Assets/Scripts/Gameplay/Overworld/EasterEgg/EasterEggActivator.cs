@@ -26,6 +26,8 @@ public class EasterEggActivator : MonoBehaviour
 
         _isRevealed = true;
 
+        _newCollider.enabled = true;
+        _oldCollider.enabled = false;
         StartCoroutine(CO_Reveal());
     }
 
@@ -43,7 +45,5 @@ public class EasterEggActivator : MonoBehaviour
         }
 
         _cover.gameObject.SetActive(false);
-        _newCollider.enabled = true;
-        _oldCollider.enabled = false;
     }
 }
