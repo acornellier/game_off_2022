@@ -275,7 +275,7 @@ MonoBehaviour:
   _shootClip: {fileID: 8300000, guid: 339bfefc6ebf5934986b84cab35bd93e, type: 3}
   _speed: 15
   _fireballPrefab: {fileID: -768921754982743330, guid: 657aed2f3197bd043b6d2aa563fd105a, type: 3}
-  _fireballCooldown: 0.5
+  _fireballCooldown: 0.8
 --- !u!61 &2924765766918211143
 BoxCollider2D:
   m_ObjectHideFlags: 0
