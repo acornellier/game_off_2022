@@ -253,7 +253,7 @@ MonoBehaviour:
     fontSize: 0
     wobble: 0
     line: "I don\u2019t rightly know, Sire. But I do recommend laying waste to the
-      castle. Without a visual reminder, you\u2019ll be readily forgotten."
+      castle. It shall be a clear sign of your \"defeat\"."
     topOfScreen: 0
   - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
     fontSize: 0
@@ -263,11 +263,12 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: Use your MOUSE to move! Left-click to cast a castle-busting fireball!
+    line: Use your MOUSE to move! Left-click to cast up to 3 fireballs at a time,
+      and use your shield to bounce them!
     topOfScreen: 0
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: You can cast three fireballs at a time. Use your shield to bounce them
-      back into play!
+    line: <color=#FF00FF>Purple <color=white>bricks are keystones. Targetting them
+      may prove useful...
     topOfScreen: 0

@@ -72,7 +72,7 @@ public class MinigameManager : MonoBehaviour
             }
         );
 
-        var success = _timeRemaining > 0;
+        var success = _minigame.maxTime <= 0 || _timeRemaining > 0;
         var stageData = _persistentDataManager.data.GetStageData(_stage.id);
         var result = new MinigameResult
         {

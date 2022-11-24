@@ -1224,7 +1224,6 @@ GameObject:
   m_Component:
   - component: {fileID: 586881203}
   - component: {fileID: 586881202}
-  - component: {fileID: 586881201}
   - component: {fileID: 586881200}
   m_Layer: 0
   m_Name: CinematicGames2
@@ -1256,39 +1255,6 @@ PlayableDirector:
     value: {fileID: 2034557829}
   m_ExposedReferences:
     m_References: []
---- !u!114 &586881201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586881199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Entries:
-  - m_Key: 
-    m_Event:
-      m_PersistentCalls:
-        m_Calls: []
-  - m_Key: CinematicDone
-    m_Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 586881202}
-          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
-          m_MethodName: OnCinematicDone
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &586881202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,7 +2441,6 @@ GameObject:
   - component: {fileID: 1183307578}
   - component: {fileID: 1183307581}
   - component: {fileID: 1183307580}
-  - component: {fileID: 1183307579}
   m_Layer: 0
   m_Name: CinematicGames8
   m_TagString: Untagged
@@ -2498,39 +2463,6 @@ Transform:
   m_Father: {fileID: 818226099}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1183307579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183307577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Entries:
-  - m_Key: 
-    m_Event:
-      m_PersistentCalls:
-        m_Calls: []
-  - m_Key: CinematicDone
-    m_Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1183307581}
-          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
-          m_MethodName: OnCinematicDone
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!320 &1183307580
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -2700,7 +2632,6 @@ GameObject:
   - component: {fileID: 1232607031}
   - component: {fileID: 1232607034}
   - component: {fileID: 1232607033}
-  - component: {fileID: 1232607032}
   m_Layer: 0
   m_Name: CinematicGames16
   m_TagString: Untagged
@@ -2723,39 +2654,6 @@ Transform:
   m_Father: {fileID: 818226099}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1232607032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232607030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Entries:
-  - m_Key: 
-    m_Event:
-      m_PersistentCalls:
-        m_Calls: []
-  - m_Key: CinematicDone
-    m_Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1232607034}
-          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
-          m_MethodName: OnCinematicDone
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!320 &1232607033
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -3207,7 +3105,6 @@ GameObject:
   - component: {fileID: 1319558914}
   - component: {fileID: 1319558917}
   - component: {fileID: 1319558916}
-  - component: {fileID: 1319558915}
   m_Layer: 0
   m_Name: CinematicGames12
   m_TagString: Untagged
@@ -3230,39 +3127,6 @@ Transform:
   m_Father: {fileID: 818226099}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1319558915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319558913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Entries:
-  - m_Key: 
-    m_Event:
-      m_PersistentCalls:
-        m_Calls: []
-  - m_Key: CinematicDone
-    m_Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1319558917}
-          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
-          m_MethodName: OnCinematicDone
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!320 &1319558916
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -3638,7 +3502,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1455484271}
   - component: {fileID: 1455484270}
-  - component: {fileID: 1455484273}
   - component: {fileID: 1455484272}
   m_Layer: 0
   m_Name: Intro2
@@ -3709,39 +3572,6 @@ PlayableDirector:
     value: {fileID: 2107248608}
   m_ExposedReferences:
     m_References: []
---- !u!114 &1455484273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455484269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Entries:
-  - m_Key: 
-    m_Event:
-      m_PersistentCalls:
-        m_Calls: []
-  - m_Key: CinematicDone
-    m_Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1455484270}
-          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
-          m_MethodName: OnCinematicDone
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1001 &1471219499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3880,7 +3710,6 @@ GameObject:
   - component: {fileID: 1490403058}
   - component: {fileID: 1490403061}
   - component: {fileID: 1490403059}
-  - component: {fileID: 1490403060}
   m_Layer: 0
   m_Name: CinematicGames5
   m_TagString: Untagged
@@ -3926,39 +3755,6 @@ PlayableDirector:
     value: {fileID: 2034557829}
   m_ExposedReferences:
     m_References: []
---- !u!114 &1490403060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490403057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91cbc1e46ea386d4eb35897c70eba0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Entries:
-  - m_Key: 
-    m_Event:
-      m_PersistentCalls:
-        m_Calls: []
-  - m_Key: CinematicDone
-    m_Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1490403061}
-          m_TargetAssemblyTypeName: CinematicRunner, Assembly-CSharp
-          m_MethodName: OnCinematicDone
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1490403061
 MonoBehaviour:
   m_ObjectHideFlags: 0

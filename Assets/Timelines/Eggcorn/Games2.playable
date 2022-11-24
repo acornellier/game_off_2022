@@ -176,13 +176,12 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
     fontSize: 0
     wobble: 0
-    line: "Your extrasensory perception of my power is remarkable. You\u2019ve knocked
-      it out of the water."
+    line: You know, you're remarkably attuned to my power... I'm impressed.
     topOfScreen: 0
   - character: {fileID: 11400000, guid: ec520b5a6ca1bc742ae5482a5b781820, type: 2}
     fontSize: 0
     wobble: 0
-    line: Th-thank you, Sire!
+    line: O-oh! Th-thank you, Sire! I do try...
     topOfScreen: 0
   - character: {fileID: 11400000, guid: d508185ba11da594c91c5af981da801e, type: 2}
     fontSize: 0
