@@ -8,8 +8,20 @@ public class DebugShortcuts : MonoBehaviour
 {
     [Inject] PersistentDataManager _persistentDataManager;
 
+    bool _unlocked;
+
     void Update()
     {
+        if (!_unlocked)
+        {
+            if (Keyboard.current.backquoteKey.wasPressedThisFrame &&
+                Keyboard.current.ctrlKey.isPressed &&
+                Keyboard.current.altKey.isPressed)
+                _unlocked = true;
+
+            return;
+        }
+
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             if (Keyboard.current.shiftKey.isPressed)

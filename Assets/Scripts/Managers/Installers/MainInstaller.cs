@@ -6,5 +6,7 @@ public class MainInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<StageUi>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<GauntletStartUi>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<EasterEggActivator>().FromComponentInHierarchy()
+            .AsSingle();
     }
 }
