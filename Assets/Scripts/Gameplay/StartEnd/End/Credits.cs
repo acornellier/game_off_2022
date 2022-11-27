@@ -10,19 +10,33 @@ public class Credits : MonoBehaviour
     [SerializeField] GameObject _children;
 
     [Inject] PersistentDataManager _persistentDataManager;
+    [Inject] SceneLoader _sceneLoader;
+
+    int _ending;
 
     void Awake()
     {
-        var ending = _persistentDataManager.data.gamesBeat >= 16
+        _ending = _persistentDataManager.data.gamesBeat >= 16
             ? 3
             : _persistentDataManager.data.gamesBeat >= 12
                 ? 2
                 : 1;
 
-        _polaroid1Text.text = $"Ending {ending} unlocked!";
+        _polaroid1Text.text = $"Ending {_ending} unlocked!";
 
-        _bestBuddies.gameObject.SetActive(ending == 1);
-        _wedding.gameObject.SetActive(ending == 2);
-        _children.gameObject.SetActive(ending == 3);
+        _bestBuddies.gameObject.SetActive(_ending == 1);
+        _wedding.gameObject.SetActive(_ending >= 2);
+        _children.gameObject.SetActive(_ending >= 3);
+    }
+
+    public void EndingDone()
+    {
+        if (_ending <= 2)
+            _sceneLoader.SaveAndLoadScene("Start");
+    }
+
+    public void SecretEndingDone()
+    {
+        _sceneLoader.SaveAndLoadScene("Start");
     }
 }
