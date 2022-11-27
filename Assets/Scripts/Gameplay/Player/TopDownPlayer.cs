@@ -15,16 +15,19 @@ public class TopDownPlayer : Player
 
     AnimancerComponent _animancer;
     Rigidbody2D _body;
+    Collider2D _collider;
     InputActions.TopDownActions _inputActions;
 
     bool _animationsDisabled;
+    Transform _throneExitSpot;
 
     void Awake()
     {
         _animancer = GetComponent<AnimancerComponent>();
         _body = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         _inputActions = new InputActions().TopDown;
-        _inputActions.Interact.performed += _ => onInteract?.Invoke();
+        _inputActions.Interact.performed += _ => OnInteract();
     }
 
     void OnEnable()
@@ -59,11 +62,6 @@ public class TopDownPlayer : Player
     public void Footstep()
     {
         _audio.Footstep();
-    }
-
-    public void Fireball()
-    {
-        // TODO: animate
     }
 
     void UpdateMovement()
@@ -105,10 +103,40 @@ public class TopDownPlayer : Player
         return moveInput == default ? _animations.idle : _animations.walk;
     }
 
+    void OnInteract()
+    {
+        if (_animancer.IsPlaying(_animations.sitThrone))
+            StopSitThrone();
+        else
+            onInteract?.Invoke();
+    }
+
+    public void SitThrone(Transform sitSpot, Transform exitSpot)
+    {
+        print("SitThrone");
+        _throneExitSpot = exitSpot;
+        _collider.enabled = false;
+        transform.position = sitSpot.position;
+        _animancer.Play(_animations.sitThrone);
+        _animationsDisabled = true;
+        _inputActions.Move.Disable();
+    }
+
+    void StopSitThrone()
+    {
+        print("StopSitThrone");
+        transform.position = _throneExitSpot.position;
+        _animationsDisabled = false;
+        UpdateAnimations();
+        _inputActions.Move.Enable();
+        _collider.enabled = true;
+    }
+
     [Serializable]
     class Animations
     {
         public DirectionalAnimationSet idle;
         public DirectionalAnimationSet walk;
+        public AnimationClip sitThrone;
     }
 }
