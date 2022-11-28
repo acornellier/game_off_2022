@@ -569,7 +569,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Marco
+  m_text: 'Marco
+
+    Will Norton
+
+    Mary L
+
+    Bslapp
+
+    Jace Maverick
+
+    Phenikas'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
   m_sharedMaterial: {fileID: 2540316304747274291, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
@@ -2156,7 +2166,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.25
+  orthographic size: 13.4375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2761,14 +2771,7 @@ MonoBehaviour:
 
     Jiblob
 
-    Will
-    Norton
-
-    Mary L
-
-    Bslapp
-
-    Phenikas'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
   m_sharedMaterial: {fileID: 2540316304747274291, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
