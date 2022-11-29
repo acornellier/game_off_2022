@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 public class CombatAction : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     [SerializeField] TMP_Text _text;
-    [SerializeField] IntroFireball _fireball;
 
     public void OnSelect(BaseEventData eventData)
     {
