@@ -579,7 +579,12 @@ MonoBehaviour:
 
     Jace Maverick
 
-    Phenikas'
+    Phenikas
+
+    Corey
+    Murphy
+
+    Drogdar1066'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
   m_sharedMaterial: {fileID: 2540316304747274291, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
@@ -2166,7 +2171,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 13.4375
+  orthographic size: 11.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2771,7 +2776,11 @@ MonoBehaviour:
 
     Jiblob
 
-'
+    Iconoclast
+
+    rockNturtle
+
+    CTS'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
   m_sharedMaterial: {fileID: 2540316304747274291, guid: ebebca3082442c64b9fb9cf985375617, type: 2}
