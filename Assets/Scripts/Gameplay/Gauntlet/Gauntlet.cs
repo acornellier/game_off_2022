@@ -62,10 +62,6 @@ public class Gauntlet : MonoBehaviour
         yield return new WaitUntil(
             () =>
             {
-                // TODO: remove debug
-                if (Keyboard.current.pKey.isPressed)
-                    return true;
-
                 if (minigame.isDone)
                     return true;
 

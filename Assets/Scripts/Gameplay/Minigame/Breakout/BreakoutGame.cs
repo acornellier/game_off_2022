@@ -8,10 +8,6 @@ using Random = UnityEngine.Random;
 
 public class BreakoutGame : Minigame
 {
-    [Header("Test Settings")]
-    [SerializeField]
-    bool playgroundMode = false;
-
     [Header("Malafor")] [SerializeField] public GameObject paddle;
     [SerializeField] float moveSpeed;
     [SerializeField] float castDuration = .3f;
@@ -56,8 +52,6 @@ public class BreakoutGame : Minigame
 
     void Awake()
     {
-        if (playgroundMode)
-            _running = true;
         paddleBody = paddle.GetComponent<Rigidbody2D>();
         paddleHalfWidth = paddle.GetComponentInChildren<Renderer>().bounds.size.x / 4;
         paddleCollider = paddle.GetComponent<Collider2D>();
@@ -196,17 +190,15 @@ public class BreakoutGame : Minigame
 
     void CheckForWin()
     {
-        
         if (bricksLeft <= 0)
         {
-            //breakables = FindObjectsOfType<Breakable>();
-            //bricksLeft = breakables.Length;
-            //if (bricksLeft <= 0)
-            //{
-                if (playgroundMode)
-                    return;
-                isDone = true;
-            //}
+            isDone = true;
+        }
+        
+        var bricksLeft2 = FindObjectsOfType<Breakable>().Length;
+        if (bricksLeft2 <= 0)
+        {
+            isDone = true;
         }
     }
 

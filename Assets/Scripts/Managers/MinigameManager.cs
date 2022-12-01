@@ -49,16 +49,6 @@ public class MinigameManager : MonoBehaviour
         yield return new WaitUntil(
             () =>
             {
-                // TODO: remove debug
-                if (Keyboard.current.pKey.isPressed)
-                    return true;
-
-                if (Keyboard.current.fKey.isPressed)
-                {
-                    _timeRemaining = 0;
-                    return true;
-                }
-
                 if (_minigame.isDone)
                     return true;
 
